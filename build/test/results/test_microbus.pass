@@ -1,0 +1,26 @@
+---
+:source:
+  :path: test
+  :file: test_microbus.c
+:successes:
+- :test: test_simple
+  :line: 28
+  :message: ''
+  :unity_test_time: 0
+:failures: []
+:ignores: []
+:counts:
+  :total: 1
+  :passed: 1
+  :failed: 0
+  :ignored: 0
+:stdout:
+- Adding tx packet 1
+- Adding tx packet 2
+- Adding tx packet 3
+- Adding packet 1 to slave 0
+- Adding packet 1 to slave 1
+- 'Assert: Tx buffer is empty'
+- Adding packet 2 from slave 0 to master
+- Adding packet 3 from slave 1 to master
+:time: 0.0009211830001731869
