@@ -1,7 +1,9 @@
+#ifndef MICROBUS_H
+#define MICROBUS_H
+
 #include "string.h"
 #include "stdbool.h"
 #include "stdint.h"
-
 
 
 #define MIN(a, b) ((a) < (b) ? (a) : (b))
@@ -31,6 +33,7 @@ typedef struct {
 
 typedef struct {
     uint32_t currentSlot;
+    uint32_t numSlots;
     bool tx;
     uint32_t numTxPackets;
     tPacket txPacket[MAX_TX_PACKETS];
@@ -71,3 +74,5 @@ void addTxPacket(tCommon * common, tPacket * packet);
 tPacket * getTxPacket(tCommon * common);
 void removeTxPacket(tCommon * common);
 void addRxPacket(tCommon * common, tPacket * packet);
+
+#endif

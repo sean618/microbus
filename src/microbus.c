@@ -19,34 +19,8 @@ void myAssert(uint8_t predicate, char * msg) {
         // return;
     }
 }
-// tPacket * getTxPacket(tCommon * common) {
-//     if (common->numTxPackets == 0) {
-//         return NULL;
-//     } else {
-//         return &common->txPacket[0];
-//     }
-// }
-// void removeTxPacket(tCommon * common) {
-//     if (common->numTxPackets > 0) {
-//         for (uint32_t i=1; i<common->numTxPackets; i++) {
-//             memcpy(&common->txPacket[i-1], &common->txPacket[i], sizeof(tPacket));
-//         }
-//         common->numTxPackets--;
-//     } else {
-//         myAssert(0, "Tx buffer is empty");
-//     }
-// }
 
-// void addRxPacket(tCommon * common, tPacket * packet) {
-//     if (common->numRxPackets < MAX_RX_PACKETS) {
-//         memcpy(&common->rxPacket[common->numRxPackets], packet, sizeof(tPacket));
-//         common->numRxPackets++;
-//     } else {
-//         myAssert(0, "Rx buffer is full");
-//     }
-// }
-
-tPacket emptyTxPacket = {0};
+tPacket emptyTxPacket;
 
 void masterTransferCompleteCb(tMaster * master) {
     myAssert(master->common.txPacketsSent < MAX_TX_PACKETS, "Sent more tx packets than buffer size");
@@ -59,12 +33,15 @@ void masterTransferCompleteCb(tMaster * master) {
     
     // Check if any data
     // TODO: Just checking if first byte is not zero - Change
-    if (master->common.rxPacket[master->common.rxPacketsReceived].data[0]) {
+    if (master->common.rxPacket[master->common.rxPacketsReceived].data[0] != 0xFF) {
         master->common.rxPacketsReceived++;
     }
     
     master->common.currentSlot++;
-    master->common.tx = (master->common.txPacketsSent <= master->common.numTxPackets);
+    if (master->common.currentSlot == master->common.numSlots) {
+        master->common.currentSlot = 0;
+    }
+    master->common.tx = (master->common.txPacketsSent < master->common.numTxPackets);
         
     uint8_t * txData;
     if (master->common.tx) {
@@ -94,11 +71,15 @@ void psLineInterrupt(tSlave * slave, bool psVal) {
     
     // Check if any data
     // TODO: Just checking if first byte is not zero - Change
-    if (slave->common.rxPacket[slave->common.rxPacketsReceived].data[0]) {
+    if (slave->common.rxPacket[slave->common.rxPacketsReceived].data[0] != 0xFF) {
         slave->common.rxPacketsReceived++;
+        printf("Slave rx:%d\n", slave->common.rxPacket[slave->common.rxPacketsReceived].data[0]);
     }
     
     slave->common.currentSlot++;
+    if (slave->common.currentSlot == slave->common.numSlots) {
+        slave->common.currentSlot = 0;
+    }
     
     // Transmit if it's our slot and we have data
     slave->common.tx = (slave->txSlot == slave->common.currentSlot)
@@ -119,6 +100,7 @@ void psLineInterrupt(tSlave * slave, bool psVal) {
 }
 
 void start(tMaster * master) {
+    memset(&emptyTxPacket.data[0], 0xFF, sizeof(emptyTxPacket.data));
     masterTransferCompleteCb(master);
 }
 
