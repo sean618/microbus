@@ -55,28 +55,28 @@ static void psSet(bool val) {
     myAssert(val != sim.psWire, "Setting PS wire but value not changing\n");
     if (val != sim.psWire) {
         sim.psWire = val;
-        // This will fire the interrupts on all slaves
-        for (uint32_t i=0; i<sim.numSlaves; i++) {
-            psLineInterrupt(sim.slaves[i].slave, sim.psWire);
+        // This will fire the interrupts on all nodes
+        for (uint32_t i=0; i<sim.numNodes; i++) {
+            psLineInterrupt(sim.nodes[i].node, sim.psWire);
         }
     }
 }
 
-static void slaveTransferInitiated(tEvent * event, bool tx) {
+static void nodeTransferInitiated(tEvent * event, bool tx) {
     if (sim.master.tranferOccuring) {
         // Master is already transmitting 
-        //event->slave->partialRx = true; // TODO: work out how much is transferred
-        myAssert(0, "Slave started receiving after master started the transfer");
+        //event->node->partialRx = true; // TODO: work out how much is transferred
+        myAssert(0, "Node started receiving after master started the transfer");
         if (tx) {
-            myAssert(0, "Slave started transmitting after master started the transfer");
+            myAssert(0, "Node started transmitting after master started the transfer");
         }
     }
-    sim.slaves[event->slaveSimIndex].rx = true;
-    sim.slaves[event->slaveSimIndex].tx = tx;
+    sim.nodes[event->nodeSimIndex].rx = true;
+    sim.nodes[event->nodeSimIndex].tx = tx;
 }
 
 // At the start of the master transfer copy all master tx bytes into the MOSI buffer
-// and OR in all the slaves tx bytes into the MISO buffer
+// and OR in all the nodes tx bytes into the MISO buffer
 static void masterTransferStarted(tEvent * event) {
     sim.master.tranferOccuring = true;
     
@@ -89,14 +89,14 @@ static void masterTransferStarted(tEvent * event) {
     memcpy(sim.mosiData, sim.master.txData, sim.master.numTransferBytes);
     //sim.mosiDataBytes = sim.master.numTransferBytes;
     
-    // Put data on bus - Slaves to miso
-    for (uint32_t i=0; i<sim.numSlaves; i++) {
-        if (sim.slaves[i].tx) {
-            myAssert(sim.slaves[i].numTransferBytes < MAX_TX_DATA_BYTES, "Slave Tx data exceeded limit");
-            for (uint32_t j=0; j<sim.slaves[i].numTransferBytes; j++) {
-                sim.misoData[j] &= sim.slaves[i].txData[j];
+    // Put data on bus - Nodes to miso
+    for (uint32_t i=0; i<sim.numNodes; i++) {
+        if (sim.nodes[i].tx) {
+            myAssert(sim.nodes[i].numTransferBytes < MAX_TX_DATA_BYTES, "Node Tx data exceeded limit");
+            for (uint32_t j=0; j<sim.nodes[i].numTransferBytes; j++) {
+                sim.misoData[j] &= sim.nodes[i].txData[j];
             }
-            //sim.misoDataBytes = MAX(sim.misoDataBytes, sim.slaves[i].numTransferBytes);
+            //sim.misoDataBytes = MAX(sim.misoDataBytes, sim.nodes[i].numTransferBytes);
             // TODO: assert if not enum packets
         }
     }
@@ -113,10 +113,10 @@ static void masterTransferFinished(tEvent * event) {
     memcpy(sim.master.rxData, sim.misoData, sim.master.numTransferBytes);
     sim.misoDataBytes = 0;
     
-    // mosi to slaves
-    for (uint32_t i=0; i<sim.numSlaves; i++) {
-        if (sim.slaves[i].rx) {
-            memcpy(sim.slaves[i].rxData, sim.mosiData, sim.slaves[i].numTransferBytes);
+    // mosi to nodes
+    for (uint32_t i=0; i<sim.numNodes; i++) {
+        if (sim.nodes[i].rx) {
+            memcpy(sim.nodes[i].rxData, sim.mosiData, sim.nodes[i].numTransferBytes);
         }
     }
     sim.master.tranferOccuring = false;
@@ -132,7 +132,7 @@ static void actionEvent(tEvent * event) {
             break;
         case SLAVE_TRANSFER_INITIATED_RX:
         case SLAVE_TRANSFER_INITIATED_TX_RX:
-            slaveTransferInitiated(event, event->type == SLAVE_TRANSFER_INITIATED_TX_RX);
+            nodeTransferInitiated(event, event->type == SLAVE_TRANSFER_INITIATED_TX_RX);
             break;
         case MASTER_TRANSFER_STARTED:
             masterTransferStarted(event);
@@ -146,13 +146,13 @@ static void actionEvent(tEvent * event) {
     }
 }
 
-tSimulation * simulate(tMaster * master, tSlave slaves[], uint32_t numSlaves, uint64_t runTimeNs) {
+tSimulation * simulate(tMaster * master, tNode nodes[], uint32_t numNodes, uint64_t runTimeNs) {
     memset(&sim, 0, sizeof(sim));
-    sim.numSlaves = numSlaves;
-    for (uint32_t i=0; i<numSlaves; i++) {
-        slaves[i].simIndex = i;
-        memset(slaves[i].common.rxPacket[0].data, 0xFF, sizeof(slaves[i].common.rxPacket[0].data));
-        sim.slaves[i].slave = &slaves[i];
+    sim.numNodes = numNodes;
+    for (uint32_t i=0; i<numNodes; i++) {
+        nodes[i].simIndex = i;
+        memset(nodes[i].common.rxPacket[0].data, 0xFF, sizeof(nodes[i].common.rxPacket[0].data));
+        sim.nodes[i].node = &nodes[i];
     }
     memset(master->common.rxPacket[0].data, 0xFF, sizeof(master->common.rxPacket[0].data));
     sim.master.master = master;
@@ -193,8 +193,8 @@ tSimulation * simulate(tMaster * master, tSlave slaves[], uint32_t numSlaves, ui
 //     sim.master.timeNs += pauseNs;
 // }
 
-// void pauseSlave(tSlave * slave, uint64_t pauseNs) {
-//     sim.slaves[slave->simIndex].timeNs += pauseNs;
+// void pauseNode(tNode * node, uint64_t pauseNs) {
+//     sim.nodes[node->simIndex].timeNs += pauseNs;
 // }
 
 void psSet(bool val);
@@ -217,29 +217,29 @@ void startMasterTxRxDMA(tMaster * master, uint8_t * txData, uint8_t * rxData, ui
     addEvent(&event);
     
     if (txData[0] != 0xFF) {
-        printf("Time: %ld: Master sending packet data[0]: %d\n", event.timeNs, txData[0]);
+        printf("Time: %9ld: Master  : sending packet data[0]: %d\n", event.timeNs, txData[0]);
     }
 }
 
-void startSlaveTxRxDMA(tSlave * slave, bool tx, uint8_t * txData, uint8_t * rxData, uint32_t numBytes) {
+void startNodeTxRxDMA(tNode * node, bool tx, uint8_t * txData, uint8_t * rxData, uint32_t numBytes) {
     tEvent event = {0};
-    event.slaveSimIndex = slave->simIndex;
-    tSimSlave * simSlave = &sim.slaves[event.slaveSimIndex];
-    simSlave->txData = txData;
-    simSlave->rxData = rxData;
-    simSlave->numTransferBytes = numBytes;
+    event.nodeSimIndex = node->simIndex;
+    tSimNode * simNode = &sim.nodes[event.nodeSimIndex];
+    simNode->txData = txData;
+    simNode->rxData = rxData;
+    simNode->numTransferBytes = numBytes;
     // Pause for 20us
     event.type = tx == 0 ? SLAVE_TRANSFER_INITIATED_RX : SLAVE_TRANSFER_INITIATED_TX_RX;
     event.timeNs = sim.timeNs + DMA_WAIT_TIME_US * 1000 - 100;
     addEvent(&event);
     
     if (txData[0] != 0xFF) {
-        printf("Time: %ld: Slave %d, sending packet data[0]: %d\n", event.timeNs, event.slaveSimIndex, txData[0]);
+        printf("Time: %9ld: Node %3d: sending packet data[0]: %d\n", event.timeNs, event.nodeSimIndex, txData[0]);
     }
 }
 
-void stopSlaveTxRxDMA(tSlave * slave) {
-    tSimSlave * simSlave = &sim.slaves[slave->simIndex];
-    simSlave->tx = 0;
-    simSlave->rx = 0;
+void stopNodeTxRxDMA(tNode * node) {
+    tSimNode * simNode = &sim.nodes[node->simIndex];
+    simNode->tx = 0;
+    simNode->rx = 0;
 }

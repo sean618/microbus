@@ -50,7 +50,7 @@ void masterTransferCompleteCb(tMaster * master) {
         txData = emptyTxPacket.data;
     }
     
-    // Tell slaves to start their SPI DMA
+    // Tell nodes to start their SPI DMA
     master->psVal = !master->psVal;
     setPs(master, master->psVal);
     
@@ -61,42 +61,41 @@ void masterTransferCompleteCb(tMaster * master) {
     startMasterTxRxDMA(master, txData, rxData, PACKET_SIZE);
 }
 
-void psLineInterrupt(tSlave * slave, bool psVal) {
-    myAssert(slave->common.txPacketsSent < MAX_TX_PACKETS, "Sent more tx packets than buffer size");
-    myAssert(slave->common.rxPacketsReceived < MAX_RX_PACKETS, "Received more rx packets than buffer size");
+void psLineInterrupt(tNode * node, bool psVal) {
+    myAssert(node->common.txPacketsSent < MAX_TX_PACKETS, "Sent more tx packets than buffer size");
+    myAssert(node->common.rxPacketsReceived < MAX_RX_PACKETS, "Received more rx packets than buffer size");
     
-    if (slave->common.tx) {
-        slave->common.txPacketsSent++;
+    if (node->common.tx) {
+        node->common.txPacketsSent++;
     }
     
     // Check if any data
     // TODO: Just checking if first byte is not zero - Change
-    if (slave->common.rxPacket[slave->common.rxPacketsReceived].data[0] != 0xFF) {
-        slave->common.rxPacketsReceived++;
-        printf("Slave rx:%d\n", slave->common.rxPacket[slave->common.rxPacketsReceived].data[0]);
-    }
-    
-    slave->common.currentSlot++;
-    if (slave->common.currentSlot == slave->common.numSlots) {
-        slave->common.currentSlot = 0;
+    if (node->common.rxPacket[node->common.rxPacketsReceived].data[0] != 0xFF) {
+        //printf("Node rx:%d\n", node->common.rxPacket[node->common.rxPacketsReceived].data[0]);
+        node->common.rxPacketsReceived++;
     }
     
     // Transmit if it's our slot and we have data
-    slave->common.tx = (slave->txSlot == slave->common.currentSlot)
-        && (slave->common.txPacketsSent <= slave->common.numTxPackets);
-        
-    //printf("Slave:%d, txSlot:%d, sent:%d, num:%d\n", slave->simIndex, slave->common.currentSlot, slave->common.txPacketsSent, slave->common.numTxPackets);
+    node->common.tx = (node->txSlot == node->common.currentSlot)
+        && (node->common.txPacketsSent < node->common.numTxPackets);
+    
+    node->common.currentSlot++;
+    if (node->common.currentSlot == node->common.numSlots) {
+        node->common.currentSlot = 0;
+    }   
+    //printf("Node:%d, txSlot:%d, sent:%d, num:%d\n", node->simIndex, node->common.currentSlot, node->common.txPacketsSent, node->common.numTxPackets);
         
     uint8_t * txData;
-    if (slave->common.tx) {
-        txData = slave->common.txPacket[slave->common.txPacketsSent].data;
+    if (node->common.tx) {
+        txData = node->common.txPacket[node->common.txPacketsSent].data;
     } else {
         txData = emptyTxPacket.data;
     }
     
     // 
-    uint8_t * rxData = slave->common.rxPacket[slave->common.rxPacketsReceived].data;
-    startSlaveTxRxDMA(slave, slave->common.tx, txData, rxData, PACKET_SIZE);
+    uint8_t * rxData = node->common.rxPacket[node->common.rxPacketsReceived].data;
+    startNodeTxRxDMA(node, node->common.tx, txData, rxData, PACKET_SIZE);
 }
 
 void start(tMaster * master) {

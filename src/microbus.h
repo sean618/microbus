@@ -5,6 +5,7 @@
 #include "stdbool.h"
 #include "stdint.h"
 
+#define MICROBUS_VERSION 0
 
 #define MIN(a, b) ((a) < (b) ? (a) : (b))
 #define MAX(a, b) ((a) > (b) ? (a) : (b))
@@ -25,6 +26,20 @@
 
 #define DMA_WAIT_TIME_US 20
 
+typedef uint16_t tSlot;
+#define MAX_SLOTS 1024 // 1024*0.2ms => 204ms
+
+// Up to 255 nodes
+typedef uint8_t tNodeId; // Node 0 not allowed, Node 255 is unused for new nodes to advertise
+#define MBP_INVALID_NODE_ID 0
+
+
+
+typedef struct {
+    uint64_t nodeUniqueId;
+} tEnumPacket;
+
+
 typedef struct {
     uint8_t data[PACKET_SIZE];
 } tPacket;
@@ -32,9 +47,10 @@ typedef struct {
 // Ideally move this into microbus.c rather than exposing the entire state
 
 typedef struct {
-    uint32_t currentSlot;
-    uint32_t numSlots;
+    tSlot currentSlot;
     bool tx;
+    
+    tSlot numSlots;
     uint32_t numTxPackets;
     tPacket txPacket[MAX_TX_PACKETS];
     uint32_t txPacketsSent;
@@ -52,19 +68,19 @@ typedef struct {
     uint32_t simIndex; // Simulation only
     uint32_t txSlot; // TODO: placeholder
     tCommon common;
-} tSlave;
+} tNode;
 
 
 // HAL Callbacks
 void masterTransferCompleteCb(tMaster * master); // HAL SPI callback
-//void slaveTransferInitiatedCb();
-void psLineInterrupt(tSlave * slave, bool psVal); // EXTI interrupt
+//void nodeTransferInitiatedCb();
+void psLineInterrupt(tNode * node, bool psVal); // EXTI interrupt
 
 // HAL functions
 void setPs(tMaster * master, bool val);
 void startMasterTxRxDMA(tMaster * master, uint8_t * txData, uint8_t * rxData, uint32_t numBytes);
-void startSlaveTxRxDMA(tSlave * slave, bool tx, uint8_t * txData, uint8_t * rxData, uint32_t numBytes);
-void stopSlaveTxRxDMA(tSlave * slave);
+void startNodeTxRxDMA(tNode * node, bool tx, uint8_t * txData, uint8_t * rxData, uint32_t numBytes);
+void stopNodeTxRxDMA(tNode * node);
 
 
 void myAssert(uint8_t predicate, char * msg);

@@ -1,5 +1,6 @@
 {
     "files.associations": {
-        "simulator.h": "c"
+        "simulator.h": "c",
+        "microbus.h": "c"
     }
 }

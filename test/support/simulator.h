@@ -22,7 +22,7 @@ typedef enum {
 
 typedef struct {
     uint64_t timeNs;
-    uint32_t slaveSimIndex;
+    uint32_t nodeSimIndex;
     eEvent type;
 } tEvent;
 
@@ -30,13 +30,13 @@ typedef struct {
 
 typedef struct {
     //uint64_t timeNs;
-    tSlave * slave;
+    tNode * node;
     bool tx;
     bool rx;
     uint8_t * txData;
     uint8_t * rxData;
     uint32_t numTransferBytes;
-} tSimSlave;
+} tSimNode;
 
 typedef struct {
     //uint64_t timeNs;
@@ -49,29 +49,29 @@ typedef struct {
 
 typedef struct {
     tSimMaster master;
-    tSimSlave slaves[MAX_SLAVES];
-    uint8_t numSlaves;
+    tSimNode nodes[MAX_SLAVES];
+    uint8_t numNodes;
     
     uint64_t timeNs;
     tEvent events[MAX_EVENTS];
     uint32_t numEvents;
     uint32_t eventCounter;
     
-    uint8_t mosiData[MAX_TX_DATA_BYTES]; // Master -> slave
+    uint8_t mosiData[MAX_TX_DATA_BYTES]; // Master -> node
     uint32_t mosiDataBytes;
-    uint8_t misoData[MAX_TX_DATA_BYTES]; // Slave -> master
+    uint8_t misoData[MAX_TX_DATA_BYTES]; // Node -> master
     uint32_t misoDataBytes; 
     bool psWire;
 } tSimulation;
 
-tSimulation * simulate(tMaster * master, tSlave slaves[], uint32_t numSlaves, uint64_t runTimeNs);
+tSimulation * simulate(tMaster * master, tNode nodes[], uint32_t numNodes, uint64_t runTimeNs);
 
 // ======================================== //
 // HAL replacements
 
 void setPs(tMaster * master, bool val);
 void startMasterTxRxDMA(tMaster * master, uint8_t * txData, uint8_t * rxData, uint32_t numBytes);
-void startSlaveTxRxDMA(tSlave * slave, bool tx, uint8_t * txData, uint8_t * rxData, uint32_t numBytes);
-void stopSlaveTxRxDMA(tSlave * slave);
+void startNodeTxRxDMA(tNode * node, bool tx, uint8_t * txData, uint8_t * rxData, uint32_t numBytes);
+void stopNodeTxRxDMA(tNode * node);
 
 #endif
