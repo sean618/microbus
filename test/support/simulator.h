@@ -3,26 +3,27 @@
 
 #include "unity.h"
 #include "microbus.h"
+#include "packetChecker.h"
 
-#define MAX_SLAVES 256
-#define MAX_EVENTS 5000
-#define MAX_TX_DATA_BYTES 512
+#define MAX_SIM_NODES 50
+#define MAX_TX_DATA_BYTES 256
+#define MAX_EVENTS (MAX_SIM_NODES * 5)
 
 // ============================
 // Events
 
 typedef enum {
-    SET_PS_HIGH, // 0
-    SET_PS_LOW,
-    SLAVE_TRANSFER_INITIATED_RX, // 2
-    SLAVE_TRANSFER_INITIATED_TX_RX,
+    // SET_PS_HIGH, // 0
+    // SET_PS_LOW,
+    NODE_TRANSFER_INITIATED_RX, // 2
+    NODE_TRANSFER_INITIATED_TX_RX,
     MASTER_TRANSFER_STARTED, // 4
     MASTER_TRANSFER_FINISHED,
 } eEvent;
 
 typedef struct {
     uint64_t timeNs;
-    uint32_t nodeSimIndex;
+    uint32_t nodeSimId;
     eEvent type;
 } tEvent;
 
@@ -30,26 +31,19 @@ typedef struct {
 
 typedef struct {
     //uint64_t timeNs;
-    tNode * node;
+    //tNode * node;
+    bool valid;
     bool tx;
     bool rx;
     uint8_t * txData;
     uint8_t * rxData;
     uint32_t numTransferBytes;
-} tSimNode;
+} tNodeInfo;
 
 typedef struct {
-    //uint64_t timeNs;
-    tMaster * master;
-    bool tranferOccuring; // Master always transmits and receives
-    uint8_t * txData;
-    uint8_t * rxData;
-    uint32_t numTransferBytes;
-} tSimMaster;
-
-typedef struct {
-    tSimMaster master;
-    tSimNode nodes[MAX_SLAVES];
+    tPacketChecker packetChecker;
+    tNode nodes[MAX_SIM_NODES];
+    tNodeInfo nodeInfo[MAX_SIM_NODES];
     uint8_t numNodes;
     
     uint64_t timeNs;
@@ -57,6 +51,7 @@ typedef struct {
     uint32_t numEvents;
     uint32_t eventCounter;
     
+    bool transferOccuring;
     uint8_t mosiData[MAX_TX_DATA_BYTES]; // Master -> node
     uint32_t mosiDataBytes;
     uint8_t misoData[MAX_TX_DATA_BYTES]; // Node -> master
@@ -64,14 +59,19 @@ typedef struct {
     bool psWire;
 } tSimulation;
 
-tSimulation * simulate(tMaster * master, tNode nodes[], uint32_t numNodes, uint64_t runTimeNs);
 
+void simInit(tSimulation * sim);
+tNode * simCreateNode(tSimulation * sim, bool master);
+tPacket * simCreatePacket(tSimulation * sim, tNodeIndex srcNodeSimId, tNodeIndex dstNodeSimId);
+void simulate(tSimulation * sim, uint64_t runTimeNs);
+void simCheckAllPacketsReceived(tSimulation * sim);
+    
 // ======================================== //
 // HAL replacements
 
-void setPs(tMaster * master, bool val);
-void startMasterTxRxDMA(tMaster * master, uint8_t * txData, uint8_t * rxData, uint32_t numBytes);
-void startNodeTxRxDMA(tNode * node, bool tx, uint8_t * txData, uint8_t * rxData, uint32_t numBytes);
-void stopNodeTxRxDMA(tNode * node);
+void setPs(tSimulation * sim, tNode * master, bool val);
+void startTxRxDMA(tSimulation * sim, tNode * node, bool tx, uint8_t * txData, uint8_t * rxData, uint32_t numBytes);
+void stopTxRxDMA(tSimulation * sim, tNode * node);
+
 
 #endif

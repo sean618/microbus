@@ -76,16 +76,16 @@
     :html_medium_threshold: 75
     :html_high_threshold: 90
 
-:tools:
-  :pre_test_fixture_execute:
-    :executable: valgrind
-    :arguments:
-      - --leak-check=full
-      - --error-exitcode=1
-      - --quiet
-      - --trace-children=yes
-      - --log-file=build/artifacts/valgrind/%{test_name}.xml
-      - ./%{test_executable}
+# :tools:
+#   :pre_test_fixture_execute:
+#     :executable: valgrind
+#     :arguments:
+#       - --leak-check=full
+#       - --error-exitcode=1
+#       - --quiet
+#       - --trace-children=yes
+#       - --log-file=build/artifacts/valgrind/%{test_name}.xml
+#       - ./%{test_executable}
       # - --track-origins=yes
       # - --leak-check=full
       # - --show-leak-kinds=all

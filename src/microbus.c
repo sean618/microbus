@@ -8,6 +8,11 @@
 #include "microbus.h"
 
 
+void halSetPs(tNode * master, bool val);
+void halStartMasterTxRxDMA(tNode * master, uint8_t * txData, uint8_t * rxData, uint32_t numBytes);
+void halStartNodeTxRxDMA(tNode * node, bool tx, uint8_t * txData, uint8_t * rxData, uint32_t numBytes);
+void halStopNodeTxRxDMA(tNode * node);
+
 
 void myAssert(uint8_t predicate, char * msg) {
     if (predicate == 0)
@@ -22,93 +27,80 @@ void myAssert(uint8_t predicate, char * msg) {
 
 tPacket emptyTxPacket;
 
-void masterTransferCompleteCb(tMaster * master) {
-    myAssert(master->common.txPacketsSent < MAX_TX_PACKETS, "Sent more tx packets than buffer size");
-    myAssert(master->common.rxPacketsReceived < MAX_RX_PACKETS, "Received more rx packets than buffer size");
+void transferCompleteCb(tNode * node) {
+    myAssert(node->txPacketsSent < MAX_TX_PACKETS, "Sent more tx packets than buffer size");
+    myAssert(node->rxPacketsReceived < MAX_RX_PACKETS, "Received more rx packets than buffer size");
     
-    // We increment until we reach a blank packet and we'll continue to send that black packet
-    if (master->common.tx) {
-        master->common.txPacketsSent++;
+    if (node->nodeId != MASTER_NODE_ID) {
+        // TODO: check if we need to stop dma
+        // halStopNodeTxRxDMA
+    }
+    
+    if (node->tx) {
+        node->txPacketsSent++;
     }
     
     // Check if any data
-    // TODO: Just checking if first byte is not zero - Change
-    if (master->common.rxPacket[master->common.rxPacketsReceived].data[0] != 0xFF) {
-        master->common.rxPacketsReceived++;
-    }
-    
-    master->common.currentSlot++;
-    if (master->common.currentSlot == master->common.numSlots) {
-        master->common.currentSlot = 0;
-    }
-    master->common.tx = (master->common.txPacketsSent < master->common.numTxPackets);
-        
-    uint8_t * txData;
-    if (master->common.tx) {
-        txData = master->common.txPacket[master->common.txPacketsSent].data;
-    } else {
-        txData = emptyTxPacket.data;
-    }
-    
-    // Tell nodes to start their SPI DMA
-    master->psVal = !master->psVal;
-    setPs(master, master->psVal);
-    
-    // Wait 20us
-    
-    // Start our SPI DMA 
-    uint8_t * rxData = master->common.rxPacket[master->common.rxPacketsReceived].data;
-    startMasterTxRxDMA(master, txData, rxData, PACKET_SIZE);
-}
-
-void psLineInterrupt(tNode * node, bool psVal) {
-    myAssert(node->common.txPacketsSent < MAX_TX_PACKETS, "Sent more tx packets than buffer size");
-    myAssert(node->common.rxPacketsReceived < MAX_RX_PACKETS, "Received more rx packets than buffer size");
-    
-    if (node->common.tx) {
-        node->common.txPacketsSent++;
-    }
+    tPacket * packet = &node->rxPacket[node->rxPacketsReceived];
+    tNodeIndex dstNodeId = packet->data[0];
+    tNodeIndex srcNodeId = packet->data[1];
     
     // Check if any data
     // TODO: Just checking if first byte is not zero - Change
-    if (node->common.rxPacket[node->common.rxPacketsReceived].data[0] != 0xFF) {
-        //printf("Node rx:%d\n", node->common.rxPacket[node->common.rxPacketsReceived].data[0]);
-        node->common.rxPacketsReceived++;
+    if (dstNodeId == node->nodeId && srcNodeId != INVALID_NODE_ID && srcNodeId != node->nodeId) {
+        //printf("Node rx:%d\n", node->rxPacket[node->rxPacketsReceived].data[0]);
+        node->rxPacketsReceived++;
     }
     
-    // Transmit if it's our slot and we have data
-    node->common.tx = (node->txSlot == node->common.currentSlot)
-        && (node->common.txPacketsSent < node->common.numTxPackets);
+    node->tx = (node->txPacketsSent < node->numTxPackets);
     
-    node->common.currentSlot++;
-    if (node->common.currentSlot == node->common.numSlots) {
-        node->common.currentSlot = 0;
+    // Slaves only transmit only if it's their slot
+    if (node->nodeId != MASTER_NODE_ID) {
+        node->tx = node->tx && (node->txSlot == node->currentSlot);
+    }
+    
+    node->currentSlot++;
+    if (node->currentSlot >= node->numSlots) {
+        node->currentSlot = 0;
     }   
-    //printf("Node:%d, txSlot:%d, sent:%d, num:%d\n", node->simIndex, node->common.currentSlot, node->common.txPacketsSent, node->common.numTxPackets);
+    //printf("Node:%d, txSlot:%d, sent:%d, num:%d\n", node->simId, node->currentSlot, node->txPacketsSent, node->numTxPackets);
         
     uint8_t * txData;
-    if (node->common.tx) {
-        txData = node->common.txPacket[node->common.txPacketsSent].data;
+    if (node->tx) {
+        txData = node->txPacket[node->txPacketsSent].data;
     } else {
         txData = emptyTxPacket.data;
+    }
+    
+    // Master needs to tell slaves to start their DMA
+    if (node->nodeId == MASTER_NODE_ID) {
+        node->psVal = !node->psVal;
+        halSetPs(node, node->psVal);
+        
+        // Wait 20us
     }
     
     // 
-    uint8_t * rxData = node->common.rxPacket[node->common.rxPacketsReceived].data;
-    startNodeTxRxDMA(node, node->common.tx, txData, rxData, PACKET_SIZE);
+    uint8_t * rxData = node->rxPacket[node->rxPacketsReceived].data;
+    halStartNodeTxRxDMA(node, node->tx, txData, rxData, PACKET_SIZE);
 }
 
-void start(tMaster * master) {
+void psLineInterrupt(tNode * node, bool psVal) {
+    myAssert(node->simId == node->nodeId, "");
+    transferCompleteCb(node);
+}
+
+void start(tNode * master) {
     memset(&emptyTxPacket.data[0], 0xFF, sizeof(emptyTxPacket.data));
-    masterTransferCompleteCb(master);
+    transferCompleteCb(master);
 }
 
-
-
-void addTxPacket(tCommon * common, tPacket * packet) {
-    if (common->numTxPackets < MAX_TX_PACKETS) {
-        memcpy(&common->txPacket[common->numTxPackets], packet, sizeof(tPacket));
-        common->numTxPackets++;
+void addTxPacket(tNode * node, tNodeIndex dstNodeId, tPacket * packet) {
+    packet->data[0] = dstNodeId;
+    packet->data[1] = node->nodeId;
+    if (node->numTxPackets < MAX_TX_PACKETS) {
+        memcpy(&node->txPacket[node->numTxPackets], packet, sizeof(tPacket));
+        node->numTxPackets++;
     } else {
         myAssert(0, "Tx buffer is full");
     }

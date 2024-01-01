@@ -3,62 +3,52 @@
 #include "unity.h"
 #include "simulator.h"
 #include "microbus.h"
+#include "packetChecker.h"
+
+tSimulation sim = {0};
+
+void halSetPs(tNode * master, bool val) {
+    setPs(&sim, master, val);
+}
+void halStartNodeTxRxDMA(tNode * node, bool tx, uint8_t * txData, uint8_t * rxData, uint32_t numBytes) {
+    startTxRxDMA(&sim, node, tx, txData, rxData, numBytes);
+}
+void halStopNodeTxRxDMA(tNode * node) {
+    stopTxRxDMA(&sim, node);
+}
 
 void test_simple(void) {
+    #define NUM_TEST_NODES 20
+    #define NUM_PACKETS 4
+    
     printf("Starting\n");
+    simInit(&sim);
     
-    tMaster master = {0};
-    tNode nodes[2] = {0};
-    uint32_t numNodes = 2;
+    tNode * nodes[NUM_TEST_NODES] = {};
     
-    tPacket mToSPkt[4] = {0};
-    mToSPkt[0].data[0] = 91;
-    mToSPkt[1].data[0] = 92;
-    mToSPkt[2].data[0] = 93;
-    mToSPkt[3].data[0] = 94;
-    addTxPacket(&master.common, &mToSPkt[0]);
-    addTxPacket(&master.common, &mToSPkt[1]);
-    addTxPacket(&master.common, &mToSPkt[2]);
-    addTxPacket(&master.common, &mToSPkt[3]);
+    // Create nodes
+    for (uint32_t i=0; i<NUM_TEST_NODES; i++) {
+        nodes[i] = simCreateNode(&sim, (i == MASTER_NODE_ID));
+        nodes[i]->nodeId = i;
+        nodes[i]->txSlot = i;
+        nodes[i]->numSlots = NUM_TEST_NODES;
+    }
     
-    tPacket s0ToMPkt[2] = {0};
-    s0ToMPkt[0].data[0] = 1;
-    s0ToMPkt[1].data[0] = 2;
-    addTxPacket(&nodes[0].common, &s0ToMPkt[0]);
-    addTxPacket(&nodes[0].common, &s0ToMPkt[1]);
+    // Create packets from master to all other nodes
+    for (uint32_t dstNodeSimId=MASTER_NODE_ID+1; dstNodeSimId<NUM_TEST_NODES; dstNodeSimId++) {
+        for (uint32_t j=0; j<NUM_PACKETS; j++) {
+            simCreatePacket(&sim, MASTER_NODE_ID, dstNodeSimId);
+        }
+    }
     
-    tPacket s1ToMPkt[2] = {0};
-    s1ToMPkt[0].data[0] = 11;
-    s1ToMPkt[1].data[0] = 12;
-    addTxPacket(&nodes[1].common, &s1ToMPkt[0]);
-    addTxPacket(&nodes[1].common, &s1ToMPkt[1]);
+    // Create packets from all nodes to master
+    for (uint32_t srcNodeSimId=MASTER_NODE_ID+1; srcNodeSimId<NUM_TEST_NODES; srcNodeSimId++) {
+        for (uint32_t j=0; j<NUM_PACKETS; j++) {
+            // Create packets to master
+            simCreatePacket(&sim, srcNodeSimId, MASTER_NODE_ID);
+        }
+    }
     
-    nodes[0].txSlot = 0;
-    nodes[1].txSlot = 1;
-    nodes[0].common.numSlots = 2;
-    nodes[1].common.numSlots = 2;
-    master.common.numSlots = 2;
-    
-    tSimulation * sim = simulate(&master, nodes, numNodes, 1000*1000); // 1ms
-    
-    
-    // Check master received node packets
-    TEST_ASSERT_EQUAL_UINT(4, master.common.rxPacketsReceived);
-    TEST_ASSERT_EQUAL_UINT(s0ToMPkt[0].data[0], master.common.rxPacket[0].data[0]);
-    TEST_ASSERT_EQUAL_UINT(s1ToMPkt[0].data[0], master.common.rxPacket[1].data[0]);
-    TEST_ASSERT_EQUAL_UINT(s0ToMPkt[1].data[0], master.common.rxPacket[2].data[0]);
-    TEST_ASSERT_EQUAL_UINT(s1ToMPkt[1].data[0], master.common.rxPacket[3].data[0]);
-    
-    // Check nodes received master packets
-    TEST_ASSERT_EQUAL_UINT(4, nodes[0].common.rxPacketsReceived);
-    TEST_ASSERT_EQUAL_UINT(mToSPkt[0].data[0], nodes[0].common.rxPacket[0].data[0]);
-    TEST_ASSERT_EQUAL_UINT(mToSPkt[1].data[0], nodes[0].common.rxPacket[1].data[0]);
-    TEST_ASSERT_EQUAL_UINT(mToSPkt[2].data[0], nodes[0].common.rxPacket[2].data[0]);
-    TEST_ASSERT_EQUAL_UINT(mToSPkt[3].data[0], nodes[0].common.rxPacket[3].data[0]);
-    
-    TEST_ASSERT_EQUAL_UINT(4, nodes[1].common.rxPacketsReceived);
-    TEST_ASSERT_EQUAL_UINT(mToSPkt[0].data[0], nodes[1].common.rxPacket[0].data[0]);
-    TEST_ASSERT_EQUAL_UINT(mToSPkt[1].data[0], nodes[1].common.rxPacket[1].data[0]);
-    TEST_ASSERT_EQUAL_UINT(mToSPkt[2].data[0], nodes[1].common.rxPacket[2].data[0]);
-    TEST_ASSERT_EQUAL_UINT(mToSPkt[3].data[0], nodes[1].common.rxPacket[3].data[0]);
+    simulate(&sim, 1000*1000*1000); // 1 second
+    simCheckAllPacketsReceived(&sim);
 }
