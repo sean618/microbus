@@ -21,6 +21,8 @@ void halStopNodeTxRxDMA(tNode * node) {
 
 // Not ideal - more weighting to lower values!
 uint32_t myRand(uint32_t max) {
+    if (max == 0)
+        return 0;
     return (rand() % max); 
 }
 
@@ -30,9 +32,6 @@ void checkSlaveScheduleMatches(tMasterSchedulerState * mScheduler, tSlaveSchedul
     TEST_ASSERT_EQUAL_UINT(true, sScheduler->schedulerInitialised);
     
     TEST_ASSERT_EQUAL_UINT(0, sScheduler->expSchedulerPacketIndex);
-    TEST_ASSERT_EQUAL_UINT(mScheduler->totalSchedulerPackets, sScheduler->totalSchedulerPackets);
-    TEST_ASSERT_EQUAL_UINT(mScheduler->newNodeId, sScheduler->newNodeId);
-    TEST_ASSERT_EQUAL_UINT(mScheduler->newNodeUniqueId, sScheduler->newNodeUniqueId);
     TEST_ASSERT_EQUAL_UINT(mScheduler->schedulerPeriodInFrames, sScheduler->schedulerPeriodInFrames);
     TEST_ASSERT_EQUAL_UINT(mScheduler->numSlotsPerFrame, sScheduler->numSlotsPerFrame);
     TEST_ASSERT_EQUAL_UINT(slaveNumSlotEntries, sScheduler->numMySlotEntries);
@@ -45,16 +44,21 @@ void checkSlaveScheduleMatches(tMasterSchedulerState * mScheduler, tSlaveSchedul
 
 void test_scheduler_packing_and_unpacking(void) {
     printf("Starting\n");
-    tMasterSchedulerState mScheduler = {0};
-    tSlaveSchedulerState sScheduler = {0};
     
     for (uint8_t i=0; i<20; i++) {
+        tMasterSchedulerState mScheduler = {0};
+        tSlaveSchedulerState sScheduler = {0};
         
         uint8_t slaveNodeId = myRand(MAX_NODES);
-        mScheduler.newNodeId = rand();
-        mScheduler.newNodeUniqueId = ((uint64_t)rand() << 32) | rand();
+        uint64_t slaveUniqueNodeId = ((uint64_t)rand() << 32) | rand();
+        
         mScheduler.schedulerPeriodInFrames = rand();
         mScheduler.numSlotsPerFrame = rand();
+        
+        mScheduler.numNewNodes = 1+myRand(MAX_NEW_NODE_ENTRIES-1);
+        uint8_t newNodeIndex = myRand(mScheduler.numNewNodes-1);
+        mScheduler.newNodeEntry[newNodeIndex].newNodeUniqueId = slaveUniqueNodeId;
+        mScheduler.newNodeEntry[newNodeIndex].newNodeId = slaveNodeId;
         
         mScheduler.numSlotEntries = myRand(MAX_SLOT_ENTRIES);
         uint8_t slaveNumSlotEntries = 0;
@@ -73,17 +77,18 @@ void test_scheduler_packing_and_unpacking(void) {
                     nodeId = rand();
                 } while (nodeId == slaveNodeId);
             }
-            
             mScheduler.slotEntry[j].nodeId = nodeId;
             mScheduler.slotEntry[j].numSlots = numSlots;
         }
         
+        uint8_t nodeId;
         do {
             tPacket packet = {0};
             packNextSchedulerPacket(&mScheduler, &packet);
-            unpackSchedulerPacket(slaveNodeId, &sScheduler, &packet);
-        } while (mScheduler.schedulerPacketIndex != 0);
+            unpackSchedulerPacket(&sScheduler, &packet, slaveUniqueNodeId, &nodeId);
+        } while (sScheduler.schedulerInitialised == false);
         
+        TEST_ASSERT_EQUAL_UINT(slaveNodeId, nodeId);
         checkSlaveScheduleMatches(&mScheduler, &sScheduler, slaveNumSlotEntries, slaveTotalNumSlots);
     }
     printf("Finished\n");

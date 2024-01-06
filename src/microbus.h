@@ -21,7 +21,7 @@ typedef uint8_t tNodeIndex; // Node 0 not allowed, Node 255 is unused for new no
 #define BROADCAST_NODE_ID 0xFE
 #define INVALID_NODE_ID 0xFF
 
-#define SPI_FREQ_MHZ 1 //12 - TODO: put back to 12MHZ
+#define SPI_FREQ_MHZ 15 //12 - TODO: put back to 12MHZ
 #define SPI_SLOT_TIME_US 200
 #define SPI_SLOT_SIZE (SPI_FREQ_MHZ * SPI_SLOT_TIME_US / 8) // In bytes (12Mhz, 200us => 300 bytes)
 #define PACKET_SIZE SPI_SLOT_SIZE
