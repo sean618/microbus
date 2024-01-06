@@ -18,6 +18,7 @@
 typedef uint8_t tNodeIndex; // Node 0 not allowed, Node 255 is unused for new nodes to advertise
 #define MASTER_NODE_ID 0x00
 #define FIRST_SLAVE_NODE_ID 0x01
+#define BROADCAST_NODE_ID 0xFE
 #define INVALID_NODE_ID 0xFF
 
 #define SPI_FREQ_MHZ 1 //12 - TODO: put back to 12MHZ
@@ -29,7 +30,6 @@ typedef uint8_t tNodeIndex; // Node 0 not allowed, Node 255 is unused for new no
 
 typedef uint16_t tSlot;
 #define MAX_SLOTS 1024 // 1024*0.2ms => 204ms
-#define MAX_SLOT_ENTRIES 256
 
 
 

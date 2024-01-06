@@ -21,7 +21,7 @@ void test_simple(void) {
     #define NUM_TEST_NODES 20
     #define NUM_PACKETS 4
     
-    printf("Starting\n");
+    //printf("Starting\n");
     simInit(&sim);
     
     tNode * nodes[NUM_TEST_NODES] = {};
@@ -51,4 +51,5 @@ void test_simple(void) {
     
     simulate(&sim, 1000*1000*1000); // 1 second
     simCheckAllPacketsReceived(&sim);
+    printf("Finished\n");
 }

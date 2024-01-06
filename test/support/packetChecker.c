@@ -22,7 +22,7 @@ tPacket * createPacket(tPacketChecker * checker, tNodeIndex srcNodeSimId, tNodeI
             myAssert(sizeof(pkt->id) < PACKET_SIZE-2, "ID too big for packet");
             memcpy(&pkt->packet.data[2], &pkt->id, sizeof(pkt->id));
             checker->currentId++;
-            printf("Creating packet %d -> %d, id:%d\n", srcNodeSimId, dstNodeSimId, pkt->id);
+            //printf("Creating packet %d -> %d, id:%d\n", srcNodeSimId, dstNodeSimId, pkt->id);
             return &pkt->packet;
         }
     }
@@ -42,7 +42,7 @@ void processPacket(tPacketChecker * checker, tNodeIndex srcNodeSimId, tNodeIndex
             ) {
             checker->numCorrectRxPackets++;
             pkt->valid = false;
-            printf("Packet received %d -> %d, id:%d\n", srcNodeSimId, dstNodeSimId, id);
+            //printf("Packet received %d -> %d, id:%d\n", srcNodeSimId, dstNodeSimId, id);
             return;
         }
     }
@@ -54,7 +54,7 @@ void checkAllPacketsReceived(tPacketChecker * checker) {
     bool failed = false;
     for (uint32_t i=0; i<MAX_PACKET_CHECKER_PACKETS; i++) {
         if (checker->txPackets[i].valid) {
-            printf("Packet failed %d -> %d, id:%d\n", checker->txPackets[i].srcNodeSimId, checker->txPackets[i].dstNodeSimId, checker->txPackets[i].id);
+            //printf("Packet failed %d -> %d, id:%d\n", checker->txPackets[i].srcNodeSimId, checker->txPackets[i].dstNodeSimId, checker->txPackets[i].id);
             failed = true;
         }
     }

@@ -214,10 +214,10 @@ void startTxRxDMA(tSimulation * sim, tNode * node, bool tx, uint8_t * txData, ui
     sim->nodeInfo[node->simId].numTransferBytes = numBytes;
     sim->nodeInfo[node->simId].txData = txData;
     sim->nodeInfo[node->simId].rxData = rxData;
-    if (tx) {
-        tNodeIndex dstSimNodeId = getSimNodeId(sim, txData[0]);
-        printf("Time: %9ld: Node %3d -> %d, sending packet data:%d\n", event.timeNs, node->simId, dstSimNodeId, txData[2]);
-    }
+    // if (tx) {
+    //     tNodeIndex dstSimNodeId = getSimNodeId(sim, txData[0]);
+    //     printf("Time: %9ld: Node %3d -> %d, sending packet data:%d\n", event.timeNs, node->simId, dstSimNodeId, txData[2]);
+    // }
 }
 
 void stopTxRxDMA(tSimulation * sim, tNode * node) {
