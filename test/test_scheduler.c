@@ -7,16 +7,19 @@
 #include "scheduler.h"
 #include "packetChecker.h"
 
-//tSimulation sim = {0};
+tSimulation sim = {0};
 
-void halSetPs(tNode * master, bool val) {
-    //setPs(&sim, master, val);
+void halSetPs(tMasterNode * master, bool val) {
+    setPs(&sim, master, val);
 }
-void halStartNodeTxRxDMA(tNode * node, bool tx, uint8_t * txData, uint8_t * rxData, uint32_t numBytes) {
-    //startTxRxDMA(&sim, node, tx, txData, rxData, numBytes);
+void halStartMasterTxRxDMA(tMasterNode * master, uint8_t * txData, uint8_t * rxData, uint32_t numBytes) {
+    startMasterTxRxDMA(&sim, master, txData, rxData, numBytes);
+}
+void halStartSlaveTxRxDMA(tNode * node, bool tx, uint8_t * txData, uint8_t * rxData, uint32_t numBytes) {
+    startSlaveTxRxDMA(&sim, node, tx, txData, rxData, numBytes);
 }
 void halStopNodeTxRxDMA(tNode * node) {
-    //stopTxRxDMA(&sim, node);
+    stopTxRxDMA(&sim, node);
 }
 
 // Not ideal - more weighting to lower values!
@@ -26,10 +29,10 @@ uint32_t myRand(uint32_t max) {
     return (rand() % max); 
 }
 
-void checkSlaveScheduleMatches(tMasterSchedulerState * mScheduler, tSlaveSchedulerState * sScheduler, 
+void checkSlaveScheduleMatches(tMasterSchedulerState * mScheduler, tNodeSchedulerState * sScheduler, 
                                 uint8_t slaveNumSlotEntries, uint32_t slaveTotalNumSlots) {
     
-    TEST_ASSERT_EQUAL_UINT(true, sScheduler->schedulerInitialised);
+    TEST_ASSERT_EQUAL_UINT(true, sScheduler->initialised);
     
     TEST_ASSERT_EQUAL_UINT(0, sScheduler->expSchedulerPacketIndex);
     TEST_ASSERT_EQUAL_UINT(mScheduler->schedulerPeriodInFrames, sScheduler->schedulerPeriodInFrames);
@@ -47,7 +50,7 @@ void test_scheduler_packing_and_unpacking(void) {
     
     for (uint8_t i=0; i<20; i++) {
         tMasterSchedulerState mScheduler = {0};
-        tSlaveSchedulerState sScheduler = {0};
+        tNodeSchedulerState sScheduler = {0};
         
         uint8_t slaveNodeId = myRand(MAX_NODES);
         uint64_t slaveUniqueNodeId = ((uint64_t)rand() << 32) | rand();
@@ -84,9 +87,9 @@ void test_scheduler_packing_and_unpacking(void) {
         uint8_t nodeId;
         do {
             tPacket packet = {0};
-            packNextSchedulerPacket(&mScheduler, &packet);
-            unpackSchedulerPacket(&sScheduler, &packet, slaveUniqueNodeId, &nodeId);
-        } while (sScheduler.schedulerInitialised == false);
+            txNextSchedulerPacket(&mScheduler, &packet);
+            rxSchedulerPacket(&sScheduler, &packet, slaveUniqueNodeId, &nodeId);
+        } while (sScheduler.initialised == false);
         
         TEST_ASSERT_EQUAL_UINT(slaveNodeId, nodeId);
         checkSlaveScheduleMatches(&mScheduler, &sScheduler, slaveNumSlotEntries, slaveTotalNumSlots);

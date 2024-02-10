@@ -1,4 +1,5 @@
 {
+    "ceedlingExplorer.debugConfiguration": "ceedlingExplorer"
     "files.associations": {
         "simulator.h": "c",
         "microbus.h": "c"
