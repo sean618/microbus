@@ -5,32 +5,28 @@
 #include "stdbool.h"
 #include "stdint.h"
 #include "scheduler.h"
-
+#include "txManager.h"
 
 typedef struct {
     // Common
     uint64_t uniqueId;
     tNodeIndex nodeId;
-    bool tx;
+    //bool tx;
+    
+    tNodeTxManager txManager;
+    // Preallocated memory for new nodes
+    tPacket newNodeTxPacket;
 
-    uint8_t txSeqNum;
-    uint8_t rxSeqNum;
-
-    // Tx buffer - circular buffer
-    uint32_t 
-    uint32_t numTxPackets;
-    tPacket txPacket[MAX_TX_PACKETS];
-    uint32_t txPacketsSent;
     // Rx buffer - a circular buffer to allow access by other threads
-    tPacket rxPacket[MAX_RX_PACKETS];
-    uint32_t rxPacketsReceived;
+    
+    tPacket rxPacket[MAX_NODE_RX_PACKETS];
+    uint8_t rxPacketsStart;
+    uint8_t rxPacketsEnd;
     
     // Stats
     //uint32_t txPacketsSent;
     //uint32_t rxPacketsReceived;
     
-    // Preallocated memory
-    tPacket newNodeTxPacket;
     
     // Simulation only
     tNodeIndex simId;

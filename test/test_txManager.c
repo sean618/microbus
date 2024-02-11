@@ -13,60 +13,69 @@ uint32_t myRand(uint32_t max) {
     return (rand() % max); 
 }
 
+static tTxManager manager;
+static uint8_t txSeqNumStart[10];
+static uint8_t txSeqNumEnd[10];
+static uint8_t txSeqNumNext[10];
+static uint8_t rxSeqNum[10];
+static tTxPacketEntry packetEntries[100];
+
 void test_simple(void) {
     // Simple - perfect transmission to 1 node
-    tMasterTxManager manager = {0};
+    initTxManager(&manager, 10, txSeqNumStart, txSeqNumEnd, txSeqNumNext, rxSeqNum, 100, packetEntries);
+    
     uint8_t dstNodeId = 0;
-    for (uint32_t i=0; i<MAX_MASTER_TX_PACKETS/2; i++) {
-        masterAllocateTxPacket(&manager, dstNodeId);
+    for (uint32_t i=0; i<100/2; i++) {
+        allocateTxPacket(&manager, 0, dstNodeId);
     }
-    for (uint32_t i=0; i<MAX_MASTER_TX_PACKETS/2; i++) {
-        tPacket * packet = masterGetNextTxPacket(&manager);
+    for (uint32_t i=0; i<100/2; i++) {
+        tPacket * packet = getNextTxPacket(&manager);
         myAssert(packet != NULL, "");
-        masterRxAckSeqNum(&manager, dstNodeId, packet->txSeqNum);
+        rxAckSeqNum(&manager, dstNodeId, packet->txSeqNum);
     }
     TEST_ASSERT_EQUAL_UINT(manager.packetStore.numStored, manager.packetStore.numFreed);
 }
 
 void test_continuous(void) {
     // Simple - perfect transmission to 1 node
-    tMasterTxManager manager = {};
+    initTxManager(&manager, 10, txSeqNumStart, txSeqNumEnd, txSeqNumNext, rxSeqNum, 100, packetEntries);
     uint8_t dstNodeId = 0;
-    for (uint32_t i=0; i<MAX_MASTER_TX_PACKETS/2; i++) {
-        masterAllocateTxPacket(&manager, dstNodeId);
-        tPacket * packet = masterGetNextTxPacket(&manager);
+    for (uint32_t i=0; i<100/2; i++) {
+        allocateTxPacket(&manager, 0, dstNodeId);
+        tPacket * packet = getNextTxPacket(&manager);
         myAssert(packet != NULL, "");
-        masterRxAckSeqNum(&manager, dstNodeId, packet->txSeqNum);
+        rxAckSeqNum(&manager, dstNodeId, packet->txSeqNum);
     }
     TEST_ASSERT_EQUAL_UINT(manager.packetStore.numStored, manager.packetStore.numFreed);
 }
 
 void test_multiple_nodes(void) {
     // Simple - perfect transmission to 1 node
-    tMasterTxManager manager = {};
-    for (uint32_t i=0; i<MAX_MASTER_TX_PACKETS/2; i++) {
+    initTxManager(&manager, 10, txSeqNumStart, txSeqNumEnd, txSeqNumNext, rxSeqNum, 100, packetEntries);
+    for (uint32_t i=0; i<100/2; i++) {
         uint8_t dstNodeId = i % 5;
-        masterAllocateTxPacket(&manager, dstNodeId);
+        allocateTxPacket(&manager, 0, dstNodeId);
     }
-    for (uint32_t i=0; i<MAX_MASTER_TX_PACKETS/2; i++) {
-        tPacket * packet = masterGetNextTxPacket(&manager);
+    for (uint32_t i=0; i<100/2; i++) {
+        tPacket * packet = getNextTxPacket(&manager);
         myAssert(packet != NULL, "");
-        masterRxAckSeqNum(&manager, packet->nodeId, packet->txSeqNum);
+        rxAckSeqNum(&manager, packet->dstNodeId, packet->txSeqNum);
     }
     TEST_ASSERT_EQUAL_UINT(manager.packetStore.numStored, manager.packetStore.numFreed);
 }
 
 void test_simple_with_dropped_packets(void) {
-    tMasterTxManager manager = {};
+    initTxManager(&manager, 10, txSeqNumStart, txSeqNumEnd, txSeqNumNext, rxSeqNum, 100, packetEntries);
+        
     uint8_t dstNodeId = 0;
-    for (uint32_t i=0; i<MAX_MASTER_TX_PACKETS/2; i++) {
-        masterAllocateTxPacket(&manager, dstNodeId);
+    for (uint32_t i=0; i<100/2; i++) {
+        allocateTxPacket(&manager, 0, dstNodeId);
     }
 
     uint8_t lastAckSeqNum = 0;
     uint32_t drops = 0;
-    for (uint32_t i=0; i<4*MAX_MASTER_TX_PACKETS; i++) {
-        tPacket * packet = masterGetNextTxPacket(&manager);
+    for (uint32_t i=0; i<4*100; i++) {
+        tPacket * packet = getNextTxPacket(&manager);
         if (packet != NULL) {
             if (myRand(10) == 0) {
                 drops++;
@@ -75,7 +84,7 @@ void test_simple_with_dropped_packets(void) {
             } else {
                 //printf("Got:%u\n", packet->txSeqNum);
                 if (packet->txSeqNum == lastAckSeqNum + 1) {
-                    masterRxAckSeqNum(&manager, dstNodeId, packet->txSeqNum);
+                    rxAckSeqNum(&manager, dstNodeId, packet->txSeqNum);
                     //printf("Acked:%u\n", packet->txSeqNum);
                     lastAckSeqNum = packet->txSeqNum;
 
@@ -87,7 +96,7 @@ void test_simple_with_dropped_packets(void) {
             }
         } else {
             //printf("Acked:%u\n", lastAckSeqNum);
-            masterRxAckSeqNum(&manager, dstNodeId, lastAckSeqNum);
+            rxAckSeqNum(&manager, dstNodeId, lastAckSeqNum);
         }
     }
     TEST_ASSERT_EQUAL_UINT(manager.packetStore.numStored, manager.packetStore.numFreed);
@@ -97,11 +106,11 @@ void test_simple_with_dropped_packets(void) {
 void test_multiple_nodes_with_dropped_packets(void) {
     for (uint32_t j=0; j<20; j++) {
         uint8_t lastAckSeqNum[5] = {0};
-        tMasterTxManager manager = {0};
+        initTxManager(&manager, 10, txSeqNumStart, txSeqNumEnd, txSeqNumNext, rxSeqNum, 100, packetEntries);
 
         for (uint32_t i=0; i<20; i++) {
             uint8_t dstNodeId = myRand(5);
-            masterAllocateTxPacket(&manager, dstNodeId);
+            allocateTxPacket(&manager, 0, dstNodeId);
         }
         // Mode 0 - add packets as we go
         // Mode 1 - don't add anymore packets - just process them
@@ -110,17 +119,17 @@ void test_multiple_nodes_with_dropped_packets(void) {
             for (uint32_t i=0; i<1000; i++) {
                 if (mode == 0 && myRand(10) < 8) {
                     uint8_t dstNodeId = myRand(5);
-                    tPacket * packet = masterAllocateTxPacket(&manager, dstNodeId);
+                    tPacket * packet = allocateTxPacket(&manager, 0, dstNodeId);
                 }
                 
-                tPacket * packet = masterGetNextTxPacket(&manager);
+                tPacket * packet = getNextTxPacket(&manager);
 
                 if (packet != NULL) {
                     if (myRand(10) == 0) {
                         // Skip tx
                     } else {
-                        if (packet->txSeqNum == lastAckSeqNum[packet->nodeId] + 1) {
-                            lastAckSeqNum[packet->nodeId] = packet->txSeqNum;
+                        if (packet->txSeqNum == lastAckSeqNum[packet->dstNodeId] + 1) {
+                            lastAckSeqNum[packet->dstNodeId] = packet->txSeqNum;
                         }
                     }
                 }
@@ -129,7 +138,7 @@ void test_multiple_nodes_with_dropped_packets(void) {
                 if (rxNodeId == 5) {
                     rxNodeId = 0;
                 }
-                masterRxAckSeqNum(&manager, rxNodeId, lastAckSeqNum[rxNodeId]);
+                rxAckSeqNum(&manager, rxNodeId, lastAckSeqNum[rxNodeId]);
                 
                 if (mode == 1 && manager.packetStore.numStored == manager.packetStore.numFreed) {
                     //printf("Mode:%u - Cycles taken:%u\n", mode, i);
