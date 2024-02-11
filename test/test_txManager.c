@@ -3,7 +3,7 @@
 #include "stdbool.h"
 #include "stdint.h"
 #include "unity.h"
-#include "masterTxManager.h"
+#include "txManager.h"
 #include "usefulLib.h"
 
 
@@ -17,10 +17,10 @@ void test_simple(void) {
     // Simple - perfect transmission to 1 node
     tMasterTxManager manager = {0};
     uint8_t dstNodeId = 0;
-    for (uint32_t i=0; i<50; i++) {
+    for (uint32_t i=0; i<MAX_MASTER_TX_PACKETS/2; i++) {
         masterAllocateTxPacket(&manager, dstNodeId);
     }
-    for (uint32_t i=0; i<50; i++) {
+    for (uint32_t i=0; i<MAX_MASTER_TX_PACKETS/2; i++) {
         tPacket * packet = masterGetNextTxPacket(&manager);
         myAssert(packet != NULL, "");
         masterRxAckSeqNum(&manager, dstNodeId, packet->txSeqNum);
@@ -32,7 +32,7 @@ void test_continuous(void) {
     // Simple - perfect transmission to 1 node
     tMasterTxManager manager = {};
     uint8_t dstNodeId = 0;
-    for (uint32_t i=0; i<50; i++) {
+    for (uint32_t i=0; i<MAX_MASTER_TX_PACKETS/2; i++) {
         masterAllocateTxPacket(&manager, dstNodeId);
         tPacket * packet = masterGetNextTxPacket(&manager);
         myAssert(packet != NULL, "");
@@ -44,11 +44,11 @@ void test_continuous(void) {
 void test_multiple_nodes(void) {
     // Simple - perfect transmission to 1 node
     tMasterTxManager manager = {};
-    for (uint32_t i=0; i<50; i++) {
+    for (uint32_t i=0; i<MAX_MASTER_TX_PACKETS/2; i++) {
         uint8_t dstNodeId = i % 5;
         masterAllocateTxPacket(&manager, dstNodeId);
     }
-    for (uint32_t i=0; i<50; i++) {
+    for (uint32_t i=0; i<MAX_MASTER_TX_PACKETS/2; i++) {
         tPacket * packet = masterGetNextTxPacket(&manager);
         myAssert(packet != NULL, "");
         masterRxAckSeqNum(&manager, packet->nodeId, packet->txSeqNum);
@@ -59,13 +59,13 @@ void test_multiple_nodes(void) {
 void test_simple_with_dropped_packets(void) {
     tMasterTxManager manager = {};
     uint8_t dstNodeId = 0;
-    for (uint32_t i=0; i<100; i++) {
+    for (uint32_t i=0; i<MAX_MASTER_TX_PACKETS/2; i++) {
         masterAllocateTxPacket(&manager, dstNodeId);
     }
 
     uint8_t lastAckSeqNum = 0;
     uint32_t drops = 0;
-    for (uint32_t i=0; i<400; i++) {
+    for (uint32_t i=0; i<4*MAX_MASTER_TX_PACKETS; i++) {
         tPacket * packet = masterGetNextTxPacket(&manager);
         if (packet != NULL) {
             if (myRand(10) == 0) {

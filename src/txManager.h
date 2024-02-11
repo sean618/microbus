@@ -1,5 +1,5 @@
-#ifndef MASTERTXMANAGER_H
-#define MASTERTXMANAGER_H
+#ifndef TXMANAGER_H
+#define TXMANAGER_H
 
 #include "string.h"
 #include "stdbool.h"
@@ -11,12 +11,17 @@ typedef struct {
     tPacket packet;
 } tTxPacketEntry;
 
+// ~100 * 300 bytes => 30KB
 typedef struct {
     tTxPacketEntry entries[MAX_MASTER_TX_PACKETS];
     uint32_t numStored;
     uint32_t numFreed;
 } tPacketStore;
 
+// =================================== //
+// Master
+
+// About 1KB
 typedef struct {
     tNodeIndex lastTxNode;
     tPacketStore packetStore;
@@ -25,6 +30,13 @@ typedef struct {
     uint8_t txSeqNumNext[MAX_NODES];
     uint8_t rxSeqNum[MAX_NODES];
 } tMasterTxManager;
+
+tPacket * masterGetNextTxPacket(tMasterTxManager * manager);
+tPacket * masterAllocateTxPacket(tMasterTxManager * manager, tNodeIndex nodeId);
+void masterRxAckSeqNum(tMasterTxManager * manager, tNodeIndex nodeId, uint8_t ackSeqNum);
+
+// =================================== //
+// Node
 
 typedef struct {
     tPacketStore packetStore;
@@ -38,9 +50,6 @@ tPacket * nodeGetNextTxPacket(tNodeTxManager * manager, uint8_t nodeId);
 tPacket * nodeAllocateTxPacket(tNodeTxManager * manager, tNodeIndex nodeId);
 void nodeRxAckSeqNum(tNodeTxManager * manager, tNodeIndex nodeId, uint8_t ackSeqNum);
 
-tPacket * masterGetNextTxPacket(tMasterTxManager * manager);
-tPacket * masterAllocateTxPacket(tMasterTxManager * manager, tNodeIndex nodeId);
-void masterRxAckSeqNum(tMasterTxManager * manager, tNodeIndex nodeId, uint8_t ackSeqNum);
-
+// =================================== //s
 
 #endif

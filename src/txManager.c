@@ -4,7 +4,7 @@
 #include "stdio.h"
 #include "stdlib.h"
 #include "microbus.h"
-#include "masterTxManager.h"
+#include "txManager.h"
 #include "usefulLib.h"
 
 // =============================================================== //
