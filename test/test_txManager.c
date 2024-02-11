@@ -18,14 +18,14 @@ void test_simple(void) {
     tMasterTxManager manager = {0};
     uint8_t dstNodeId = 0;
     for (uint32_t i=0; i<50; i++) {
-        addTxPacket(&manager, dstNodeId);
+        masterAllocateTxPacket(&manager, dstNodeId);
     }
     for (uint32_t i=0; i<50; i++) {
-        tPacket * packet = getNextTxPacket(&manager);
+        tPacket * packet = masterGetNextTxPacket(&manager);
         myAssert(packet != NULL, "");
-        rxAckSeqNum(&manager, dstNodeId, packet->txSeqNum);
+        masterRxAckSeqNum(&manager, dstNodeId, packet->txSeqNum);
     }
-    TEST_ASSERT_EQUAL_UINT(manager.numTxIn, manager.numTxOut);
+    TEST_ASSERT_EQUAL_UINT(manager.packetStore.numStored, manager.packetStore.numFreed);
 }
 
 void test_continuous(void) {
@@ -33,12 +33,12 @@ void test_continuous(void) {
     tMasterTxManager manager = {};
     uint8_t dstNodeId = 0;
     for (uint32_t i=0; i<50; i++) {
-        addTxPacket(&manager, dstNodeId);
-        tPacket * packet = getNextTxPacket(&manager);
+        masterAllocateTxPacket(&manager, dstNodeId);
+        tPacket * packet = masterGetNextTxPacket(&manager);
         myAssert(packet != NULL, "");
-        rxAckSeqNum(&manager, dstNodeId, packet->txSeqNum);
+        masterRxAckSeqNum(&manager, dstNodeId, packet->txSeqNum);
     }
-    TEST_ASSERT_EQUAL_UINT(manager.numTxIn, manager.numTxOut);
+    TEST_ASSERT_EQUAL_UINT(manager.packetStore.numStored, manager.packetStore.numFreed);
 }
 
 void test_multiple_nodes(void) {
@@ -46,27 +46,27 @@ void test_multiple_nodes(void) {
     tMasterTxManager manager = {};
     for (uint32_t i=0; i<50; i++) {
         uint8_t dstNodeId = i % 5;
-        addTxPacket(&manager, dstNodeId);
+        masterAllocateTxPacket(&manager, dstNodeId);
     }
     for (uint32_t i=0; i<50; i++) {
-        tPacket * packet = getNextTxPacket(&manager);
+        tPacket * packet = masterGetNextTxPacket(&manager);
         myAssert(packet != NULL, "");
-        rxAckSeqNum(&manager, packet->nodeId, packet->txSeqNum);
+        masterRxAckSeqNum(&manager, packet->nodeId, packet->txSeqNum);
     }
-    TEST_ASSERT_EQUAL_UINT(manager.numTxIn, manager.numTxOut);
+    TEST_ASSERT_EQUAL_UINT(manager.packetStore.numStored, manager.packetStore.numFreed);
 }
 
 void test_simple_with_dropped_packets(void) {
     tMasterTxManager manager = {};
     uint8_t dstNodeId = 0;
     for (uint32_t i=0; i<100; i++) {
-        addTxPacket(&manager, dstNodeId);
+        masterAllocateTxPacket(&manager, dstNodeId);
     }
 
     uint8_t lastAckSeqNum = 0;
     uint32_t drops = 0;
     for (uint32_t i=0; i<400; i++) {
-        tPacket * packet = getNextTxPacket(&manager);
+        tPacket * packet = masterGetNextTxPacket(&manager);
         if (packet != NULL) {
             if (myRand(10) == 0) {
                 drops++;
@@ -75,11 +75,11 @@ void test_simple_with_dropped_packets(void) {
             } else {
                 //printf("Got:%u\n", packet->txSeqNum);
                 if (packet->txSeqNum == lastAckSeqNum + 1) {
-                    rxAckSeqNum(&manager, dstNodeId, packet->txSeqNum);
+                    masterRxAckSeqNum(&manager, dstNodeId, packet->txSeqNum);
                     //printf("Acked:%u\n", packet->txSeqNum);
                     lastAckSeqNum = packet->txSeqNum;
 
-                    if (manager.numTxIn == manager.numTxOut) {
+                    if (manager.packetStore.numStored == manager.packetStore.numFreed) {
                         //printf("Cycles taken:%u for 100 packets with %u drops\n", i, drops);
                         break;
                     }
@@ -87,10 +87,10 @@ void test_simple_with_dropped_packets(void) {
             }
         } else {
             //printf("Acked:%u\n", lastAckSeqNum);
-            rxAckSeqNum(&manager, dstNodeId, lastAckSeqNum);
+            masterRxAckSeqNum(&manager, dstNodeId, lastAckSeqNum);
         }
     }
-    TEST_ASSERT_EQUAL_UINT(manager.numTxIn, manager.numTxOut);
+    TEST_ASSERT_EQUAL_UINT(manager.packetStore.numStored, manager.packetStore.numFreed);
 }
 
 
@@ -101,7 +101,7 @@ void test_multiple_nodes_with_dropped_packets(void) {
 
         for (uint32_t i=0; i<20; i++) {
             uint8_t dstNodeId = myRand(5);
-            addTxPacket(&manager, dstNodeId);
+            masterAllocateTxPacket(&manager, dstNodeId);
         }
         // Mode 0 - add packets as we go
         // Mode 1 - don't add anymore packets - just process them
@@ -110,10 +110,10 @@ void test_multiple_nodes_with_dropped_packets(void) {
             for (uint32_t i=0; i<1000; i++) {
                 if (mode == 0 && myRand(10) < 8) {
                     uint8_t dstNodeId = myRand(5);
-                    tPacket * packet = addTxPacket(&manager, dstNodeId);
+                    tPacket * packet = masterAllocateTxPacket(&manager, dstNodeId);
                 }
                 
-                tPacket * packet = getNextTxPacket(&manager);
+                tPacket * packet = masterGetNextTxPacket(&manager);
 
                 if (packet != NULL) {
                     if (myRand(10) == 0) {
@@ -129,14 +129,14 @@ void test_multiple_nodes_with_dropped_packets(void) {
                 if (rxNodeId == 5) {
                     rxNodeId = 0;
                 }
-                rxAckSeqNum(&manager, rxNodeId, lastAckSeqNum[rxNodeId]);
+                masterRxAckSeqNum(&manager, rxNodeId, lastAckSeqNum[rxNodeId]);
                 
-                if (mode == 1 && manager.numTxIn == manager.numTxOut) {
+                if (mode == 1 && manager.packetStore.numStored == manager.packetStore.numFreed) {
                     //printf("Mode:%u - Cycles taken:%u\n", mode, i);
                     break;
                 }
             }
         }
-        TEST_ASSERT_EQUAL_UINT(manager.numTxIn, manager.numTxOut);
+        TEST_ASSERT_EQUAL_UINT(manager.packetStore.numStored, manager.packetStore.numFreed);
     }
 }
