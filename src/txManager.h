@@ -11,7 +11,6 @@ typedef struct {
     tPacket packet;
 } tTxPacketEntry;
 
-// ~100 * 300 bytes => 30KB
 typedef struct {
     tTxPacketEntry * entries;
     uint8_t numEntries;
@@ -32,15 +31,16 @@ typedef struct {
 void initTxManager(
     tTxManager * manager,
     uint8_t numTxNodes,
-    uint8_t * txSeqNumStart,
-    uint8_t * txSeqNumEnd,
-    uint8_t * txSeqNumNext,
-    uint8_t * rxSeqNum,
+    uint8_t txSeqNumStart[],
+    uint8_t txSeqNumEnd[],
+    uint8_t txSeqNumNext[],
+    uint8_t rxSeqNum[],
     uint8_t numPacketEntries,
-    tTxPacketEntry * packetEntries);
+    tTxPacketEntry packetEntries[]);
 tPacket * allocateTxPacket(tTxManager * manager, tNodeIndex srcNodeId, tNodeIndex dstNodeId);
 tPacket * getNextTxPacket(tTxManager * manager);
 void rxAckSeqNum(tTxManager * manager, tNodeIndex nodeId, uint8_t ackSeqNum);
+bool rxPacketCheckAndUpdateSeqNum(tTxManager * manager, tNodeIndex srcNodeId, uint8_t packetTxSeqNum);
 
 
 #endif

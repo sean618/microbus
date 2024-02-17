@@ -74,14 +74,14 @@ static void freePacket(tPacketStore * store, tNodeIndex dstNodeId, uint8_t seqNu
 void initTxManager(
     tTxManager * manager,
     uint8_t numTxNodes,
-    uint8_t * txSeqNumStart,
-    uint8_t * txSeqNumEnd,
-    uint8_t * txSeqNumNext,
-    uint8_t * rxSeqNum,
+    uint8_t txSeqNumStart[],
+    uint8_t txSeqNumEnd[],
+    uint8_t txSeqNumNext[],
+    uint8_t rxSeqNum[],
     uint8_t numPacketEntries,
-    tTxPacketEntry * packetEntries) {
+    tTxPacketEntry packetEntries[]) {
     
-    memset(manager, 0, sizeof(manager));
+    memset(manager, 0, sizeof(tTxManager));
     for (uint8_t i=0; i<numTxNodes; i++) {
         txSeqNumStart[i] = 0;
         txSeqNumEnd[i] = 0;
@@ -195,13 +195,21 @@ static void rxAckSeqNumForNode(tPacketStore * store, tNodeIndex nodeId, uint8_t 
     }
 }
 
-void rxAckSeqNum(tTxManager * manager, tNodeIndex dstNodeId, uint8_t ackSeqNum) {
+void rxAckSeqNum(tTxManager * manager, tNodeIndex nodeId, uint8_t ackSeqNum) {
     rxAckSeqNumForNode(
         &manager->packetStore,
-        dstNodeId,
-        &manager->txSeqNumStart[dstNodeId],
-        &manager->txSeqNumEnd[dstNodeId],
-        &manager->txSeqNumNext[dstNodeId],
+        nodeId,
+        &manager->txSeqNumStart[nodeId],
+        &manager->txSeqNumEnd[nodeId],
+        &manager->txSeqNumNext[nodeId],
         ackSeqNum
     );
+}
+
+bool rxPacketCheckAndUpdateSeqNum(tTxManager * manager, tNodeIndex srcNodeId, uint8_t packetTxSeqNum) {
+    if (packetTxSeqNum == (manager->rxSeqNum[srcNodeId] + 1)) {
+        manager->rxSeqNum[srcNodeId]++;
+        return true;
+    }
+    return false;
 }

@@ -5,6 +5,7 @@
 #include "stdlib.h"
 //#include "scheduler.h"
 #include "microbus.h"
+#include "master.h"
 
 void halSetPs(tMasterNode * master, bool val);
 void halStartMasterTxRxDMA(tMasterNode * master, uint8_t * txData, uint8_t * rxData, uint32_t numBytes);
@@ -14,21 +15,20 @@ void halStartMasterTxRxDMA(tMasterNode * master, uint8_t * txData, uint8_t * rxD
 
 void rxNewNodePacketRequest(tMasterNode * node, tPacket * packet) {
     for (uint32_t i=0; i<PACKET_DATA_SIZE; i+=NEW_NODE_REQUEST_ENTRY_SIZE) {
-        if (packet->data[i] == NEW_NODE_REQUEST_PACKET) {
-            uint64_t newNodeUniqueId;
-            uint16_t rxCheckSum;
-            memcpy(&newNodeUniqueId, &packet->data[i],   8);
-            memcpy(&rxCheckSum,      &packet->data[i+8], 2);
-            uint16_t checkSum = (0xFFFF & (newNodeUniqueId >> 48)) 
-                                + (0xFFFF & (newNodeUniqueId >> 32)) 
-                                + (0xFFFF & (newNodeUniqueId >> 16)) 
-                                + (0xFFFF & (newNodeUniqueId));
-            if (checkSum == rxCheckSum) {
-                masterSchedulerAddNewNode(&node->scheduler, newNodeUniqueId);
-            }
+        uint64_t newNodeUniqueId;
+        uint16_t rxCheckSum;
+        memcpy(&newNodeUniqueId, &packet->data[i],   8);
+        memcpy(&rxCheckSum,      &packet->data[i+8], 2);
+        uint16_t checkSum = (0xFFFF & (newNodeUniqueId >> 48)) 
+                            + (0xFFFF & (newNodeUniqueId >> 32)) 
+                            + (0xFFFF & (newNodeUniqueId >> 16)) 
+                            + (0xFFFF & (newNodeUniqueId));
+        if (checkSum == rxCheckSum) {
+            masterSchedulerAddNewNode(&node->scheduler, newNodeUniqueId);
         }
     }
 }
+
 
 tPacket * txNewNodeResponse(tMasterNode * node) {
     tPacket * packet = &node->tmpPacket;
@@ -42,7 +42,8 @@ tPacket * txNewNodeResponse(tMasterNode * node) {
         memcpy(&packet->data[i*NEW_NODE_RESPONSE_ENTRY_SIZE], &uniqueId, 8);
         packet->data[8 + i*NEW_NODE_RESPONSE_ENTRY_SIZE] = nodeId;
     }
-    packet->nodeId = INVALID_NODE_ID;
+    //packet->srcNodeId = INVALID_NODE_ID;
+    packet->dstNodeId = UNALLOCATED_NODE_ID;
     uint16_t dataSize = num * NEW_NODE_RESPONSE_ENTRY_SIZE;
     packet->dataSize1 = dataSize >> 8;
     packet->dataSize2 = dataSize & 0xFF;
@@ -51,17 +52,34 @@ tPacket * txNewNodeResponse(tMasterNode * node) {
 
 // ================================= //
 
-void masterRxDataPacket(tMasterNode * node, tPacket * packet) {
-    uint16_t dataSize = packet->dataSize1 << 8 || packet->dataSize2;
-    if (packet->nodeId != INVALID_NODE_ID && dataSize > 0) { 
-        //MB_PRINTF(node, "Node rx:%d\n", node->rxPacket[node->rxPacketsReceived].data[0]);
-        myAssert(node->rxPacketsReceived < MAX_RX_PACKETS, "Rx packet buffer overflow");
-        node->rxPacketsReceived++;
+tPacket * allocateRxPacket(tNode * node) {
+    if (CIRCULAR_BUFFER_FULL(node->rxPacketsStart, node->rxPacketsEnd, node->numRxPackets)) {
+        // A bit of a hack - the circular buffer implementation always leaves an extra entry
+        // as it regards start == end to be empty rather than full
+        // We need an extra buffer to process the rx packet meta data if the normal buffer is full
+        // so use this extra one
+        return &node->rxPackets[node->rxPacketsEnd];
+        
+    } else {
+        tPacket * rxPacket;
+        CIRCULAR_BUFFER_ALLOCATE(rxPacket, node->rxPacket, node->rxPacketsStart, node->rxPacketsEnd, node->numRxPackets);
+        return rxPacket;
     }
 }
 
+// void masterRxDataPacket(tMasterNode * node, tPacket * packet) {
+//     uint16_t dataSize = packet->dataSize1 << 8 || packet->dataSize2;
+//     if (packet->nodeId != INVALID_NODE_ID && dataSize > 0) { 
+//         //MB_PRINTF(node, "Node rx:%d\n", node->rxPacket[node->rxPacketsReceived].data[0]);
+//         myAssert(node->rxPacketsReceived < MAX_RX_PACKETS, "Rx packet buffer overflow");
+//         node->rxPacketsReceived++;
+//     }
+// }
+
 void masterProcessRx(tMasterNode * node) {
     tPacket * packet = &node->rxPacket[node->rxPacketsReceived];
+
+
     uint8_t protocolVersion = (packet->protocolVersionAndPacketType >> 4) & 0xF;
     tPacketType packetType = packet->protocolVersionAndPacketType & 0xF;
 
@@ -110,6 +128,8 @@ tPacket * masterProcessTx(tMasterNode * node) {
 
 void masterTransferCompleteCb(tMasterNode * master, bool startSequence) {
     tNodeIndex nextTxNodeId = masterSchedulerGetNextTxNodeId();
+    
+    processRxHeaders(node, &node->rxPackets[node->rxPacketsEnd]);
 
     tPacket * txPacket = masterProcessTx(master);
     txPacket->nextTxNodeId = nextTxNodeId;
@@ -123,10 +143,10 @@ void masterTransferCompleteCb(tMasterNode * master, bool startSequence) {
     halSetPs(master, master->psVal);
     
     // Wait 20us
+    tPacket * rxPacket = allocateRxPacket(node);
     
     myAssert(master->rxPacketsReceived < MAX_RX_PACKETS, "Received more rx packets than buffer size");
-    uint8_t * rxData = master->rxPacket[master->rxPacketsReceived].data;
-    halStartMasterTxRxDMA(master, txPacket->data, rxData, PACKET_SIZE);
+    halStartMasterTxRxDMA(master, txPacket->data, (uint8_t *) &rxPacket, PACKET_SIZE);
     
     masterProcessRx(master);
 }

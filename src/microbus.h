@@ -25,12 +25,16 @@
 #define SPI_SLOT_SIZE (SPI_FREQ_MHZ * SPI_SLOT_TIME_US / 8) // In bytes (12Mhz, 200us => 300 bytes)
 #define PACKET_SIZE SPI_SLOT_SIZE
 
-#define MAX_NODES 250 // Must be less than 255
 typedef uint8_t tNodeIndex; // Node 0 not allowed, Node 255 is unused for new nodes to advertise
-#define UNUSED_NODE_ID 0xFE // Used for signalling when newNodeId packets can be sent
+#define MAX_NODES 250 // Must be less than 255
+// #define MAX_AGENTS (MAX_NODES-1)
+// #define MASTER_NODE_ID MAX_AGENTS
+#define UNALLOCATED_NODE_ID 0xFE // Used for signalling when newNodeId packets can be sent
 #define INVALID_NODE_ID 0xFF // Shouldn't ever be used
 
-typedef enum {EMPTY_PACKET, DATA_PACKET, NEW_NODE_REQUEST_PACKET, NEW_NODE_RESPONSE_PACKET} tPacketType;
+
+// TODO: change empty packet to ACK PACKET - allowing master to ack multiple nodes
+typedef enum {DATA_PACKET, NEW_NODE_REQUEST_PACKET, NEW_NODE_RESPONSE_PACKET} tPacketType;
 
 #define PACKET_DATA_SIZE (PACKET_SIZE-10)
 typedef struct {

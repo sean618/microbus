@@ -19,13 +19,14 @@ typedef struct {
 
     // Rx buffer - a circular buffer to allow access by other threads
     
-    tPacket rxPacket[MAX_NODE_RX_PACKETS];
+    tPacket rxPackets[MAX_NODE_RX_PACKETS];
     uint8_t rxPacketsStart;
     uint8_t rxPacketsEnd;
+    uint8_t numRxPackets;
     
     // Stats
-    //uint32_t txPacketsSent;
-    //uint32_t rxPacketsReceived;
+    //uint64_t txPacketsSent;
+    uint64_t rxPacketsReceived;
     
     
     // Simulation only
