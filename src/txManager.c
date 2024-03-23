@@ -37,10 +37,10 @@
 // many of them in a microcontroller so there shouldn't be that many to search
 
 static tTxPacketEntry * findPacketEntry(tPacketStore * store, tNodeIndex dstNodeId, uint8_t seqNum) {
-    for (uint16_t packetIndex=0; packetIndex<store->numEntries; packetIndex++) {
+    for (uint16_t packetIndex=0; packetIndex<store->maxEntries; packetIndex++) {
         tTxPacketEntry * packetEntry = &store->entries[packetIndex];
         if (packetEntry->valid
-            && packetEntry->packet.dstNodeId == dstNodeId 
+            && packetEntry->packet.master.dstNodeId == dstNodeId 
             && packetEntry->packet.txSeqNum == seqNum) {
             return packetEntry;
         }
@@ -50,7 +50,7 @@ static tTxPacketEntry * findPacketEntry(tPacketStore * store, tNodeIndex dstNode
 }
 
 static tPacket * allocatePacketEntry(tPacketStore * store) {
-    for (uint16_t packetIndex=0; packetIndex<store->numEntries; packetIndex++) {
+    for (uint16_t packetIndex=0; packetIndex<store->maxEntries; packetIndex++) {
         if (!store->entries[packetIndex].valid) {
             store->entries[packetIndex].valid = true;
             store->numStored++;
@@ -72,15 +72,15 @@ static void freePacket(tPacketStore * store, tNodeIndex dstNodeId, uint8_t seqNu
 // Windowing/retransmit logic - Generic to both Master and Node
 
 void initTxManager(
-    tTxManager * manager,
-    uint8_t numTxNodes,
-    uint8_t txSeqNumStart[],
-    uint8_t txSeqNumEnd[],
-    uint8_t txSeqNumNext[],
-    uint8_t rxSeqNum[],
-    uint8_t numPacketEntries,
-    tTxPacketEntry packetEntries[]) {
-    
+        tTxManager * manager,
+        uint8_t numTxNodes,
+        uint8_t txSeqNumStart[],
+        uint8_t txSeqNumEnd[],
+        uint8_t txSeqNumNext[],
+        uint8_t rxSeqNum[],
+        uint8_t maxPacketEntries,
+        tTxPacketEntry packetEntries[]
+    ) {
     memset(manager, 0, sizeof(tTxManager));
     for (uint8_t i=0; i<numTxNodes; i++) {
         txSeqNumStart[i] = 0;
@@ -88,7 +88,7 @@ void initTxManager(
         txSeqNumNext[i] = 0;
         rxSeqNum[i] = 0;
     }
-    for (uint8_t i=0; i<numPacketEntries; i++) {
+    for (uint8_t i=0; i<maxPacketEntries; i++) {
         packetEntries[i].valid = false;
     }
     
@@ -97,27 +97,39 @@ void initTxManager(
     manager->txSeqNumEnd = txSeqNumEnd;
     manager->txSeqNumNext = txSeqNumNext;
     manager->rxSeqNum = rxSeqNum;
-    manager->packetStore.numEntries = numPacketEntries;
+    manager->packetStore.maxEntries = maxPacketEntries;
     manager->packetStore.entries = packetEntries;
 }
 
 // NOTE: called by independent thread!
-tPacket * allocateTxPacket(tTxManager * manager, tNodeIndex srcNodeId, tNodeIndex dstNodeId) {
+tPacket * allocateTxPacket(tTxManager * manager, uint8_t dstNodeId) {
     tPacket * packet = allocatePacketEntry(&manager->packetStore);
     if (packet == NULL) {
         //myAssert(0, "Tx buffer full");
         return NULL;
     }
-    packet->srcNodeId = srcNodeId;
-    packet->dstNodeId = dstNodeId;
+    if (manager->allocatedPacket != NULL) {
+        myAssert(0, "Allocated packet must be submitted before the next allocation");
+        return NULL;
+    }
+    manager->allocatedPacket = packet;
     packet->txSeqNum = manager->txSeqNumEnd[dstNodeId];
-    // Must be atomic
-    manager->txSeqNumEnd[dstNodeId]++;
     return packet;
 }
 
-// TODO: for the master rxSeqNum is for next tx slot node
-static tPacket * getNextTxPacketForNode(tPacketStore * store, tNodeIndex nodeId, uint8_t * txSeqNumStart, uint8_t * txSeqNumEnd, uint8_t * txSeqNumNext, uint8_t rxSeqNum) {
+void submitAllocatedTxPacket(tTxManager * manager, uint8_t dstNodeId) {
+    // Must be atomic
+    manager->txSeqNumEnd[dstNodeId]++;
+}
+
+static tPacket * getNextTxPacketForNode(
+                    tPacketStore * store,
+                    tNodeIndex nodeId,
+                    uint8_t nextTxNodeId[NUM_TX_NODES_SCHEDULED],
+                    uint8_t * txSeqNumStart,
+                    uint8_t * txSeqNumEnd,
+                    uint8_t * txSeqNumNext,
+                    uint8_t * rxSeqNum) {
     if (*txSeqNumNext == *txSeqNumEnd) {
         return NULL;
     }
@@ -125,17 +137,29 @@ static tPacket * getNextTxPacketForNode(tPacketStore * store, tNodeIndex nodeId,
     if (*txSeqNumNext == windowEnd) {
         return NULL;
     }
-    tTxPacketEntry * packetEntry = findPacketEntry(store, nodeId, *txSeqNumNext);
+    tTxPacketEntry * packetEntry = findPacketEntry(store,
+    nodeId, *txSeqNumNext);
     if (packetEntry == NULL) {
         myAssert(0, "Failed to find matching packet!");
         return NULL;
     }
     (*txSeqNumNext)++;
-    packetEntry->packet.ackSeqNum = rxSeqNum;
+    
+    // Master and Node do things a bit differently here. The master sends the rx ack
+    // for the nodes that are about to transmit. That way they are up to date before 
+    // they transmit. The node only has one rx seq num, and that's for the master
+    // Assume it's master if it's passed in nextTxNodeId
+    if (nextTxNodeId != NULL) {
+        for (uint8_t i=0; i<NUM_TX_NODES_SCHEDULED; i++) {
+            packetEntry->packet.master.nextTxNodeAckSeqNum[i] = rxSeqNum[nextTxNodeId[i]];
+        }
+    } else {
+        packetEntry->packet.node.ackSeqNum = rxSeqNum[nodeId];
+    }
     return &packetEntry->packet;
 }
 
-tPacket * getNextTxPacket(tTxManager * manager) {
+tPacket * getNextTxPacket(tTxManager * manager, uint8_t nextTxNodeId[NUM_TX_NODES_SCHEDULED]) {
     // Find next node to transmit to - by start with the last node that transmitted
     // and incrementing to find the next node that needs to transmit
     // This is all for the master - for a node this will all just be the same 
@@ -152,10 +176,11 @@ tPacket * getNextTxPacket(tTxManager * manager) {
         tPacket * packet = getNextTxPacketForNode(
                                 &manager->packetStore,
                                 dstNodeId,
+                                nextTxNodeId,
                                 &manager->txSeqNumStart[dstNodeId],
                                 &manager->txSeqNumEnd[dstNodeId],
                                 &manager->txSeqNumNext[dstNodeId],
-                                manager->rxSeqNum[dstNodeId]);
+                                manager->rxSeqNum);
         if (packet != NULL) {
             return packet;
         }
@@ -212,4 +237,16 @@ bool rxPacketCheckAndUpdateSeqNum(tTxManager * manager, tNodeIndex srcNodeId, ui
         return true;
     }
     return false;
+}
+
+uint8_t getNumInTxBuffer(tTxManager * manager, uint8_t dstNodeId) {
+    uint8_t num = manager->txSeqNumEnd[dstNodeId] - manager->txSeqNumStart[dstNodeId];
+    return num;
+}
+
+void txManagerRemoveNode(tTxManager * manager, uint8_t nodeId) {
+    manager->txSeqNumStart[nodeId] = 0;
+    manager->txSeqNumEnd[nodeId] = 0;
+    manager->txSeqNumNext[nodeId] = 0;
+    manager->rxSeqNum[nodeId] = 0;
 }

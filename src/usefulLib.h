@@ -20,26 +20,7 @@ void myAssert(uint32_t predicate, char * msg);
 #define CIRCULAR_BUFFER_FULL(head, tail, size) ((head) == INCR_AND_WRAP(tail, 1, size))
 #define CIRCULAR_BUFFER_EMPTY(head, tail, size) ((head) == (tail))
 #define CIRCULAR_BUFFER_LENGTH(head, tail, size) (DECR_AND_WRAP(tail, head, size))
-#define CIRCULAR_BUFFER_PEEK(entries, head) (&(entries)[(head)])
 
-#define INCR_BUFFER_TAIL(head, tail, size) {\
-    if (CIRCULAR_BUFFER_FULL(head, tail, size)) { \
-        myAssert(0, "Trying to add to full CIRCULAR_BUFFER"); \
-    } else { \
-        tail = INCR_AND_WRAP(tail, 1, size); \
-    } \
-}
-#define INCR_BUFFER_HEAD(head, tail, size) {\
-    if (CIRCULAR_BUFFER_EMPTY(head, tail, size)) { \
-        myAssert(0, "Trying to remove from empty CIRCULAR_BUFFER"); \
-    } else { \
-        head = INCR_AND_WRAP(head, 1, size); \
-    } \
-}
-
-
-
-// TODO: not very nice code
 #define CIRCULAR_BUFFER_ALLOCATE(newPtr, entries, head, tail, size) { \
     if (CIRCULAR_BUFFER_FULL(head, tail, size)) { \
         myAssert(0, "Trying to append to full CIRCULAR_BUFFER"); \
@@ -50,28 +31,37 @@ void myAssert(uint32_t predicate, char * msg);
 }
 
 #define CIRCULAR_BUFFER_APPEND(entries, head, tail, size, newEntry) { \
-    myAssert(!CIRCULAR_BUFFER_FULL(head, tail, size), "Trying to append to full CIRCULAR_BUFFER"); \
-    entries[tail] = newEntry; \
-    tail = INCR_AND_WRAP(tail, 1, size); \
+    if (CIRCULAR_BUFFER_FULL(head, tail, size)) { \
+        myAssert(0, "Trying to append to full CIRCULAR_BUFFER"); \
+    } else { \
+        entries[tail] = newEntry; \
+        tail = INCR_AND_WRAP(tail, 1, size); \
+    } \
 }
-#define CIRCULAR_BUFFER_SHIFT(head, tail, size) { \
-    myAssert(!CIRCULAR_BUFFER_EMPTY(head, tail, size), "Trying to shift from empty CIRCULAR_BUFFER"); \
-    tail = DECR_AND_WRAP(tail, 1, size); \
+
+#define CIRCULAR_BUFFER_PEEK(entry, entries, head, tail, size) { \
+    if (CIRCULAR_BUFFER_EMPTY(head, tail, size)) { \
+        entry = (&(entries)[(head)]); \
+    } else { \
+        entry = NULL; \
+    } \
 }
+
 #define CIRCULAR_BUFFER_POP(head, tail, size) { \
-    myAssert(!CIRCULAR_BUFFER_EMPTY(head, tail, size), "Trying to pop from empty CIRCULAR_BUFFER"); \
-    head = INCR_AND_WRAP(head, 1, size); \
+    if (CIRCULAR_BUFFER_EMPTY(head, tail, size)) { \
+        myAssert(0, "Trying to pop] from empty CIRCULAR_BUFFER"); \
+    } else { \
+        head = INCR_AND_WRAP(head, 1, size); \
+    } \
 }
 
-// #define BUFFER_FULL(buffer) (QUEUE_FULL((buffer).start, (buffer).end, (buffer).size))
-// #define BUFFER_EMPTY(buffer) (QUEUE_EMPTY((buffer).start, (buffer).end, (buffer).size))
-// #define BUFFER_LENGTH(buffer) (QUEUE_LENGTH((buffer).start, (buffer).end, (buffer).size))
-// #define BUFFER_APPEND(buffer, newEntry) (QUEUE_APPEND((buffer).entries, (buffer).start, (buffer).end, (buffer).size, newEntry))
-// #define BUFFER_PEEK(buffer) (QUEUE_PEEK((buffer).entries, (buffer).start))
-// #define BUFFER_POP(buffer) (QUEUE_POP((buffer).start, (buffer).end, (buffer).size))
-
-
-
+#define CIRCULAR_BUFFER_SHIFT(head, tail, size) { \
+    if (CIRCULAR_BUFFER_EMPTY(head, tail, size)) { \
+        myAssert(0, "Trying to shift from empty CIRCULAR_BUFFER"); \
+    } else { \
+        tail = DECR_AND_WRAP(tail, 1, size); \
+    } \
+}
 
 
 #endif

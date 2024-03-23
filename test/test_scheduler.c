@@ -2,97 +2,124 @@
 
 #include "stdlib.h"
 #include "unity.h"
-#include "simulator.h"
 #include "microbus.h"
+#include "node.h"
 #include "scheduler.h"
-#include "packetChecker.h"
 
-tSimulation sim = {0};
 
-void halSetPs(tMasterNode * master, bool val) {
-    setPs(&sim, master, val);
-}
-void halStartMasterTxRxDMA(tMasterNode * master, uint8_t * txData, uint8_t * rxData, uint32_t numBytes) {
-    startMasterTxRxDMA(&sim, master, txData, rxData, numBytes);
-}
-void halStartSlaveTxRxDMA(tNode * node, bool tx, uint8_t * txData, uint8_t * rxData, uint32_t numBytes) {
-    startSlaveTxRxDMA(&sim, node, tx, txData, rxData, numBytes);
-}
-void halStopNodeTxRxDMA(tNode * node) {
-    stopTxRxDMA(&sim, node);
-}
-
-// Not ideal - more weighting to lower values!
-uint32_t myRand(uint32_t max) {
-    if (max == 0)
-        return 0;
-    return (rand() % max); 
-}
-
-void checkSlaveScheduleMatches(tMasterSchedulerState * mScheduler, tNodeSchedulerState * sScheduler, 
-                                uint8_t slaveNumSlotEntries, uint32_t slaveTotalNumSlots) {
-    
-    TEST_ASSERT_EQUAL_UINT(true, sScheduler->initialised);
-    
-    TEST_ASSERT_EQUAL_UINT(0, sScheduler->expSchedulerPacketIndex);
-    TEST_ASSERT_EQUAL_UINT(mScheduler->schedulerPeriodInFrames, sScheduler->schedulerPeriodInFrames);
-    TEST_ASSERT_EQUAL_UINT(mScheduler->numSlotsPerFrame, sScheduler->numSlotsPerFrame);
-    TEST_ASSERT_EQUAL_UINT(slaveNumSlotEntries, sScheduler->numMySlotEntries);
-    uint32_t totalSlots = 0;
-    for (uint8_t i=0; i<sScheduler->numMySlotEntries; i++) {
-        totalSlots += sScheduler->mySlotLengths[i];
+void test_scheduler_5_equal_nodes(void) {
+    tNodeIndex nodesToTx[NUM_TX_NODES_SCHEDULED];
+    tSchedulerState scheduler = {0};
+    uint8_t nodeTTL[MAX_NODES] = {0};
+    // Create 5 nodes - First node is master
+    for (uint32_t i=1; i<6; i++) {
+        nodeTTL[i] = 0xFF;
     }
-    TEST_ASSERT_EQUAL_UINT(slaveTotalNumSlots, totalSlots);
-}
-
-void test_scheduler_packing_and_unpacking(void) {
-    printf("Starting\n");
     
-    for (uint8_t i=0; i<20; i++) {
-        tMasterSchedulerState mScheduler = {0};
-        tNodeSchedulerState sScheduler = {0};
-        
-        uint8_t slaveNodeId = myRand(MAX_NODES);
-        uint64_t slaveUniqueNodeId = ((uint64_t)rand() << 32) | rand();
-        
-        mScheduler.schedulerPeriodInFrames = rand();
-        mScheduler.numSlotsPerFrame = rand();
-        
-        mScheduler.numNewNodes = 1+myRand(MAX_NEW_NODE_ENTRIES-1);
-        uint8_t newNodeIndex = myRand(mScheduler.numNewNodes-1);
-        mScheduler.newNodeEntry[newNodeIndex].newNodeUniqueId = slaveUniqueNodeId;
-        mScheduler.newNodeEntry[newNodeIndex].newNodeId = slaveNodeId;
-        
-        mScheduler.numSlotEntries = myRand(MAX_SLOT_ENTRIES);
-        uint8_t slaveNumSlotEntries = 0;
-        uint32_t slaveTotalNumSlots = 0;
-        
-        for (uint16_t j=0; j<mScheduler.numSlotEntries; j++) {
-            uint8_t nodeId;
-            uint8_t numSlots = myRand(100);
-            
-            if (myRand(5) == 0 && slaveNumSlotEntries < MAX_NODE_SLOT_ENTRIES) {
-                nodeId = slaveNodeId;
-                slaveNumSlotEntries++;
-                slaveTotalNumSlots += numSlots;
-            } else {
-                do {
-                    nodeId = rand();
-                } while (nodeId == slaveNodeId);
-            }
-            mScheduler.slotEntry[j].nodeId = nodeId;
-            mScheduler.slotEntry[j].numSlots = numSlots;
+    // First test 5 equal nodes
+    for (uint32_t j=0; j<100; j++) {
+        for (uint32_t i=1; i<6; i++) {
+            schedulerUpdateAndCalcNextTxNodes(&scheduler, nodeTTL, MAX_NODES, nodesToTx);
+            // Check the next node to be scheduled is just going up incrementally
+            TEST_ASSERT_EQUAL_UINT(i, nodesToTx[0]);
         }
-        
-        uint8_t nodeId;
-        do {
-            tPacket packet = {0};
-            txNextSchedulerPacket(&mScheduler, &packet);
-            rxSchedulerPacket(&sScheduler, &packet, slaveUniqueNodeId, &nodeId);
-        } while (sScheduler.initialised == false);
-        
-        TEST_ASSERT_EQUAL_UINT(slaveNodeId, nodeId);
-        checkSlaveScheduleMatches(&mScheduler, &sScheduler, slaveNumSlotEntries, slaveTotalNumSlots);
     }
-    printf("Finished\n");
+    
 }
+
+void test_scheduler_with_different_ages(void) {
+    tNodeIndex nodesToTx[NUM_TX_NODES_SCHEDULED];
+    tSchedulerState scheduler = {0};
+    uint8_t nodeTTL[MAX_NODES] = {0};
+    // Create 5 nodes - First node is master
+    for (uint32_t i=1; i<6; i++) {
+        nodeTTL[i] = 0xFF;
+    }
+    // Test that the oldest is prioritised
+    for (uint32_t i=1; i<6; i++) {
+        scheduler.slotsSinceLastScheduled[i] = i+5;
+    }
+    for (uint32_t j=0; j<100; j++) {
+        for (uint32_t i=1; i<6; i++) {
+            schedulerUpdateAndCalcNextTxNodes(&scheduler, nodeTTL, MAX_NODES, nodesToTx);
+            // The order should now be 5, 4, 3, 2, 1
+            TEST_ASSERT_EQUAL_UINT(6-i, nodesToTx[0]);
+        }
+    }
+}
+
+void test_scheduler_with_different_buffer_levels_1(void) {
+    tNodeIndex nodesToTx[NUM_TX_NODES_SCHEDULED];
+    tSchedulerState scheduler = {0};
+    uint8_t nodeTTL[MAX_NODES] = {0};
+    // Create 5 nodes - First node is master
+    for (uint32_t i=1; i<6; i++) {
+        nodeTTL[i] = 0xFF;
+    }
+    // Test that the oldest is prioritised
+    for (uint32_t i=1; i<6; i++) {
+        scheduler.nodeTxBufferLevel[i] = i;
+    }
+    // Buffer levels are prioritised
+    // We expect the order to be:
+    uint8_t exp_nodes[20] = {
+        5,
+        4, 5,
+        3, 4, 5,
+        2, 3, 4, 5,
+        1, 2, 3, 4, 5,
+        1, 2, 3, 4, 5,
+    };
+    
+    for (uint32_t j=0; j<20; j++) {
+        schedulerUpdateAndCalcNextTxNodes(&scheduler, nodeTTL, MAX_NODES, nodesToTx);
+        //printf("J:%d, expected:%d, got:%d\n", j, exp_nodes[j], nodesToTx[0]);
+        TEST_ASSERT_EQUAL_UINT(exp_nodes[j], nodesToTx[0]);
+    }
+}
+void test_scheduler_with_different_buffer_levels_2(void) {
+    tNodeIndex nodesToTx[NUM_TX_NODES_SCHEDULED];
+    tSchedulerState scheduler = {0};
+    uint8_t nodeTTL[MAX_NODES] = {0};
+    // Create 5 nodes - First node is master
+    for (uint32_t i=1; i<6; i++) {
+        nodeTTL[i] = 0xFF;
+    }
+    scheduler.nodeTxBufferLevel[5] = 5;
+    scheduler.nodeTxBufferLevel[1] = 1;
+    
+    uint8_t exp_nodes[11] = {
+        5, 5, 5, 5, 1, 5, 2, 3, 4, 1, 5
+    };
+    
+    for (uint32_t j=0; j<11; j++) {
+        schedulerUpdateAndCalcNextTxNodes(&scheduler, nodeTTL, MAX_NODES, nodesToTx);
+        // printf("J:%d, expected:%d, got:%d\n", j, exp_nodes[j], nodesToTx[0]);
+        TEST_ASSERT_EQUAL_UINT(exp_nodes[j], nodesToTx[0]);
+    }
+}
+
+
+void test_scheduler_with_different_buffer_levels_and_max_latency(void) {
+    tNodeIndex nodesToTx[NUM_TX_NODES_SCHEDULED];
+    tSchedulerState scheduler = {0};
+    uint8_t nodeTTL[MAX_NODES] = {0};
+    // Create 2 nodes - First node is master
+    nodeTTL[1] = 0xFF;
+    nodeTTL[2] = 0xFF;
+    scheduler.nodeTxBufferLevel[1] = 10;
+    scheduler.nodeTxBufferLevel[2] = 0;
+    scheduler.slotsSinceLastScheduled[2] = MAX_SLOTS_PER_NODE_TX_CHANCE;
+    
+    uint8_t exp_nodes[5] = {
+        2, 1, 1, 1, 1, 
+    };
+    
+    for (uint32_t j=0; j<5; j++) {
+        schedulerUpdateAndCalcNextTxNodes(&scheduler, nodeTTL, MAX_NODES, nodesToTx);
+        //printf("J:%d, expected:%d, got:%d\n", j, exp_nodes[j], nodesToTx[0]);
+        TEST_ASSERT_EQUAL_UINT(exp_nodes[j], nodesToTx[0]);
+    }
+}
+
+

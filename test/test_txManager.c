@@ -3,6 +3,7 @@
 #include "stdbool.h"
 #include "stdint.h"
 #include "unity.h"
+#include "microbus.h"
 #include "txManager.h"
 #include "usefulLib.h"
 
@@ -31,7 +32,7 @@ void test_simple(void) {
     for (uint32_t i=0; i<100/2; i++) {
         tPacket * packet = getNextTxPacket(&manager);
         myAssert(packet != NULL, "");
-        rxAckSeqNum(&manager, dstNodeId, packet->txSeqNum);
+        rxAckSeqNum(&manager, dstNodeId, packet->master.txSeqNum);
     }
     TEST_ASSERT_EQUAL_UINT(manager.packetStore.numStored, manager.packetStore.numFreed);
 }
@@ -44,7 +45,7 @@ void test_continuous(void) {
         allocateTxPacket(&manager, 0, dstNodeId);
         tPacket * packet = getNextTxPacket(&manager);
         myAssert(packet != NULL, "");
-        rxAckSeqNum(&manager, dstNodeId, packet->txSeqNum);
+        rxAckSeqNum(&manager, dstNodeId, packet->master.txSeqNum);
     }
     TEST_ASSERT_EQUAL_UINT(manager.packetStore.numStored, manager.packetStore.numFreed);
 }
@@ -59,7 +60,7 @@ void test_multiple_nodes(void) {
     for (uint32_t i=0; i<100/2; i++) {
         tPacket * packet = getNextTxPacket(&manager);
         myAssert(packet != NULL, "");
-        rxAckSeqNum(&manager, packet->dstNodeId, packet->txSeqNum);
+        rxAckSeqNum(&manager, packet->master.dstNodeId, packet->master.txSeqNum);
     }
     TEST_ASSERT_EQUAL_UINT(manager.packetStore.numStored, manager.packetStore.numFreed);
 }
@@ -82,11 +83,11 @@ void test_simple_with_dropped_packets(void) {
                 // Skip tx
                 //printf("Skipping\n");
             } else {
-                //printf("Got:%u\n", packet->txSeqNum);
-                if (packet->txSeqNum == lastAckSeqNum + 1) {
-                    rxAckSeqNum(&manager, dstNodeId, packet->txSeqNum);
-                    //printf("Acked:%u\n", packet->txSeqNum);
-                    lastAckSeqNum = packet->txSeqNum;
+                //printf("Got:%u\n", packet->master.txSeqNum);
+                if (packet->master.txSeqNum == lastAckSeqNum + 1) {
+                    rxAckSeqNum(&manager, dstNodeId, packet->master.txSeqNum);
+                    //printf("Acked:%u\n", packet->master.txSeqNum);
+                    lastAckSeqNum = packet->master.txSeqNum;
 
                     if (manager.packetStore.numStored == manager.packetStore.numFreed) {
                         //printf("Cycles taken:%u for 100 packets with %u drops\n", i, drops);
@@ -128,8 +129,8 @@ void test_multiple_nodes_with_dropped_packets(void) {
                     if (myRand(10) == 0) {
                         // Skip tx
                     } else {
-                        if (packet->txSeqNum == lastAckSeqNum[packet->dstNodeId] + 1) {
-                            lastAckSeqNum[packet->dstNodeId] = packet->txSeqNum;
+                        if (packet->master.txSeqNum == lastAckSeqNum[packet->master.dstNodeId] + 1) {
+                            lastAckSeqNum[packet->master.dstNodeId] = packet->master.txSeqNum;
                         }
                     }
                 }
