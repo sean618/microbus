@@ -1,0 +1,37 @@
+Start testing: Nov 26 16:01 GMT
+----------------------------------------------------------
+1/1 Testing: MyTest
+1/1 Test: MyTest
+Command: "/Users/sean/Documents/PiPieces/microbus/build/MyTest"
+Directory: /Users/sean/Documents/PiPieces/microbus/build
+"MyTest" start time: Nov 26 16:01 GMT
+Output:
+----------------------------------------------------------
+Master BW: 0%
+Total Node BW: 72%
+Master BW: 48%
+Total Node BW: 48%
+Master BW: 63%
+Total Node BW: 0%
+Master BW: 44%
+Total Node BW: 0%
+Master BW: 99%
+Total Node BW: 96%
+Master BW: 83%
+Total Node BW: 97%
+test_full_system_with_master_restart, numNodes: 1
+test_full_system_with_master_restart, numNodes: 10
+test_full_system_with_node_restart, numNodes: 1
+test_full_system_with_node_restart, numNodes: 10
+test_full_system_with_nodes_disconnecting, numNodes: 10
+test_full_system_with_nodes_disconnecting, numNodes: 62
+test_full_system_with_rx_buffer_overflows, numNodes: 1, numPackets: 1000, numFramesToRun: 2000
+<end of output>
+Test time =   1.31 sec
+----------------------------------------------------------
+Test Passed.
+"MyTest" end time: Nov 26 16:01 GMT
+"MyTest" time elapsed: 00:00:01
+----------------------------------------------------------
+
+End testing: Nov 26 16:01 GMT

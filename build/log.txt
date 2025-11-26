@@ -1,0 +1,2288 @@
+Start
+[Cycle:0] Test
+[Cycle:0] test_fully_loaded_system, numNodes: 10, numPackets: 1000, numFramesToRun: 4000
+[Cycle:1] Master reset cycle
+[Cycle:1] Master, Tx packet:7, size:0, txSeqNum:0, dstNode:255, nextTxNode:0,0,0,0, nextTxNodeAckSeqNum:255,255,255,255,
+[Cycle:1] Node:254 - schedule: 0,0,0,255
+[Cycle:1] Node:254 - schedule: 0,0,0,255
+[Cycle:1] Node:254 - schedule: 0,0,0,255
+[Cycle:1] Node:254 - schedule: 0,0,0,255
+[Cycle:1] Node:254 - schedule: 0,0,0,255
+[Cycle:1] Node:254 - schedule: 0,0,0,255
+[Cycle:1] Node:254 - schedule: 0,0,0,255
+[Cycle:1] Node:254 - schedule: 0,0,0,255
+[Cycle:1] Node:254 - schedule: 0,0,0,255
+[Cycle:1] Node:254 - schedule: 0,0,0,255
+[Cycle:2] Master reset cycle
+[Cycle:2] Master, Tx packet:7, size:0, txSeqNum:0, dstNode:255, nextTxNode:0,0,0,0, nextTxNodeAckSeqNum:255,255,255,255,
+[Cycle:2] Node:254 - schedule: 0,0,255,255
+[Cycle:2] Node:254 - schedule: 0,0,255,255
+[Cycle:2] Node:254 - schedule: 0,0,255,255
+[Cycle:2] Node:254 - schedule: 0,0,255,255
+[Cycle:2] Node:254 - schedule: 0,0,255,255
+[Cycle:2] Node:254 - schedule: 0,0,255,255
+[Cycle:2] Node:254 - schedule: 0,0,255,255
+[Cycle:2] Node:254 - schedule: 0,0,255,255
+[Cycle:2] Node:254 - schedule: 0,0,255,255
+[Cycle:2] Node:254 - schedule: 0,0,255,255
+[Cycle:3] Master reset cycle
+[Cycle:3] Master, Tx packet:7, size:0, txSeqNum:0, dstNode:255, nextTxNode:0,0,0,0, nextTxNodeAckSeqNum:255,255,255,255,
+[Cycle:3] Node:254 - schedule: 0,255,255,255
+[Cycle:3] Node:254 - schedule: 0,255,255,255
+[Cycle:3] Node:254 - schedule: 0,255,255,255
+[Cycle:3] Node:254 - schedule: 0,255,255,255
+[Cycle:3] Node:254 - schedule: 0,255,255,255
+[Cycle:3] Node:254 - schedule: 0,255,255,255
+[Cycle:3] Node:254 - schedule: 0,255,255,255
+[Cycle:3] Node:254 - schedule: 0,255,255,255
+[Cycle:3] Node:254 - schedule: 0,255,255,255
+[Cycle:3] Node:254 - schedule: 0,255,255,255
+[Cycle:4] Master reset cycle
+[Cycle:4] Master, Tx packet:7, size:0, txSeqNum:0, dstNode:255, nextTxNode:0,0,0,0, nextTxNodeAckSeqNum:255,255,255,255,
+[Cycle:4] Node:254 - schedule: 255,255,255,255
+[Cycle:4] Node:254 - schedule: 255,255,255,255
+[Cycle:4] Node:254 - schedule: 255,255,255,255
+[Cycle:4] Node:254 - schedule: 255,255,255,255
+[Cycle:4] Node:254 - schedule: 255,255,255,255
+[Cycle:4] Node:254 - schedule: 255,255,255,255
+[Cycle:4] Node:254 - schedule: 255,255,255,255
+[Cycle:4] Node:254 - schedule: 255,255,255,255
+[Cycle:4] Node:254 - schedule: 255,255,255,255
+[Cycle:4] Node:254 - schedule: 255,255,255,255
+[Cycle:5] Master reset cycle
+[Cycle:5] Master, Tx packet:7, size:0, txSeqNum:0, dstNode:255, nextTxNode:0,0,0,0, nextTxNodeAckSeqNum:255,255,255,255,
+[Cycle:5] Node:254 - schedule: 255,255,255,255
+[Cycle:5] Node:254 - schedule: 255,255,255,255
+[Cycle:5] Node:254 - schedule: 255,255,255,255
+[Cycle:5] Node:254 - schedule: 255,255,255,255
+[Cycle:5] Node:254 - schedule: 255,255,255,255
+[Cycle:5] Node:254 - schedule: 255,255,255,255
+[Cycle:5] Node:254 - schedule: 255,255,255,255
+[Cycle:5] Node:254 - schedule: 255,255,255,255
+[Cycle:5] Node:254 - schedule: 255,255,255,255
+[Cycle:5] Node:254 - schedule: 255,255,255,255
+[Cycle:6] Master reset cycle
+[Cycle:6] Master, Tx packet:7, size:0, txSeqNum:0, dstNode:255, nextTxNode:0,0,0,0, nextTxNodeAckSeqNum:255,255,255,255,
+[Cycle:6] Node:254 - schedule: 255,255,255,255
+[Cycle:6] Node:254 - schedule: 255,255,255,255
+[Cycle:6] Node:254 - schedule: 255,255,255,255
+[Cycle:6] Node:254 - schedule: 255,255,255,255
+[Cycle:6] Node:254 - schedule: 255,255,255,255
+[Cycle:6] Node:254 - schedule: 255,255,255,255
+[Cycle:6] Node:254 - schedule: 255,255,255,255
+[Cycle:6] Node:254 - schedule: 255,255,255,255
+[Cycle:6] Node:254 - schedule: 255,255,255,255
+[Cycle:6] Node:254 - schedule: 255,255,255,255
+[Cycle:7] Master reset cycle
+[Cycle:7] Master, Tx packet:7, size:0, txSeqNum:0, dstNode:255, nextTxNode:0,0,0,0, nextTxNodeAckSeqNum:255,255,255,255,
+[Cycle:7] Node:254 - schedule: 255,255,255,255
+[Cycle:7] Node:254 - schedule: 255,255,255,255
+[Cycle:7] Node:254 - schedule: 255,255,255,255
+[Cycle:7] Node:254 - schedule: 255,255,255,255
+[Cycle:7] Node:254 - schedule: 255,255,255,255
+[Cycle:7] Node:254 - schedule: 255,255,255,255
+[Cycle:7] Node:254 - schedule: 255,255,255,255
+[Cycle:7] Node:254 - schedule: 255,255,255,255
+[Cycle:7] Node:254 - schedule: 255,255,255,255
+[Cycle:7] Node:254 - schedule: 255,255,255,255
+[Cycle:8] Master reset cycle
+[Cycle:8] Master, Tx packet:7, size:0, txSeqNum:0, dstNode:255, nextTxNode:0,0,0,0, nextTxNodeAckSeqNum:255,255,255,255,
+[Cycle:8] Node:254 - schedule: 255,255,255,255
+[Cycle:8] Node:254 - schedule: 255,255,255,255
+[Cycle:8] Node:254 - schedule: 255,255,255,255
+[Cycle:8] Node:254 - schedule: 255,255,255,255
+[Cycle:8] Node:254 - schedule: 255,255,255,255
+[Cycle:8] Node:254 - schedule: 255,255,255,255
+[Cycle:8] Node:254 - schedule: 255,255,255,255
+[Cycle:8] Node:254 - schedule: 255,255,255,255
+[Cycle:8] Node:254 - schedule: 255,255,255,255
+[Cycle:8] Node:254 - schedule: 255,255,255,255
+[Cycle:9] Master reset cycle
+[Cycle:9] Master, Tx packet:7, size:0, txSeqNum:0, dstNode:255, nextTxNode:0,0,0,0, nextTxNodeAckSeqNum:255,255,255,255,
+[Cycle:9] Node:254 - schedule: 255,255,255,255
+[Cycle:9] Node:254 - schedule: 255,255,255,255
+[Cycle:9] Node:254 - schedule: 255,255,255,255
+[Cycle:9] Node:254 - schedule: 255,255,255,255
+[Cycle:9] Node:254 - schedule: 255,255,255,255
+[Cycle:9] Node:254 - schedule: 255,255,255,255
+[Cycle:9] Node:254 - schedule: 255,255,255,255
+[Cycle:9] Node:254 - schedule: 255,255,255,255
+[Cycle:9] Node:254 - schedule: 255,255,255,255
+[Cycle:9] Node:254 - schedule: 255,255,255,255
+[Cycle:10] Master reset cycle
+[Cycle:10] Master, Tx packet:7, size:0, txSeqNum:0, dstNode:255, nextTxNode:0,0,0,0, nextTxNodeAckSeqNum:255,255,255,255,
+[Cycle:10] Node:254 - schedule: 255,255,255,255
+[Cycle:10] Node:254 - schedule: 255,255,255,255
+[Cycle:10] Node:254 - schedule: 255,255,255,255
+[Cycle:10] Node:254 - schedule: 255,255,255,255
+[Cycle:10] Node:254 - schedule: 255,255,255,255
+[Cycle:10] Node:254 - schedule: 255,255,255,255
+[Cycle:10] Node:254 - schedule: 255,255,255,255
+[Cycle:10] Node:254 - schedule: 255,255,255,255
+[Cycle:10] Node:254 - schedule: 255,255,255,255
+[Cycle:10] Node:254 - schedule: 255,255,255,255
+[Cycle:11] Master reset cycle
+[Cycle:11] Master, Tx packet:7, size:0, txSeqNum:0, dstNode:255, nextTxNode:0,0,0,0, nextTxNodeAckSeqNum:255,255,255,255,
+[Cycle:11] Node:254 - schedule: 255,255,255,255
+[Cycle:11] Node:254 - schedule: 255,255,255,255
+[Cycle:11] Node:254 - schedule: 255,255,255,255
+[Cycle:11] Node:254 - schedule: 255,255,255,255
+[Cycle:11] Node:254 - schedule: 255,255,255,255
+[Cycle:11] Node:254 - schedule: 255,255,255,255
+[Cycle:11] Node:254 - schedule: 255,255,255,255
+[Cycle:11] Node:254 - schedule: 255,255,255,255
+[Cycle:11] Node:254 - schedule: 255,255,255,255
+[Cycle:11] Node:254 - schedule: 255,255,255,255
+[Cycle:12] Master reset cycle
+[Cycle:12] Master, Tx packet:7, size:0, txSeqNum:0, dstNode:255, nextTxNode:0,0,0,0, nextTxNodeAckSeqNum:255,255,255,255,
+[Cycle:12] Node:254 - schedule: 255,255,255,255
+[Cycle:12] Node:254 - schedule: 255,255,255,255
+[Cycle:12] Node:254 - schedule: 255,255,255,255
+[Cycle:12] Node:254 - schedule: 255,255,255,255
+[Cycle:12] Node:254 - schedule: 255,255,255,255
+[Cycle:12] Node:254 - schedule: 255,255,255,255
+[Cycle:12] Node:254 - schedule: 255,255,255,255
+[Cycle:12] Node:254 - schedule: 255,255,255,255
+[Cycle:12] Node:254 - schedule: 255,255,255,255
+[Cycle:12] Node:254 - schedule: 255,255,255,255
+[Cycle:13] Master reset cycle
+[Cycle:13] Master, Tx packet:7, size:0, txSeqNum:0, dstNode:255, nextTxNode:0,0,0,0, nextTxNodeAckSeqNum:255,255,255,255,
+[Cycle:13] Node:254 - schedule: 255,255,255,255
+[Cycle:13] Node:254 - schedule: 255,255,255,255
+[Cycle:13] Node:254 - schedule: 255,255,255,255
+[Cycle:13] Node:254 - schedule: 255,255,255,255
+[Cycle:13] Node:254 - schedule: 255,255,255,255
+[Cycle:13] Node:254 - schedule: 255,255,255,255
+[Cycle:13] Node:254 - schedule: 255,255,255,255
+[Cycle:13] Node:254 - schedule: 255,255,255,255
+[Cycle:13] Node:254 - schedule: 255,255,255,255
+[Cycle:13] Node:254 - schedule: 255,255,255,255
+[Cycle:14] Master reset cycle
+[Cycle:14] Master, Tx packet:7, size:0, txSeqNum:0, dstNode:255, nextTxNode:0,0,0,0, nextTxNodeAckSeqNum:255,255,255,255,
+[Cycle:14] Node:254 - schedule: 255,255,255,255
+[Cycle:14] Node:254 - schedule: 255,255,255,255
+[Cycle:14] Node:254 - schedule: 255,255,255,255
+[Cycle:14] Node:254 - schedule: 255,255,255,255
+[Cycle:14] Node:254 - schedule: 255,255,255,255
+[Cycle:14] Node:254 - schedule: 255,255,255,255
+[Cycle:14] Node:254 - schedule: 255,255,255,255
+[Cycle:14] Node:254 - schedule: 255,255,255,255
+[Cycle:14] Node:254 - schedule: 255,255,255,255
+[Cycle:14] Node:254 - schedule: 255,255,255,255
+[Cycle:15] Master reset cycle
+[Cycle:15] Master, Tx packet:7, size:0, txSeqNum:0, dstNode:255, nextTxNode:0,0,0,0, nextTxNodeAckSeqNum:255,255,255,255,
+[Cycle:15] Node:254 - schedule: 255,255,255,255
+[Cycle:15] Node:254 - schedule: 255,255,255,255
+[Cycle:15] Node:254 - schedule: 255,255,255,255
+[Cycle:15] Node:254 - schedule: 255,255,255,255
+[Cycle:15] Node:254 - schedule: 255,255,255,255
+[Cycle:15] Node:254 - schedule: 255,255,255,255
+[Cycle:15] Node:254 - schedule: 255,255,255,255
+[Cycle:15] Node:254 - schedule: 255,255,255,255
+[Cycle:15] Node:254 - schedule: 255,255,255,255
+[Cycle:15] Node:254 - schedule: 255,255,255,255
+[Cycle:16] Master reset cycle
+[Cycle:16] Master, Tx packet:7, size:0, txSeqNum:0, dstNode:255, nextTxNode:0,0,0,0, nextTxNodeAckSeqNum:255,255,255,255,
+[Cycle:16] Node:254 - schedule: 255,255,255,255
+[Cycle:16] Node:254 - schedule: 255,255,255,255
+[Cycle:16] Node:254 - schedule: 255,255,255,255
+[Cycle:16] Node:254 - schedule: 255,255,255,255
+[Cycle:16] Node:254 - schedule: 255,255,255,255
+[Cycle:16] Node:254 - schedule: 255,255,255,255
+[Cycle:16] Node:254 - schedule: 255,255,255,255
+[Cycle:16] Node:254 - schedule: 255,255,255,255
+[Cycle:16] Node:254 - schedule: 255,255,255,255
+[Cycle:16] Node:254 - schedule: 255,255,255,255
+[Cycle:17] Master reset cycle
+[Cycle:17] Master, Tx packet:7, size:0, txSeqNum:0, dstNode:255, nextTxNode:0,0,0,0, nextTxNodeAckSeqNum:255,255,255,255,
+[Cycle:17] Node:254 - schedule: 255,255,255,255
+[Cycle:17] Node:254 - schedule: 255,255,255,255
+[Cycle:17] Node:254 - schedule: 255,255,255,255
+[Cycle:17] Node:254 - schedule: 255,255,255,255
+[Cycle:17] Node:254 - schedule: 255,255,255,255
+[Cycle:17] Node:254 - schedule: 255,255,255,255
+[Cycle:17] Node:254 - schedule: 255,255,255,255
+[Cycle:17] Node:254 - schedule: 255,255,255,255
+[Cycle:17] Node:254 - schedule: 255,255,255,255
+[Cycle:17] Node:254 - schedule: 255,255,255,255
+[Cycle:18] Master reset cycle
+[Cycle:18] Master, Tx packet:7, size:0, txSeqNum:0, dstNode:255, nextTxNode:0,0,0,0, nextTxNodeAckSeqNum:255,255,255,255,
+[Cycle:18] Node:254 - schedule: 255,255,255,255
+[Cycle:18] Node:254 - schedule: 255,255,255,255
+[Cycle:18] Node:254 - schedule: 255,255,255,255
+[Cycle:18] Node:254 - schedule: 255,255,255,255
+[Cycle:18] Node:254 - schedule: 255,255,255,255
+[Cycle:18] Node:254 - schedule: 255,255,255,255
+[Cycle:18] Node:254 - schedule: 255,255,255,255
+[Cycle:18] Node:254 - schedule: 255,255,255,255
+[Cycle:18] Node:254 - schedule: 255,255,255,255
+[Cycle:18] Node:254 - schedule: 255,255,255,255
+[Cycle:19] Master reset cycle
+[Cycle:19] Master, Tx packet:7, size:0, txSeqNum:0, dstNode:255, nextTxNode:0,0,0,0, nextTxNodeAckSeqNum:255,255,255,255,
+[Cycle:19] Node:254 - schedule: 255,255,255,255
+[Cycle:19] Node:254 - schedule: 255,255,255,255
+[Cycle:19] Node:254 - schedule: 255,255,255,255
+[Cycle:19] Node:254 - schedule: 255,255,255,255
+[Cycle:19] Node:254 - schedule: 255,255,255,255
+[Cycle:19] Node:254 - schedule: 255,255,255,255
+[Cycle:19] Node:254 - schedule: 255,255,255,255
+[Cycle:19] Node:254 - schedule: 255,255,255,255
+[Cycle:19] Node:254 - schedule: 255,255,255,255
+[Cycle:19] Node:254 - schedule: 255,255,255,255
+[Cycle:20] Master reset cycle
+[Cycle:20] Master scheduling buffer level:0
+[Cycle:20] Master - schedule 0,0,0,255,0,0
+[Cycle:20] Master, Tx packet:7, size:0, txSeqNum:0, dstNode:255, nextTxNode:0,0,0,255, nextTxNodeAckSeqNum:255,255,255,255,
+[Cycle:20] Node:254 - schedule: 255,255,255,255
+[Cycle:20] Node:254 - schedule: 255,255,255,255
+[Cycle:20] Node:254 - schedule: 255,255,255,255
+[Cycle:20] Node:254 - schedule: 255,255,255,255
+[Cycle:20] Node:254 - schedule: 255,255,255,255
+[Cycle:20] Node:254 - schedule: 255,255,255,255
+[Cycle:20] Node:254 - schedule: 255,255,255,255
+[Cycle:20] Node:254 - schedule: 255,255,255,255
+[Cycle:20] Node:254 - schedule: 255,255,255,255
+[Cycle:20] Node:254 - schedule: 255,255,255,255
+[Cycle:21] Master: no active tx nodes
+[Cycle:21] Master Tx Empty packet
+[Cycle:21] Master scheduling buffer level:0
+[Cycle:21] Master - schedule 0,0,255,255,0,0
+[Cycle:21] Master, Tx packet:3, size:0, txSeqNum:0, dstNode:255, nextTxNode:0,0,255,255, nextTxNodeAckSeqNum:255,255,255,255,
+[Cycle:21] Node:254 - schedule: 255,255,255,255
+[Cycle:21] Node:254 - schedule: 255,255,255,255
+[Cycle:21] Node:254 - schedule: 255,255,255,255
+[Cycle:21] Node:254 - schedule: 255,255,255,255
+[Cycle:21] Node:254 - schedule: 255,255,255,255
+[Cycle:21] Node:254 - schedule: 255,255,255,255
+[Cycle:21] Node:254 - schedule: 255,255,255,255
+[Cycle:21] Node:254 - schedule: 255,255,255,255
+[Cycle:21] Node:254 - schedule: 255,255,255,255
+[Cycle:21] Node:254 - schedule: 255,255,255,255
+[Cycle:22] Master: no active tx nodes
+[Cycle:22] Master Tx Empty packet
+[Cycle:22] Master scheduling ALLOCATION
+[Cycle:22] Master - schedule 0,255,255,254,0,0
+[Cycle:22] Master, Tx packet:3, size:0, txSeqNum:0, dstNode:255, nextTxNode:0,255,255,254, nextTxNodeAckSeqNum:255,255,255,255,
+[Cycle:22] Node:254 - schedule: 0,255,255,255
+[Cycle:22] Node:254 - schedule: 0,255,255,255
+[Cycle:22] Node:254 - schedule: 0,255,255,255
+[Cycle:22] Node:254 - schedule: 0,255,255,255
+[Cycle:22] Node:254 - schedule: 0,255,255,255
+[Cycle:22] Node:254 - schedule: 0,255,255,255
+[Cycle:22] Node:254 - schedule: 0,255,255,255
+[Cycle:22] Node:254 - schedule: 0,255,255,255
+[Cycle:22] Node:254 - schedule: 0,255,255,255
+[Cycle:22] Node:254 - schedule: 0,255,255,255
+[Cycle:23] Master: no active tx nodes
+[Cycle:23] Master Tx Empty packet
+[Cycle:23] Master - schedule 255,255,254,0,0,0
+[Cycle:23] Master, Tx packet:3, size:0, txSeqNum:0, dstNode:255, nextTxNode:255,255,254,0, nextTxNodeAckSeqNum:255,255,255,255,
+[Cycle:23] Node:254 - schedule: 255,255,254,255
+[Cycle:23] Node:254 - schedule: 255,255,254,255
+[Cycle:23] Node:254 - schedule: 255,255,254,255
+[Cycle:23] Node:254 - schedule: 255,255,254,255
+[Cycle:23] Node:254 - schedule: 255,255,254,255
+[Cycle:23] Node:254 - schedule: 255,255,254,255
+[Cycle:23] Node:254 - schedule: 255,255,254,255
+[Cycle:23] Node:254 - schedule: 255,255,254,255
+[Cycle:23] Node:254 - schedule: 255,255,254,255
+[Cycle:23] Node:254 - schedule: 255,255,254,255
+[Cycle:24] Master scheduling buffer level:0
+[Cycle:24] Master - schedule 255,254,0,255,0,0
+[Cycle:24] Node:254 - schedule: 255,254,0,255
+[Cycle:24] Node:254 - schedule: 255,254,0,255
+[Cycle:24] Node:254 - schedule: 255,254,0,255
+[Cycle:24] Node:254 - schedule: 255,254,0,255
+[Cycle:24] Node:254 - schedule: 255,254,0,255
+[Cycle:24] Node:254 - schedule: 255,254,0,255
+[Cycle:24] Node:254 - schedule: 255,254,0,255
+[Cycle:24] Node:254 - schedule: 255,254,0,255
+[Cycle:24] Node:254 - schedule: 255,254,0,255
+[Cycle:24] Node:254 - schedule: 255,254,0,255
+[Cycle:25] Master scheduling ALLOCATION
+[Cycle:25] Master - schedule 254,0,255,254,0,0
+[Cycle:25] Node:254 - schedule: 254,0,255,255
+[Cycle:25] Node:254 - schedule: 254,0,255,255
+[Cycle:25] Node:254 - schedule: 254,0,255,255
+[Cycle:25] Node:254 - schedule: 254,0,255,255
+[Cycle:25] Node:254 - schedule: 254,0,255,255
+[Cycle:25] Node:254 - schedule: 254,0,255,255
+[Cycle:25] Node:254 - schedule: 254,0,255,255
+[Cycle:25] Node:254 - schedule: 254,0,255,255
+[Cycle:25] Node:254 - schedule: 254,0,255,255
+[Cycle:25] Node:254 - schedule: 254,0,255,255
+[Cycle:26] Master scheduling buffer level:0
+[Cycle:26] Master - schedule 0,255,254,255,0,0
+[Cycle:26] Node:254 - schedule: 0,255,255,255
+[Cycle:26] Node:254,            Tx packet:0, size:0, txSeqNum:0, ackSeqNum:255, bufferLevel:0
+[Cycle:26] Node:254 - schedule: 0,255,255,255
+[Cycle:26] Node:254,            Tx packet:0, size:0, txSeqNum:0, ackSeqNum:255, bufferLevel:0
+[Cycle:26] Overlap occurred
+[Cycle:26] Node:254 - schedule: 0,255,255,255
+[Cycle:26] Node:254,            Tx packet:0, size:0, txSeqNum:0, ackSeqNum:255, bufferLevel:0
+[Cycle:26] Overlap occurred
+[Cycle:26] Node:254 - schedule: 0,255,255,255
+[Cycle:26] Node:254,            Tx packet:0, size:0, txSeqNum:0, ackSeqNum:255, bufferLevel:0
+[Cycle:26] Overlap occurred
+[Cycle:26] Node:254 - schedule: 0,255,255,255
+[Cycle:26] Node:254,            Tx packet:0, size:0, txSeqNum:0, ackSeqNum:255, bufferLevel:0
+[Cycle:26] Overlap occurred
+[Cycle:26] Node:254 - schedule: 0,255,255,255
+[Cycle:26] Node:254,            Tx packet:0, size:0, txSeqNum:0, ackSeqNum:255, bufferLevel:0
+[Cycle:26] Overlap occurred
+[Cycle:26] Node:254 - schedule: 0,255,255,255
+[Cycle:26] Node:254,            Tx packet:0, size:0, txSeqNum:0, ackSeqNum:255, bufferLevel:0
+[Cycle:26] Overlap occurred
+[Cycle:26] Node:254 - schedule: 0,255,255,255
+[Cycle:26] Node:254,            Tx packet:0, size:0, txSeqNum:0, ackSeqNum:255, bufferLevel:0
+[Cycle:26] Overlap occurred
+[Cycle:26] Node:254 - schedule: 0,255,255,255
+[Cycle:26] Node:254,            Tx packet:0, size:0, txSeqNum:0, ackSeqNum:255, bufferLevel:0
+[Cycle:26] Overlap occurred
+[Cycle:26] Node:254 - schedule: 0,255,255,255
+[Cycle:26] Node:254,            Tx packet:0, size:0, txSeqNum:0, ackSeqNum:255, bufferLevel:0
+[Cycle:26] Overlap occurred
+[Cycle:27] Master: no active tx nodes
+[Cycle:27] Master Tx Empty packet
+[Cycle:27] Master - schedule 255,254,255,0,0,0
+[Cycle:27] Master, Tx packet:3, size:0, txSeqNum:0, dstNode:255, nextTxNode:255,254,255,0, nextTxNodeAckSeqNum:255,255,255,255,
+[Cycle:27] Node, Tx new node request: 0x41a710d63af1
+[Cycle:27] Node:254 - schedule: 255,255,255,255
+[Cycle:27] Node, Tx new node request: 0x60b7acd93ab50c2a
+[Cycle:27] Node:254 - schedule: 255,255,255,255
+[Cycle:27] Node, Tx new node request: 0x4431b7821c06dac8
+[Cycle:27] Node:254 - schedule: 255,255,255,255
+[Cycle:27] Node, Tx new node request: 0x6058ed856e509fe
+[Cycle:27] Node:254 - schedule: 255,255,255,255
+[Cycle:27] Node, Tx new node request: 0x56f32f4377a4044d
+[Cycle:27] Node:254 - schedule: 255,255,255,255
+[Cycle:27] Node, Tx new node request: 0x31169898427c3c55
+[Cycle:27] Node:254 - schedule: 255,255,255,255
+[Cycle:27] Node, Tx new node request: 0x6a5d128c046cdbe2
+[Cycle:27] Node:254 - schedule: 255,255,255,255
+[Cycle:27] Node, Tx new node request: 0x6d7d4b343cd3747
+[Cycle:27] Node:254 - schedule: 255,255,255,255
+[Cycle:27] Node, Tx new node request: 0x55e8391700fc4111
+[Cycle:27] Node:254 - schedule: 255,255,255,255
+[Cycle:27] Node, Tx new node request: 0x3113c398088e4954
+[Cycle:27] Node:254 - schedule: 255,255,255,255
+[Cycle:28] Master scheduling ALLOCATION
+[Cycle:28] Master - schedule 254,255,0,254,0,0
+[Cycle:28] Node:254 - schedule: 254,255,0,255
+[Cycle:28] Node:254 - schedule: 254,255,0,255
+[Cycle:28] Node:254 - schedule: 254,255,0,255
+[Cycle:28] Node:254 - schedule: 254,255,0,255
+[Cycle:28] Node:254 - schedule: 254,255,0,255
+[Cycle:28] Node:254 - schedule: 254,255,0,255
+[Cycle:28] Node:254 - schedule: 254,255,0,255
+[Cycle:28] Node:254 - schedule: 254,255,0,255
+[Cycle:28] Node:254 - schedule: 254,255,0,255
+[Cycle:28] Node:254 - schedule: 254,255,0,255
+[Cycle:29] Master scheduling buffer level:0
+[Cycle:29] Master - schedule 255,0,254,255,0,0
+[Cycle:29] Node:254 - schedule: 255,0,255,255
+[Cycle:29] Node:254,            Tx packet:5, size:9, txSeqNum:0, ackSeqNum:255, bufferLevel:0, data:f13ad610a74100000000
+[Cycle:29] Node:254 - schedule: 255,0,255,255
+[Cycle:29] Node:254,            Tx packet:5, size:9, txSeqNum:0, ackSeqNum:255, bufferLevel:0, data:2a0cb53ad9acb7600000
+[Cycle:29] Overlap occurred
+[Cycle:29] Node:254 - schedule: 255,0,255,255
+[Cycle:29] Node:254,            Tx packet:5, size:9, txSeqNum:0, ackSeqNum:255, bufferLevel:0, data:c8da061c82b731440000
+[Cycle:29] Overlap occurred
+[Cycle:29] Node:254 - schedule: 255,0,255,255
+[Cycle:29] Node:254,            Tx packet:5, size:9, txSeqNum:0, ackSeqNum:255, bufferLevel:0, data:fe09e556d88e05060000
+[Cycle:29] Overlap occurred
+[Cycle:29] Node:254 - schedule: 255,0,255,255
+[Cycle:29] Node:254,            Tx packet:5, size:9, txSeqNum:0, ackSeqNum:255, bufferLevel:0, data:4d04a477432ff3560000
+[Cycle:29] Overlap occurred
+[Cycle:29] Node:254 - schedule: 255,0,255,255
+[Cycle:29] Node:254,            Tx packet:5, size:9, txSeqNum:0, ackSeqNum:255, bufferLevel:0, data:553c7c42989816310000
+[Cycle:29] Overlap occurred
+[Cycle:29] Node:254 - schedule: 255,0,255,255
+[Cycle:29] Node:254,            Tx packet:5, size:9, txSeqNum:0, ackSeqNum:255, bufferLevel:0, data:e2db6c048c125d6a0000
+[Cycle:29] Overlap occurred
+[Cycle:29] Node:254 - schedule: 255,0,255,255
+[Cycle:29] Node:254,            Tx packet:5, size:9, txSeqNum:0, ackSeqNum:255, bufferLevel:0, data:4737cd43b3d4d7060000
+[Cycle:29] Overlap occurred
+[Cycle:29] Node:254 - schedule: 255,0,255,255
+[Cycle:29] Node:254,            Tx packet:5, size:9, txSeqNum:0, ackSeqNum:255, bufferLevel:0, data:1141fc001739e8550000
+[Cycle:29] Overlap occurred
+[Cycle:29] Node:254 - schedule: 255,0,255,255
+[Cycle:29] Node:254,            Tx packet:5, size:9, txSeqNum:0, ackSeqNum:255, bufferLevel:0, data:54498e0898c313310000
+[Cycle:29] Overlap occurred
+[Cycle:30] Master scheduling ALLOCATION
+[Cycle:30] Master - schedule 0,254,255,254,0,0
+[Cycle:30] Node:254 - schedule: 0,255,255,255
+[Cycle:30] Node:254 - schedule: 0,255,255,255
+[Cycle:30] Node:254 - schedule: 0,255,255,255
+[Cycle:30] Node:254 - schedule: 0,255,255,255
+[Cycle:30] Node:254 - schedule: 0,255,255,255
+[Cycle:30] Node:254 - schedule: 0,255,255,255
+[Cycle:30] Node:254 - schedule: 0,255,255,255
+[Cycle:30] Node:254 - schedule: 0,255,255,255
+[Cycle:30] Node:254 - schedule: 0,255,255,255
+[Cycle:30] Node:254 - schedule: 0,255,255,255
+[Cycle:31] Master: no active tx nodes
+[Cycle:31] Master Tx Empty packet
+[Cycle:31] Master - schedule 254,255,254,0,0,0
+[Cycle:31] Master, Tx packet:3, size:0, txSeqNum:0, dstNode:255, nextTxNode:254,255,254,0, nextTxNodeAckSeqNum:255,255,255,255,
+[Cycle:31] Node:254 - schedule: 255,255,255,255
+[Cycle:31] Node:254 - schedule: 255,255,255,255
+[Cycle:31] Node:254 - schedule: 255,255,255,255
+[Cycle:31] Node:254 - schedule: 255,255,255,255
+[Cycle:31] Node:254 - schedule: 255,255,255,255
+[Cycle:31] Node:254 - schedule: 255,255,255,255
+[Cycle:31] Node:254 - schedule: 255,255,255,255
+[Cycle:31] Node:254 - schedule: 255,255,255,255
+[Cycle:31] Node:254 - schedule: 255,255,255,255
+[Cycle:31] Node:254 - schedule: 255,255,255,255
+[Cycle:32] Master scheduling buffer level:0
+[Cycle:32] Master - schedule 255,254,0,255,0,0
+[Cycle:32] Node:254 - schedule: 255,254,0,255
+[Cycle:32] Node:254 - schedule: 255,254,0,255
+[Cycle:32] Node:254 - schedule: 255,254,0,255
+[Cycle:32] Node:254 - schedule: 255,254,0,255
+[Cycle:32] Node:254 - schedule: 255,254,0,255
+[Cycle:32] Node:254 - schedule: 255,254,0,255
+[Cycle:32] Node:254 - schedule: 255,254,0,255
+[Cycle:32] Node:254 - schedule: 255,254,0,255
+[Cycle:32] Node:254 - schedule: 255,254,0,255
+[Cycle:32] Node:254 - schedule: 255,254,0,255
+[Cycle:33] Master scheduling ALLOCATION
+[Cycle:33] Master - schedule 254,0,255,254,0,0
+[Cycle:33] Node:254 - schedule: 254,0,255,255
+[Cycle:33] Node:254 - schedule: 254,0,255,255
+[Cycle:33] Node:254 - schedule: 254,0,255,255
+[Cycle:33] Node:254 - schedule: 254,0,255,255
+[Cycle:33] Node:254 - schedule: 254,0,255,255
+[Cycle:33] Node:254 - schedule: 254,0,255,255
+[Cycle:33] Node:254 - schedule: 254,0,255,255
+[Cycle:33] Node:254 - schedule: 254,0,255,255
+[Cycle:33] Node:254 - schedule: 254,0,255,255
+[Cycle:33] Node:254 - schedule: 254,0,255,255
+[Cycle:34] Master scheduling buffer level:0
+[Cycle:34] Master - schedule 0,255,254,255,0,0
+[Cycle:34] Node:254 - schedule: 0,255,255,255
+[Cycle:34] Node:254 - schedule: 0,255,255,255
+[Cycle:34] Node:254 - schedule: 0,255,255,255
+[Cycle:34] Node:254 - schedule: 0,255,255,255
+[Cycle:34] Node:254 - schedule: 0,255,255,255
+[Cycle:34] Node:254 - schedule: 0,255,255,255
+[Cycle:34] Node:254 - schedule: 0,255,255,255
+[Cycle:34] Node:254 - schedule: 0,255,255,255
+[Cycle:34] Node:254 - schedule: 0,255,255,255
+[Cycle:34] Node:254 - schedule: 0,255,255,255
+[Cycle:35] Master: no active tx nodes
+[Cycle:35] Master Tx Empty packet
+[Cycle:35] Master - schedule 255,254,255,0,0,0
+[Cycle:35] Master, Tx packet:3, size:0, txSeqNum:0, dstNode:255, nextTxNode:255,254,255,0, nextTxNodeAckSeqNum:255,255,255,255,
+[Cycle:35] Node:254 - schedule: 255,255,255,255
+[Cycle:35] Node:254 - schedule: 255,255,255,255
+[Cycle:35] Node:254 - schedule: 255,255,255,255
+[Cycle:35] Node:254 - schedule: 255,255,255,255
+[Cycle:35] Node:254 - schedule: 255,255,255,255
+[Cycle:35] Node:254 - schedule: 255,255,255,255
+[Cycle:35] Node:254 - schedule: 255,255,255,255
+[Cycle:35] Node:254 - schedule: 255,255,255,255
+[Cycle:35] Node:254 - schedule: 255,255,255,255
+[Cycle:35] Node:254 - schedule: 255,255,255,255
+[Cycle:36] Master scheduling ALLOCATION
+[Cycle:36] Master - schedule 254,255,0,254,0,0
+[Cycle:36] Node, Tx new node request: 0x41a710d63af1
+[Cycle:36] Node:254 - schedule: 254,255,0,255
+[Cycle:36] Node:254 - schedule: 254,255,0,255
+[Cycle:36] Node:254 - schedule: 254,255,0,255
+[Cycle:36] Node:254 - schedule: 254,255,0,255
+[Cycle:36] Node:254 - schedule: 254,255,0,255
+[Cycle:36] Node:254 - schedule: 254,255,0,255
+[Cycle:36] Node:254 - schedule: 254,255,0,255
+[Cycle:36] Node:254 - schedule: 254,255,0,255
+[Cycle:36] Node:254 - schedule: 254,255,0,255
+[Cycle:36] Node:254 - schedule: 254,255,0,255
+[Cycle:37] Master scheduling buffer level:0
+[Cycle:37] Master - schedule 255,0,254,255,0,0
+[Cycle:37] Node:254 - schedule: 255,0,255,255
+[Cycle:37] Node:254,            Tx packet:5, size:9, txSeqNum:0, ackSeqNum:255, bufferLevel:0, data:f13ad610a74100000000
+[Cycle:37] Node:254 - schedule: 255,0,255,255
+[Cycle:37] Node:254 - schedule: 255,0,255,255
+[Cycle:37] Node:254 - schedule: 255,0,255,255
+[Cycle:37] Node:254 - schedule: 255,0,255,255
+[Cycle:37] Node:254 - schedule: 255,0,255,255
+[Cycle:37] Node:254 - schedule: 255,0,255,255
+[Cycle:37] Node:254 - schedule: 255,0,255,255
+[Cycle:37] Node:254 - schedule: 255,0,255,255
+[Cycle:37] Node:254 - schedule: 255,0,255,255
+[Cycle:38] Master scheduling ALLOCATION
+[Cycle:38] Master - schedule 0,254,255,254,0,0
+[Cycle:38] Node:254 - schedule: 0,255,255,255
+[Cycle:38] Node:254 - schedule: 0,255,255,255
+[Cycle:38] Node:254 - schedule: 0,255,255,255
+[Cycle:38] Node:254 - schedule: 0,255,255,255
+[Cycle:38] Node:254 - schedule: 0,255,255,255
+[Cycle:38] Node:254 - schedule: 0,255,255,255
+[Cycle:38] Node:254 - schedule: 0,255,255,255
+[Cycle:38] Node:254 - schedule: 0,255,255,255
+[Cycle:38] Node:254 - schedule: 0,255,255,255
+[Cycle:38] Node:254 - schedule: 0,255,255,255
+[Cycle:39] Master, Rx packet:5, size:9, txSeqNum:0, srcNode:254, ackSeqNum:255, bufferLevel:0, data:f13ad610a74100000000
+[Cycle:39] Master - Node:1 partial join - uniqueId:0x41a710d63af1
+[Cycle:39] Master: no active tx nodes
+[Cycle:39] Master Tx Empty packet
+[Cycle:39] Master - schedule 254,255,254,0,0,0
+[Cycle:39] Master, Tx packet:3, size:0, txSeqNum:0, dstNode:255, nextTxNode:254,255,254,0, nextTxNodeAckSeqNum:255,255,255,255,
+[Cycle:39] Node:254 - schedule: 255,255,255,255
+[Cycle:39] Node:254 - schedule: 255,255,255,255
+[Cycle:39] Node:254 - schedule: 255,255,255,255
+[Cycle:39] Node:254 - schedule: 255,255,255,255
+[Cycle:39] Node:254 - schedule: 255,255,255,255
+[Cycle:39] Node:254 - schedule: 255,255,255,255
+[Cycle:39] Node:254 - schedule: 255,255,255,255
+[Cycle:39] Node:254 - schedule: 255,255,255,255
+[Cycle:39] Node:254 - schedule: 255,255,255,255
+[Cycle:39] Node:254 - schedule: 255,255,255,255
+[Cycle:40] Master scheduling buffer level:0
+[Cycle:40] Master scheduling SERVICE_NODE, node:1
+[Cycle:40] Master - schedule 255,254,0,1,0,0
+[Cycle:40] Node:254 - schedule: 255,254,0,255
+[Cycle:40] Node:254 - schedule: 255,254,0,255
+[Cycle:40] Node:254 - schedule: 255,254,0,255
+[Cycle:40] Node:254 - schedule: 255,254,0,255
+[Cycle:40] Node, Tx new node request: 0x56f32f4377a4044d
+[Cycle:40] Node:254 - schedule: 255,254,0,255
+[Cycle:40] Node:254,            Tx packet:5, size:9, txSeqNum:0, ackSeqNum:255, bufferLevel:0, data:4d04a477432ff3560000
+[Cycle:40] Node:254 - schedule: 255,254,0,255
+[Cycle:40] Node:254 - schedule: 255,254,0,255
+[Cycle:40] Node:254 - schedule: 255,254,0,255
+[Cycle:40] Node:254 - schedule: 255,254,0,255
+[Cycle:40] Node:254 - schedule: 255,254,0,255
+[Cycle:41] Master scheduling buffer level:0
+[Cycle:41] Master - schedule 254,0,1,255,0,0
+[Cycle:41] Node:254 - schedule: 254,0,255,255
+[Cycle:41] Node:254 - schedule: 254,0,255,255
+[Cycle:41] Node:254 - schedule: 254,0,255,255
+[Cycle:41] Node:254 - schedule: 254,0,255,255
+[Cycle:41] Node:254 - schedule: 254,0,255,255
+[Cycle:41] Node:254 - schedule: 254,0,255,255
+[Cycle:41] Node:254 - schedule: 254,0,255,255
+[Cycle:41] Node:254 - schedule: 254,0,255,255
+[Cycle:41] Node:254 - schedule: 254,0,255,255
+[Cycle:41] Node:254 - schedule: 254,0,255,255
+[Cycle:42] Master, Rx packet:5, size:9, txSeqNum:0, srcNode:254, ackSeqNum:255, bufferLevel:0, data:4d04a477432ff3560000
+[Cycle:42] Master - Node:2 partial join - uniqueId:0x56f32f4377a4044d
+[Cycle:42] Master scheduling buffer level:0
+[Cycle:42] Master - schedule 0,1,255,255,0,0
+[Cycle:42] Node:254 - schedule: 0,255,255,255
+[Cycle:42] Node:254 - schedule: 0,255,255,255
+[Cycle:42] Node:254 - schedule: 0,255,255,255
+[Cycle:42] Node:254 - schedule: 0,255,255,255
+[Cycle:42] Node:254 - schedule: 0,255,255,255
+[Cycle:42] Node:254 - schedule: 0,255,255,255
+[Cycle:42] Node:254 - schedule: 0,255,255,255
+[Cycle:42] Node:254 - schedule: 0,255,255,255
+[Cycle:42] Node:254 - schedule: 0,255,255,255
+[Cycle:42] Node:254 - schedule: 0,255,255,255
+[Cycle:43] Master: no active tx nodes
+[Cycle:43] Master Tx Empty packet
+[Cycle:43] Master - schedule 1,255,255,0,0,0
+[Cycle:43] Master, Tx packet:3, size:0, txSeqNum:0, dstNode:255, nextTxNode:1,255,255,0, nextTxNodeAckSeqNum:255,255,255,255,
+[Cycle:43] Node:254 - schedule: 255,255,255,255
+[Cycle:43] Node:254 - schedule: 255,255,255,255
+[Cycle:43] Node:254 - schedule: 255,255,255,255
+[Cycle:43] Node:254 - schedule: 255,255,255,255
+[Cycle:43] Node:254 - schedule: 255,255,255,255
+[Cycle:43] Node:254 - schedule: 255,255,255,255
+[Cycle:43] Node:254 - schedule: 255,255,255,255
+[Cycle:43] Node:254 - schedule: 255,255,255,255
+[Cycle:43] Node:254 - schedule: 255,255,255,255
+[Cycle:43] Node:254 - schedule: 255,255,255,255
+[Cycle:44] Master scheduling buffer level:0
+[Cycle:44] Master scheduling SERVICE_NODE, node:2
+[Cycle:44] Master - schedule 255,255,0,2,0,0
+[Cycle:44] Node:254 - schedule: 255,255,0,255
+[Cycle:44] Node:254 - schedule: 255,255,0,255
+[Cycle:44] Node:254 - schedule: 255,255,0,255
+[Cycle:44] Node:254 - schedule: 255,255,0,255
+[Cycle:44] Node:254 - schedule: 255,255,0,255
+[Cycle:44] Node:254 - schedule: 255,255,0,255
+[Cycle:44] Node:254 - schedule: 255,255,0,255
+[Cycle:44] Node:254 - schedule: 255,255,0,255
+[Cycle:44] Node:254 - schedule: 255,255,0,255
+[Cycle:44] Node:254 - schedule: 255,255,0,255
+[Cycle:45] Master scheduling ALLOCATION
+[Cycle:45] Master - schedule 255,0,2,254,0,0
+[Cycle:45] Node:254 - schedule: 255,0,255,255
+[Cycle:45] Node:254 - schedule: 255,0,255,255
+[Cycle:45] Node:254 - schedule: 255,0,255,255
+[Cycle:45] Node:254 - schedule: 255,0,255,255
+[Cycle:45] Node:254 - schedule: 255,0,255,255
+[Cycle:45] Node:254 - schedule: 255,0,255,255
+[Cycle:45] Node:254 - schedule: 255,0,255,255
+[Cycle:45] Node:254 - schedule: 255,0,255,255
+[Cycle:45] Node:254 - schedule: 255,0,255,255
+[Cycle:45] Node:254 - schedule: 255,0,255,255
+[Cycle:46] Master scheduling buffer level:0
+[Cycle:46] Master - schedule 0,2,254,255,0,0
+[Cycle:46] Node:254 - schedule: 0,255,255,255
+[Cycle:46] Node, Tx new node request: 0x60b7acd93ab50c2a
+[Cycle:46] Node:254 - schedule: 0,255,255,255
+[Cycle:46] Node:254 - schedule: 0,255,255,255
+[Cycle:46] Node:254 - schedule: 0,255,255,255
+[Cycle:46] Node:254 - schedule: 0,255,255,255
+[Cycle:46] Node:254 - schedule: 0,255,255,255
+[Cycle:46] Node:254 - schedule: 0,255,255,255
+[Cycle:46] Node, Tx new node request: 0x6d7d4b343cd3747
+[Cycle:46] Node:254 - schedule: 0,255,255,255
+[Cycle:46] Node:254 - schedule: 0,255,255,255
+[Cycle:46] Node, Tx new node request: 0x3113c398088e4954
+[Cycle:46] Node:254 - schedule: 0,255,255,255
+[Cycle:47] Master, Tx new node response: 1:0x41a710d63af1,  2:0x56f32f4377a4044d, 
+[Cycle:47] Master Tx new node
+[Cycle:47] Master - schedule 2,254,255,0,0,0
+[Cycle:47] Master, Tx packet:6, size:18, txSeqNum:0, dstNode:254, nextTxNode:2,254,255,0, nextTxNodeAckSeqNum:255,255,255,255,, data:f13ad610a7410000014d
+[Cycle:47] Node:254 - schedule: 255,255,255,255
+[Cycle:47] Node:254 - schedule: 255,255,255,255
+[Cycle:47] Node, Tx new node request: 0x4431b7821c06dac8
+[Cycle:47] Node:254 - schedule: 255,255,255,255
+[Cycle:47] Node:254 - schedule: 255,255,255,255
+[Cycle:47] Node:254 - schedule: 255,255,255,255
+[Cycle:47] Node:254 - schedule: 255,255,255,255
+[Cycle:47] Node:254 - schedule: 255,255,255,255
+[Cycle:47] Node:254 - schedule: 255,255,255,255
+[Cycle:47] Node:254 - schedule: 255,255,255,255
+[Cycle:47] Node:254 - schedule: 255,255,255,255
+[Cycle:48] Master scheduling ALLOCATION
+[Cycle:48] Master - schedule 254,255,0,254,0,0
+[Cycle:48] Node:254 - schedule: 254,255,0,255
+[Cycle:48] Node:254 - schedule: 254,255,0,255
+[Cycle:48] Node:254 - schedule: 254,255,0,255
+[Cycle:48] Node:254 - schedule: 254,255,0,255
+[Cycle:48] Node:254 - schedule: 254,255,0,255
+[Cycle:48] Node:254 - schedule: 254,255,0,255
+[Cycle:48] Node:254 - schedule: 254,255,0,255
+[Cycle:48] Node:254 - schedule: 254,255,0,255
+[Cycle:48] Node:254 - schedule: 254,255,0,255
+[Cycle:48] Node:254 - schedule: 254,255,0,255
+[Cycle:49] Master scheduling buffer level:0
+[Cycle:49] Master - schedule 255,0,254,255,0,0
+[Cycle:49] Node:1 - joined - uniqueId:0x41a710d63af1
+[Cycle:49] Node:1 Tx Empty packet
+[Cycle:49] Node:1 - schedule: 255,0,255,255
+[Cycle:49] Node:254 - schedule: 255,0,255,255
+[Cycle:49] Node:254,            Tx packet:5, size:9, txSeqNum:0, ackSeqNum:255, bufferLevel:0, data:2a0cb53ad9acb7600000
+[Cycle:49] Node:254 - schedule: 255,0,255,255
+[Cycle:49] Node:254,            Tx packet:5, size:9, txSeqNum:0, ackSeqNum:255, bufferLevel:0, data:c8da061c82b731440000
+[Cycle:49] Overlap occurred
+[Cycle:49] Node:254 - schedule: 255,0,255,255
+[Cycle:49] Node:2 - joined - uniqueId:0x56f32f4377a4044d
+[Cycle:49] Node:2 Tx Empty packet
+[Cycle:49] Node:2 - schedule: 255,0,255,255
+[Cycle:49] Node:254 - schedule: 255,0,255,255
+[Cycle:49] Node:254 - schedule: 255,0,255,255
+[Cycle:49] Node:254 - schedule: 255,0,255,255
+[Cycle:49] Node:254,            Tx packet:5, size:9, txSeqNum:0, ackSeqNum:255, bufferLevel:0, data:4737cd43b3d4d7060000
+[Cycle:49] Overlap occurred
+[Cycle:49] Node:254 - schedule: 255,0,255,255
+[Cycle:49] Node:254 - schedule: 255,0,255,255
+[Cycle:49] Node:254,            Tx packet:5, size:9, txSeqNum:0, ackSeqNum:255, bufferLevel:0, data:54498e0898c313310000
+[Cycle:49] Overlap occurred
+[Cycle:50] Master scheduling ALLOCATION
+[Cycle:50] Master - schedule 0,254,255,254,0,0
+[Cycle:50] Node:1 Tx Empty packet
+[Cycle:50] Node:1 - schedule: 0,255,255,255
+[Cycle:50] Node:254 - schedule: 0,255,255,255
+[Cycle:50] Node:254 - schedule: 0,255,255,255
+[Cycle:50] Node:254 - schedule: 0,255,255,255
+[Cycle:50] Node:2 Tx Empty packet
+[Cycle:50] Node:2 - schedule: 0,255,255,255
+[Cycle:50] Node:254 - schedule: 0,255,255,255
+[Cycle:50] Node:254 - schedule: 0,255,255,255
+[Cycle:50] Node:254 - schedule: 0,255,255,255
+[Cycle:50] Node, Tx new node request: 0x55e8391700fc4111
+[Cycle:50] Node:254 - schedule: 0,255,255,255
+[Cycle:50] Node:254 - schedule: 0,255,255,255
+[Cycle:51] Master: no active tx nodes
+[Cycle:51] Master Tx Empty packet
+[Cycle:51] Master - schedule 254,255,254,0,0,0
+[Cycle:51] Master, Tx packet:3, size:0, txSeqNum:0, dstNode:255, nextTxNode:254,255,254,0, nextTxNodeAckSeqNum:255,255,255,255,
+[Cycle:51] Node:1 Tx Empty packet
+[Cycle:51] Node:1 - schedule: 255,255,255,255
+[Cycle:51] Node:254 - schedule: 255,255,255,255
+[Cycle:51] Node:254 - schedule: 255,255,255,255
+[Cycle:51] Node:254 - schedule: 255,255,255,255
+[Cycle:51] Node:2 Tx Empty packet
+[Cycle:51] Node:2 - schedule: 255,255,255,255
+[Cycle:51] Node:254 - schedule: 255,255,255,255
+[Cycle:51] Node:254 - schedule: 255,255,255,255
+[Cycle:51] Node:254 - schedule: 255,255,255,255
+[Cycle:51] Node:254 - schedule: 255,255,255,255
+[Cycle:51] Node:254 - schedule: 255,255,255,255
+[Cycle:52] Master scheduling buffer level:0
+[Cycle:52] Master scheduling SERVICE_NODE, node:1
+[Cycle:52] Master - schedule 255,254,0,1,0,0
+[Cycle:52] Node:1 Tx Empty packet
+[Cycle:52] Node:1 - schedule: 255,254,0,255
+[Cycle:52] Node:254 - schedule: 255,254,0,255
+[Cycle:52] Node:254 - schedule: 255,254,0,255
+[Cycle:52] Node:254 - schedule: 255,254,0,255
+[Cycle:52] Node:2 Tx Empty packet
+[Cycle:52] Node:2 - schedule: 255,254,0,255
+[Cycle:52] Node, Tx new node request: 0x31169898427c3c55
+[Cycle:52] Node:254 - schedule: 255,254,0,255
+[Cycle:52] Node:254,            Tx packet:5, size:9, txSeqNum:0, ackSeqNum:255, bufferLevel:0, data:553c7c42989816310000
+[Cycle:52] Node:254 - schedule: 255,254,0,255
+[Cycle:52] Node:254 - schedule: 255,254,0,255
+[Cycle:52] Node:254 - schedule: 255,254,0,255
+[Cycle:52] Node:254,            Tx packet:5, size:9, txSeqNum:0, ackSeqNum:255, bufferLevel:0, data:1141fc001739e8550000
+[Cycle:52] Overlap occurred
+[Cycle:52] Node:254 - schedule: 255,254,0,255
+[Cycle:53] Master scheduling ALLOCATION
+[Cycle:53] Master - schedule 254,0,1,254,0,0
+[Cycle:53] Node:1 Tx Empty packet
+[Cycle:53] Node:1 - schedule: 254,0,255,255
+[Cycle:53] Node:254 - schedule: 254,0,255,255
+[Cycle:53] Node:254 - schedule: 254,0,255,255
+[Cycle:53] Node:254 - schedule: 254,0,255,255
+[Cycle:53] Node:2 Tx Empty packet
+[Cycle:53] Node:2 - schedule: 254,0,255,255
+[Cycle:53] Node:254 - schedule: 254,0,255,255
+[Cycle:53] Node:254 - schedule: 254,0,255,255
+[Cycle:53] Node:254 - schedule: 254,0,255,255
+[Cycle:53] Node:254 - schedule: 254,0,255,255
+[Cycle:53] Node:254 - schedule: 254,0,255,255
+[Cycle:54] Master scheduling buffer level:0
+[Cycle:54] Master - schedule 0,1,254,255,0,0
+[Cycle:54] Node:1 Tx Empty packet
+[Cycle:54] Node:1 - schedule: 0,255,255,255
+[Cycle:54] Node:254 - schedule: 0,255,255,255
+[Cycle:54] Node:254 - schedule: 0,255,255,255
+[Cycle:54] Node:254 - schedule: 0,255,255,255
+[Cycle:54] Node:2 Tx Empty packet
+[Cycle:54] Node:2 - schedule: 0,255,255,255
+[Cycle:54] Node:254 - schedule: 0,255,255,255
+[Cycle:54] Node:254 - schedule: 0,255,255,255
+[Cycle:54] Node:254 - schedule: 0,255,255,255
+[Cycle:54] Node:254 - schedule: 0,255,255,255
+[Cycle:54] Node:254 - schedule: 0,255,255,255
+[Cycle:55] Master: no active tx nodes
+[Cycle:55] Master Tx Empty packet
+[Cycle:55] Master - schedule 1,254,255,0,0,0
+[Cycle:55] Master, Tx packet:3, size:0, txSeqNum:0, dstNode:255, nextTxNode:1,254,255,0, nextTxNodeAckSeqNum:255,255,255,255,
+[Cycle:55] Node:1 Tx Empty packet
+[Cycle:55] Node:1 - schedule: 255,255,255,255
+[Cycle:55] Node:254 - schedule: 255,255,255,255
+[Cycle:55] Node:254 - schedule: 255,255,255,255
+[Cycle:55] Node:254 - schedule: 255,255,255,255
+[Cycle:55] Node:2 Tx Empty packet
+[Cycle:55] Node:2 - schedule: 255,255,255,255
+[Cycle:55] Node:254 - schedule: 255,255,255,255
+[Cycle:55] Node:254 - schedule: 255,255,255,255
+[Cycle:55] Node:254 - schedule: 255,255,255,255
+[Cycle:55] Node:254 - schedule: 255,255,255,255
+[Cycle:55] Node:254 - schedule: 255,255,255,255
+[Cycle:56] Master scheduling ALLOCATION
+[Cycle:56] Master - schedule 254,255,0,254,0,0
+[Cycle:56] Node:1 Tx Empty packet
+[Cycle:56] Node:1 - schedule: 254,255,0,255
+[Cycle:56] Node:1,            Tx packet:4, size:0, txSeqNum:255, ackSeqNum:255, bufferLevel:0
+[Cycle:56] Node:254 - schedule: 254,255,0,255
+[Cycle:56] Node:254 - schedule: 254,255,0,255
+[Cycle:56] Node:254 - schedule: 254,255,0,255
+[Cycle:56] Node:2 Tx Empty packet
+[Cycle:56] Node:2 - schedule: 254,255,0,255
+[Cycle:56] Node:254 - schedule: 254,255,0,255
+[Cycle:56] Node:254 - schedule: 254,255,0,255
+[Cycle:56] Node, Tx new node request: 0x6d7d4b343cd3747
+[Cycle:56] Node:254 - schedule: 254,255,0,255
+[Cycle:56] Node:254 - schedule: 254,255,0,255
+[Cycle:56] Node:254 - schedule: 254,255,0,255
+[Cycle:57] Master scheduling buffer level:0
+[Cycle:57] Master - schedule 255,0,254,255,0,0
+[Cycle:57] Master Node:1 - fully joined
+[Cycle:57] Node:1 Tx Empty packet
+[Cycle:57] Node:1 - schedule: 255,0,255,255
+[Cycle:57] Node:254 - schedule: 255,0,255,255
+[Cycle:57] Node:254 - schedule: 255,0,255,255
+[Cycle:57] Node:254 - schedule: 255,0,255,255
+[Cycle:57] Node:2 Tx Empty packet
+[Cycle:57] Node:2 - schedule: 255,0,255,255
+[Cycle:57] Node:254 - schedule: 255,0,255,255
+[Cycle:57] Node:254 - schedule: 255,0,255,255
+[Cycle:57] Node:254 - schedule: 255,0,255,255
+[Cycle:57] Node:254,            Tx packet:5, size:9, txSeqNum:0, ackSeqNum:255, bufferLevel:0, data:4737cd43b3d4d7060000
+[Cycle:57] Node:254 - schedule: 255,0,255,255
+[Cycle:57] Node:254 - schedule: 255,0,255,255
+[Cycle:58] Master, Rx packet:4, size:0, txSeqNum:255, srcNode:  1, ackSeqNum:255, bufferLevel:0
+[Cycle:58] Master scheduling ALLOCATION
+[Cycle:58] Master - schedule 0,254,255,254,0,0
+[Cycle:58] Node:1 Tx Empty packet
+[Cycle:58] Node:1 - schedule: 0,255,255,255
+[Cycle:58] Node:254 - schedule: 0,255,255,255
+[Cycle:58] Node:254 - schedule: 0,255,255,255
+[Cycle:58] Node:254 - schedule: 0,255,255,255
+[Cycle:58] Node:2 Tx Empty packet
+[Cycle:58] Node:2 - schedule: 0,255,255,255
+[Cycle:58] Node:254 - schedule: 0,255,255,255
+[Cycle:58] Node:254 - schedule: 0,255,255,255
+[Cycle:58] Node:254 - schedule: 0,255,255,255
+[Cycle:58] Node:254 - schedule: 0,255,255,255
+[Cycle:58] Node:254 - schedule: 0,255,255,255
+[Cycle:59] Master, Rx packet:5, size:9, txSeqNum:0, srcNode:254, ackSeqNum:255, bufferLevel:0, data:4737cd43b3d4d7060000
+[Cycle:59] Master - Node:3 partial join - uniqueId:0x6d7d4b343cd3747
+[Cycle:59] Master: no active tx nodes
+[Cycle:59] Master Tx Empty packet
+[Cycle:59] Master - schedule 254,255,254,0,0,0
+[Cycle:59] Master, Tx packet:3, size:0, txSeqNum:0, dstNode:255, nextTxNode:254,255,254,0, nextTxNodeAckSeqNum:255,255,255,255,
+[Cycle:59] Node:1 Tx Empty packet
+[Cycle:59] Node:1 - schedule: 255,255,255,255
+[Cycle:59] Node:254 - schedule: 255,255,255,255
+[Cycle:59] Node:254 - schedule: 255,255,255,255
+[Cycle:59] Node:254 - schedule: 255,255,255,255
+[Cycle:59] Node:2 Tx Empty packet
+[Cycle:59] Node:2 - schedule: 255,255,255,255
+[Cycle:59] Node:254 - schedule: 255,255,255,255
+[Cycle:59] Node, Tx new node request: 0x6a5d128c046cdbe2
+[Cycle:59] Node:254 - schedule: 255,255,255,255
+[Cycle:59] Node:254 - schedule: 255,255,255,255
+[Cycle:59] Node, Tx new node request: 0x55e8391700fc4111
+[Cycle:59] Node:254 - schedule: 255,255,255,255
+[Cycle:59] Node:254 - schedule: 255,255,255,255
+[Cycle:60] Master scheduling buffer level:0
+[Cycle:60] Master scheduling SERVICE_NODE, node:2
+[Cycle:60] Master - schedule 255,254,0,2,0,0
+[Cycle:60] Node:1 Tx Empty packet
+[Cycle:60] Node:1 - schedule: 255,254,0,255
+[Cycle:60] Node:254 - schedule: 255,254,0,255
+[Cycle:60] Node:254 - schedule: 255,254,0,255
+[Cycle:60] Node, Tx new node request: 0x6058ed856e509fe
+[Cycle:60] Node:254 - schedule: 255,254,0,255
+[Cycle:60] Node:254,            Tx packet:5, size:9, txSeqNum:0, ackSeqNum:255, bufferLevel:0, data:fe09e556d88e05060000
+[Cycle:60] Node:2 Tx Empty packet
+[Cycle:60] Node:2 - schedule: 255,254,0,255
+[Cycle:60] Node:254 - schedule: 255,254,0,255
+[Cycle:60] Node:254 - schedule: 255,254,0,255
+[Cycle:60] Node:254,            Tx packet:5, size:9, txSeqNum:0, ackSeqNum:255, bufferLevel:0, data:e2db6c048c125d6a0000
+[Cycle:60] Overlap occurred
+[Cycle:60] Node:254 - schedule: 255,254,0,255
+[Cycle:60] Node:254 - schedule: 255,254,0,255
+[Cycle:60] Node:254,            Tx packet:5, size:9, txSeqNum:0, ackSeqNum:255, bufferLevel:0, data:1141fc001739e8550000
+[Cycle:60] Overlap occurred
+[Cycle:60] Node:254 - schedule: 255,254,0,255
+[Cycle:61] Master scheduling buffer level:0
+[Cycle:61] Master scheduling SERVICE_NODE, node:3
+[Cycle:61] Master - schedule 254,0,2,3,0,0
+[Cycle:61] Node:1 Tx Empty packet
+[Cycle:61] Node:1 - schedule: 254,0,255,255
+[Cycle:61] Node, Tx new node request: 0x60b7acd93ab50c2a
+[Cycle:61] Node:254 - schedule: 254,0,255,255
+[Cycle:61] Node:254 - schedule: 254,0,255,255
+[Cycle:61] Node:254 - schedule: 254,0,255,255
+[Cycle:61] Node:2 Tx Empty packet
+[Cycle:61] Node:2 - schedule: 254,0,255,255
+[Cycle:61] Node, Tx new node request: 0x31169898427c3c55
+[Cycle:61] Node:254 - schedule: 254,0,255,255
+[Cycle:61] Node:254 - schedule: 254,0,255,255
+[Cycle:61] Node:254 - schedule: 254,0,255,255
+[Cycle:61] Node:254 - schedule: 254,0,255,255
+[Cycle:61] Node:254 - schedule: 254,0,255,255
+[Cycle:62] Master scheduling ALLOCATION
+[Cycle:62] Master - schedule 0,2,3,254,0,0
+[Cycle:62] Node:1 Tx Empty packet
+[Cycle:62] Node:1 - schedule: 0,255,255,255
+[Cycle:62] Node:254 - schedule: 0,255,255,255
+[Cycle:62] Node:254,            Tx packet:5, size:9, txSeqNum:0, ackSeqNum:255, bufferLevel:0, data:2a0cb53ad9acb7600000
+[Cycle:62] Node:254 - schedule: 0,255,255,255
+[Cycle:62] Node:254 - schedule: 0,255,255,255
+[Cycle:62] Node:2 Tx Empty packet
+[Cycle:62] Node:2 - schedule: 0,255,255,255
+[Cycle:62] Node:254 - schedule: 0,255,255,255
+[Cycle:62] Node:254,            Tx packet:5, size:9, txSeqNum:0, ackSeqNum:255, bufferLevel:0, data:553c7c42989816310000
+[Cycle:62] Overlap occurred
+[Cycle:62] Node:254 - schedule: 0,255,255,255
+[Cycle:62] Node:254 - schedule: 0,255,255,255
+[Cycle:62] Node:254 - schedule: 0,255,255,255
+[Cycle:62] Node:254 - schedule: 0,255,255,255
+[Cycle:63] Master, Tx new node response: 2:0x56f32f4377a4044d,  3:0x6d7d4b343cd3747, 
+[Cycle:63] Master Tx new node
+[Cycle:63] Master - schedule 2,3,254,0,0,0
+[Cycle:63] Master, Tx packet:6, size:18, txSeqNum:0, dstNode:254, nextTxNode:2,3,254,0, nextTxNodeAckSeqNum:255,255,255,255,, data:4d04a477432ff3560247
+[Cycle:63] Node:1 Tx Empty packet
+[Cycle:63] Node:1 - schedule: 255,255,255,255
+[Cycle:63] Node:254 - schedule: 255,255,255,255
+[Cycle:63] Node:254 - schedule: 255,255,255,255
+[Cycle:63] Node:254 - schedule: 255,255,255,255
+[Cycle:63] Node:2 Tx Empty packet
+[Cycle:63] Node:2 - schedule: 255,255,255,255
+[Cycle:63] Node:254 - schedule: 255,255,255,255
+[Cycle:63] Node:254 - schedule: 255,255,255,255
+[Cycle:63] Node:254 - schedule: 255,255,255,255
+[Cycle:63] Node:254 - schedule: 255,255,255,255
+[Cycle:63] Node:254 - schedule: 255,255,255,255
+[Cycle:64] Master scheduling buffer level:0
+[Cycle:64] Master scheduling SERVICE_NODE, node:1
+[Cycle:64] Master - schedule 3,254,0,1,0,0
+[Cycle:64] Node:1 Tx Empty packet
+[Cycle:64] Node:1 - schedule: 3,254,0,255
+[Cycle:64] Node, Tx new node request: 0x60b7acd93ab50c2a
+[Cycle:64] Node:254 - schedule: 3,254,0,255
+[Cycle:64] Node:254 - schedule: 3,254,0,255
+[Cycle:64] Node:254 - schedule: 3,254,0,255
+[Cycle:64] Node:2 Tx Empty packet
+[Cycle:64] Node:2 - schedule: 3,254,0,255
+[Cycle:64] Node:2,            Tx packet:4, size:0, txSeqNum:255, ackSeqNum:255, bufferLevel:0
+[Cycle:64] Node:254 - schedule: 3,254,0,255
+[Cycle:64] Node:254 - schedule: 3,254,0,255
+[Cycle:64] Node:254 - schedule: 3,254,0,255
+[Cycle:64] Node:254 - schedule: 3,254,0,255
+[Cycle:64] Node:254 - schedule: 3,254,0,255
+[Cycle:65] Master scheduling ALLOCATION
+[Cycle:65] Master - schedule 254,0,1,254,0,0
+[Cycle:65] Master Node:2 - fully joined
+[Cycle:65] Node:1 Tx Empty packet
+[Cycle:65] Node:1 - schedule: 254,0,255,255
+[Cycle:65] Node:254 - schedule: 254,0,255,255
+[Cycle:65] Node:254 - schedule: 254,0,255,255
+[Cycle:65] Node:254 - schedule: 254,0,255,255
+[Cycle:65] Node:2 Tx Empty packet
+[Cycle:65] Node:2 - schedule: 254,0,255,255
+[Cycle:65] Node:254 - schedule: 254,0,255,255
+[Cycle:65] Node:254 - schedule: 254,0,255,255
+[Cycle:65] Node:3 - joined - uniqueId:0x6d7d4b343cd3747
+[Cycle:65] Node:3 Tx Empty packet
+[Cycle:65] Node:3 - schedule: 254,0,255,255
+[Cycle:65] Node:3,            Tx packet:4, size:0, txSeqNum:255, ackSeqNum:255, bufferLevel:0
+[Cycle:65] Node:254 - schedule: 254,0,255,255
+[Cycle:65] Node:254 - schedule: 254,0,255,255
+[Cycle:66] Master, Rx packet:4, size:0, txSeqNum:255, srcNode:  2, ackSeqNum:255, bufferLevel:0
+[Cycle:66] Master scheduling buffer level:0
+[Cycle:66] Master - schedule 0,1,254,255,0,0
+[Cycle:66] Master Node:3 - fully joined
+[Cycle:66] Node:1 Tx Empty packet
+[Cycle:66] Node:1 - schedule: 0,255,255,255
+[Cycle:66] Node:254 - schedule: 0,255,255,255
+[Cycle:66] Node:254,            Tx packet:5, size:9, txSeqNum:0, ackSeqNum:255, bufferLevel:0, data:2a0cb53ad9acb7600000
+[Cycle:66] Node:254 - schedule: 0,255,255,255
+[Cycle:66] Node:254 - schedule: 0,255,255,255
+[Cycle:66] Node:2 Tx Empty packet
+[Cycle:66] Node:2 - schedule: 0,255,255,255
+[Cycle:66] Node:254 - schedule: 0,255,255,255
+[Cycle:66] Node:254 - schedule: 0,255,255,255
+[Cycle:66] Node:3 Tx Empty packet
+[Cycle:66] Node:3 - schedule: 0,255,255,255
+[Cycle:66] Node:254 - schedule: 0,255,255,255
+[Cycle:66] Node:254 - schedule: 0,255,255,255
+[Cycle:67] Master, Rx packet:4, size:0, txSeqNum:255, srcNode:  3, ackSeqNum:255, bufferLevel:0
+[Cycle:67] Master: no active tx nodes
+[Cycle:67] Master Tx Empty packet
+[Cycle:67] Master - schedule 1,254,255,0,0,0
+[Cycle:67] Master, Tx packet:3, size:0, txSeqNum:0, dstNode:255, nextTxNode:1,254,255,0, nextTxNodeAckSeqNum:255,255,255,255,
+[Cycle:67] Node:1 Tx Empty packet
+[Cycle:67] Node:1 - schedule: 255,255,255,255
+[Cycle:67] Node:254 - schedule: 255,255,255,255
+[Cycle:67] Node:254 - schedule: 255,255,255,255
+[Cycle:67] Node:254 - schedule: 255,255,255,255
+[Cycle:67] Node:2 Tx Empty packet
+[Cycle:67] Node:2 - schedule: 255,255,255,255
+[Cycle:67] Node:254 - schedule: 255,255,255,255
+[Cycle:67] Node:254 - schedule: 255,255,255,255
+[Cycle:67] Node:3 Tx Empty packet
+[Cycle:67] Node:3 - schedule: 255,255,255,255
+[Cycle:67] Node:254 - schedule: 255,255,255,255
+[Cycle:67] Node:254 - schedule: 255,255,255,255
+[Cycle:68] Master, Rx packet:5, size:9, txSeqNum:0, srcNode:254, ackSeqNum:255, bufferLevel:0, data:2a0cb53ad9acb7600000
+[Cycle:68] Master - Node:4 partial join - uniqueId:0x60b7acd93ab50c2a
+[Cycle:68] Master scheduling buffer level:0
+[Cycle:68] Master - schedule 254,255,0,255,0,0
+[Cycle:68] Node:1 Tx Empty packet
+[Cycle:68] Node:1 - schedule: 254,255,0,255
+[Cycle:68] Node:1,            Tx packet:4, size:0, txSeqNum:255, ackSeqNum:255, bufferLevel:0
+[Cycle:68] Node:254 - schedule: 254,255,0,255
+[Cycle:68] Node:254 - schedule: 254,255,0,255
+[Cycle:68] Node:254 - schedule: 254,255,0,255
+[Cycle:68] Node:2 Tx Empty packet
+[Cycle:68] Node:2 - schedule: 254,255,0,255
+[Cycle:68] Node:254 - schedule: 254,255,0,255
+[Cycle:68] Node:254 - schedule: 254,255,0,255
+[Cycle:68] Node:3 Tx Empty packet
+[Cycle:68] Node:3 - schedule: 254,255,0,255
+[Cycle:68] Node:254 - schedule: 254,255,0,255
+[Cycle:68] Node:254 - schedule: 254,255,0,255
+[Cycle:69] Master scheduling buffer level:0
+[Cycle:69] Master scheduling SERVICE_NODE, node:4
+[Cycle:69] Master - schedule 255,0,255,4,0,0
+[Cycle:69] Node:1 Tx Empty packet
+[Cycle:69] Node:1 - schedule: 255,0,255,255
+[Cycle:69] Node:254 - schedule: 255,0,255,255
+[Cycle:69] Node:254 - schedule: 255,0,255,255
+[Cycle:69] Node:254 - schedule: 255,0,255,255
+[Cycle:69] Node:2 Tx Empty packet
+[Cycle:69] Node:2 - schedule: 255,0,255,255
+[Cycle:69] Node:254 - schedule: 255,0,255,255
+[Cycle:69] Node:254 - schedule: 255,0,255,255
+[Cycle:69] Node:3 Tx Empty packet
+[Cycle:69] Node:3 - schedule: 255,0,255,255
+[Cycle:69] Node:254 - schedule: 255,0,255,255
+[Cycle:69] Node:254 - schedule: 255,0,255,255
+[Cycle:70] Master, Rx packet:4, size:0, txSeqNum:255, srcNode:  1, ackSeqNum:255, bufferLevel:0
+[Cycle:70] Master scheduling ALLOCATION
+[Cycle:70] Master - schedule 0,255,4,254,0,0
+[Cycle:70] Node:1 Tx Empty packet
+[Cycle:70] Node:1 - schedule: 0,255,255,255
+[Cycle:70] Node:254 - schedule: 0,255,255,255
+[Cycle:70] Node:254 - schedule: 0,255,255,255
+[Cycle:70] Node:254 - schedule: 0,255,255,255
+[Cycle:70] Node:2 Tx Empty packet
+[Cycle:70] Node:2 - schedule: 0,255,255,255
+[Cycle:70] Node:254 - schedule: 0,255,255,255
+[Cycle:70] Node:254 - schedule: 0,255,255,255
+[Cycle:70] Node:3 Tx Empty packet
+[Cycle:70] Node:3 - schedule: 0,255,255,255
+[Cycle:70] Node:254 - schedule: 0,255,255,255
+[Cycle:70] Node:254 - schedule: 0,255,255,255
+[Cycle:71] Master: no active tx nodes
+[Cycle:71] Master Tx Empty packet
+[Cycle:71] Master - schedule 255,4,254,0,0,0
+[Cycle:71] Master, Tx packet:3, size:0, txSeqNum:0, dstNode:255, nextTxNode:255,4,254,0, nextTxNodeAckSeqNum:255,255,255,255,
+[Cycle:71] Node:1 Tx Empty packet
+[Cycle:71] Node:1 - schedule: 255,255,255,255
+[Cycle:71] Node:254 - schedule: 255,255,255,255
+[Cycle:71] Node:254 - schedule: 255,255,255,255
+[Cycle:71] Node:254 - schedule: 255,255,255,255
+[Cycle:71] Node:2 Tx Empty packet
+[Cycle:71] Node:2 - schedule: 255,255,255,255
+[Cycle:71] Node:254 - schedule: 255,255,255,255
+[Cycle:71] Node:254 - schedule: 255,255,255,255
+[Cycle:71] Node:3 Tx Empty packet
+[Cycle:71] Node:3 - schedule: 255,255,255,255
+[Cycle:71] Node:254 - schedule: 255,255,255,255
+[Cycle:71] Node:254 - schedule: 255,255,255,255
+[Cycle:72] Master scheduling buffer level:0
+[Cycle:72] Master - schedule 4,254,0,255,0,0
+[Cycle:72] Node:1 Tx Empty packet
+[Cycle:72] Node:1 - schedule: 4,254,0,255
+[Cycle:72] Node:254 - schedule: 4,254,0,255
+[Cycle:72] Node:254 - schedule: 4,254,0,255
+[Cycle:72] Node:254 - schedule: 4,254,0,255
+[Cycle:72] Node:2 Tx Empty packet
+[Cycle:72] Node:2 - schedule: 4,254,0,255
+[Cycle:72] Node:254 - schedule: 4,254,0,255
+[Cycle:72] Node:254 - schedule: 4,254,0,255
+[Cycle:72] Node:3 Tx Empty packet
+[Cycle:72] Node:3 - schedule: 4,254,0,255
+[Cycle:72] Node:254 - schedule: 4,254,0,255
+[Cycle:72] Node:254 - schedule: 4,254,0,255
+[Cycle:73] Master scheduling ALLOCATION
+[Cycle:73] Master - schedule 254,0,255,254,0,0
+[Cycle:73] Node:1 Tx Empty packet
+[Cycle:73] Node:1 - schedule: 254,0,255,255
+[Cycle:73] Node:254 - schedule: 254,0,255,255
+[Cycle:73] Node:254 - schedule: 254,0,255,255
+[Cycle:73] Node:254 - schedule: 254,0,255,255
+[Cycle:73] Node:2 Tx Empty packet
+[Cycle:73] Node:2 - schedule: 254,0,255,255
+[Cycle:73] Node:254 - schedule: 254,0,255,255
+[Cycle:73] Node:254 - schedule: 254,0,255,255
+[Cycle:73] Node:3 Tx Empty packet
+[Cycle:73] Node:3 - schedule: 254,0,255,255
+[Cycle:73] Node:254 - schedule: 254,0,255,255
+[Cycle:73] Node:254 - schedule: 254,0,255,255
+[Cycle:74] Master scheduling buffer level:0
+[Cycle:74] Master scheduling SERVICE_NODE, node:2
+[Cycle:74] Master - schedule 0,255,254,2,0,0
+[Cycle:74] Node:1 Tx Empty packet
+[Cycle:74] Node:1 - schedule: 0,255,255,255
+[Cycle:74] Node:254 - schedule: 0,255,255,255
+[Cycle:74] Node:254 - schedule: 0,255,255,255
+[Cycle:74] Node:254 - schedule: 0,255,255,255
+[Cycle:74] Node:2 Tx Empty packet
+[Cycle:74] Node:2 - schedule: 0,255,255,255
+[Cycle:74] Node:254 - schedule: 0,255,255,255
+[Cycle:74] Node:254 - schedule: 0,255,255,255
+[Cycle:74] Node:3 Tx Empty packet
+[Cycle:74] Node:3 - schedule: 0,255,255,255
+[Cycle:74] Node:254 - schedule: 0,255,255,255
+[Cycle:74] Node, Tx new node request: 0x3113c398088e4954
+[Cycle:74] Node:254 - schedule: 0,255,255,255
+[Cycle:74] Node:254,            Tx packet:5, size:9, txSeqNum:0, ackSeqNum:255, bufferLevel:0, data:54498e0898c313310000
+[Cycle:75] Master: no active tx nodes
+[Cycle:75] Master Tx Empty packet
+[Cycle:75] Master - schedule 255,254,2,0,0,0
+[Cycle:75] Master, Tx packet:3, size:0, txSeqNum:0, dstNode:255, nextTxNode:255,254,2,0, nextTxNodeAckSeqNum:255,255,255,255,
+[Cycle:75] Node:1 Tx Empty packet
+[Cycle:75] Node:1 - schedule: 255,255,255,255
+[Cycle:75] Node:254 - schedule: 255,255,255,255
+[Cycle:75] Node:254 - schedule: 255,255,255,255
+[Cycle:75] Node:254 - schedule: 255,255,255,255
+[Cycle:75] Node:2 Tx Empty packet
+[Cycle:75] Node:2 - schedule: 255,255,255,255
+[Cycle:75] Node:254 - schedule: 255,255,255,255
+[Cycle:75] Node:254 - schedule: 255,255,255,255
+[Cycle:75] Node:3 Tx Empty packet
+[Cycle:75] Node:3 - schedule: 255,255,255,255
+[Cycle:75] Node:254 - schedule: 255,255,255,255
+[Cycle:75] Node:254 - schedule: 255,255,255,255
+[Cycle:76] Master, Rx packet:5, size:9, txSeqNum:0, srcNode:254, ackSeqNum:255, bufferLevel:0, data:54498e0898c313310000
+[Cycle:76] Master - Node:5 partial join - uniqueId:0x3113c398088e4954
+[Cycle:76] Master scheduling buffer level:0
+[Cycle:76] Master scheduling SERVICE_NODE, node:3
+[Cycle:76] Master - schedule 254,2,0,3,0,0
+[Cycle:76] Node:1 Tx Empty packet
+[Cycle:76] Node:1 - schedule: 254,2,0,255
+[Cycle:76] Node:254 - schedule: 254,2,0,255
+[Cycle:76] Node:254 - schedule: 254,2,0,255
+[Cycle:76] Node:254 - schedule: 254,2,0,255
+[Cycle:76] Node:2 Tx Empty packet
+[Cycle:76] Node:2 - schedule: 254,2,0,255
+[Cycle:76] Node:254 - schedule: 254,2,0,255
+[Cycle:76] Node:254 - schedule: 254,2,0,255
+[Cycle:76] Node:3 Tx Empty packet
+[Cycle:76] Node:3 - schedule: 254,2,0,255
+[Cycle:76] Node, Tx new node request: 0x55e8391700fc4111
+[Cycle:76] Node:254 - schedule: 254,2,0,255
+[Cycle:76] Node:254 - schedule: 254,2,0,255
+[Cycle:77] Master scheduling buffer level:0
+[Cycle:77] Master - schedule 2,0,3,255,0,0
+[Cycle:77] Node:1 Tx Empty packet
+[Cycle:77] Node:1 - schedule: 2,0,255,255
+[Cycle:77] Node:254 - schedule: 2,0,255,255
+[Cycle:77] Node:254 - schedule: 2,0,255,255
+[Cycle:77] Node:254 - schedule: 2,0,255,255
+[Cycle:77] Node:2 Tx Empty packet
+[Cycle:77] Node:2 - schedule: 2,0,255,255
+[Cycle:77] Node, Tx new node request: 0x31169898427c3c55
+[Cycle:77] Node:254 - schedule: 2,0,255,255
+[Cycle:77] Node:254,            Tx packet:5, size:9, txSeqNum:0, ackSeqNum:255, bufferLevel:0, data:553c7c42989816310000
+[Cycle:77] Node:254 - schedule: 2,0,255,255
+[Cycle:77] Node:3 Tx Empty packet
+[Cycle:77] Node:3 - schedule: 2,0,255,255
+[Cycle:77] Node:254 - schedule: 2,0,255,255
+[Cycle:77] Node:254,            Tx packet:5, size:9, txSeqNum:0, ackSeqNum:255, bufferLevel:0, data:1141fc001739e8550000
+[Cycle:77] Overlap occurred
+[Cycle:77] Node:254 - schedule: 2,0,255,255
+[Cycle:78] Master scheduling ALLOCATION
+[Cycle:78] Master - schedule 0,3,255,254,0,0
+[Cycle:78] Node:1 Tx Empty packet
+[Cycle:78] Node:1 - schedule: 0,255,255,255
+[Cycle:78] Node:254 - schedule: 0,255,255,255
+[Cycle:78] Node:254 - schedule: 0,255,255,255
+[Cycle:78] Node:254 - schedule: 0,255,255,255
+[Cycle:78] Node:2 Tx Empty packet
+[Cycle:78] Node:2 - schedule: 0,255,255,255
+[Cycle:78] Node:2,            Tx packet:4, size:0, txSeqNum:255, ackSeqNum:255, bufferLevel:0
+[Cycle:78] Node:254 - schedule: 0,255,255,255
+[Cycle:78] Node:254 - schedule: 0,255,255,255
+[Cycle:78] Node:3 Tx Empty packet
+[Cycle:78] Node:3 - schedule: 0,255,255,255
+[Cycle:78] Node:254 - schedule: 0,255,255,255
+[Cycle:78] Node, Tx new node request: 0x3113c398088e4954
+[Cycle:78] Node:254 - schedule: 0,255,255,255
+[Cycle:79] Master, Tx new node response: 4:0x60b7acd93ab50c2a,  5:0x3113c398088e4954, 
+[Cycle:79] Master Tx new node
+[Cycle:79] Master - schedule 3,255,254,0,0,0
+[Cycle:79] Master, Tx packet:6, size:18, txSeqNum:0, dstNode:254, nextTxNode:3,255,254,0, nextTxNodeAckSeqNum:255,255,255,255,, data:2a0cb53ad9acb7600454
+[Cycle:79] Node:1 Tx Empty packet
+[Cycle:79] Node:1 - schedule: 255,255,255,255
+[Cycle:79] Node:254 - schedule: 255,255,255,255
+[Cycle:79] Node:254 - schedule: 255,255,255,255
+[Cycle:79] Node:254 - schedule: 255,255,255,255
+[Cycle:79] Node:2 Tx Empty packet
+[Cycle:79] Node:2 - schedule: 255,255,255,255
+[Cycle:79] Node:254 - schedule: 255,255,255,255
+[Cycle:79] Node:254 - schedule: 255,255,255,255
+[Cycle:79] Node:3 Tx Empty packet
+[Cycle:79] Node:3 - schedule: 255,255,255,255
+[Cycle:79] Node:254 - schedule: 255,255,255,255
+[Cycle:79] Node:254 - schedule: 255,255,255,255
+[Cycle:80] Master, Rx packet:4, size:0, txSeqNum:255, srcNode:  2, ackSeqNum:255, bufferLevel:0
+[Cycle:80] Master scheduling buffer level:0
+[Cycle:80] Master scheduling SERVICE_NODE, node:5
+[Cycle:80] Master - schedule 255,254,0,5,0,0
+[Cycle:80] Node:1 Tx Empty packet
+[Cycle:80] Node:1 - schedule: 255,254,0,255
+[Cycle:80] Node:254 - schedule: 255,254,0,255
+[Cycle:80] Node:254 - schedule: 255,254,0,255
+[Cycle:80] Node:254 - schedule: 255,254,0,255
+[Cycle:80] Node:2 Tx Empty packet
+[Cycle:80] Node:2 - schedule: 255,254,0,255
+[Cycle:80] Node:254 - schedule: 255,254,0,255
+[Cycle:80] Node:254 - schedule: 255,254,0,255
+[Cycle:80] Node:3 Tx Empty packet
+[Cycle:80] Node:3 - schedule: 255,254,0,255
+[Cycle:80] Node:3,            Tx packet:4, size:0, txSeqNum:255, ackSeqNum:255, bufferLevel:0
+[Cycle:80] Node:254 - schedule: 255,254,0,255
+[Cycle:80] Node:254 - schedule: 255,254,0,255
+[Cycle:81] Master scheduling ALLOCATION
+[Cycle:81] Master - schedule 254,0,5,254,0,0
+[Cycle:81] Node:1 Tx Empty packet
+[Cycle:81] Node:1 - schedule: 254,0,255,255
+[Cycle:81] Node:4 - joined - uniqueId:0x60b7acd93ab50c2a
+[Cycle:81] Node:4 Tx Empty packet
+[Cycle:81] Node:4 - schedule: 254,0,255,255
+[Cycle:81] Node, Tx new node request: 0x4431b7821c06dac8
+[Cycle:81] Node:254 - schedule: 254,0,255,255
+[Cycle:81] Node:254 - schedule: 254,0,255,255
+[Cycle:81] Node:2 Tx Empty packet
+[Cycle:81] Node:2 - schedule: 254,0,255,255
+[Cycle:81] Node:254 - schedule: 254,0,255,255
+[Cycle:81] Node:254 - schedule: 254,0,255,255
+[Cycle:81] Node:3 Tx Empty packet
+[Cycle:81] Node:3 - schedule: 254,0,255,255
+[Cycle:81] Node:254 - schedule: 254,0,255,255
+[Cycle:81] Node:5 - joined - uniqueId:0x3113c398088e4954
+[Cycle:81] Node:5 - schedule: 254,0,255,255
+[Cycle:82] Master, Rx packet:4, size:0, txSeqNum:255, srcNode:  3, ackSeqNum:255, bufferLevel:0
+[Cycle:82] Master scheduling buffer level:0
+[Cycle:82] Master scheduling SERVICE_NODE, node:1
+[Cycle:82] Master - schedule 0,5,254,1,0,0
+[Cycle:82] Node:1 Tx Empty packet
+[Cycle:82] Node:1 - schedule: 0,255,255,255
+[Cycle:82] Node:4 Tx Empty packet
+[Cycle:82] Node:4 - schedule: 0,255,255,255
+[Cycle:82] Node:254 - schedule: 0,255,255,255
+[Cycle:82] Node:254,            Tx packet:5, size:9, txSeqNum:0, ackSeqNum:255, bufferLevel:0, data:c8da061c82b731440000
+[Cycle:82] Node:254 - schedule: 0,255,255,255
+[Cycle:82] Node:2 Tx Empty packet
+[Cycle:82] Node:2 - schedule: 0,255,255,255
+[Cycle:82] Node:254 - schedule: 0,255,255,255
+[Cycle:82] Node:254 - schedule: 0,255,255,255
+[Cycle:82] Node:3 Tx Empty packet
+[Cycle:82] Node:3 - schedule: 0,255,255,255
+[Cycle:82] Node:254 - schedule: 0,255,255,255
+[Cycle:82] Node:5 - schedule: 0,255,255,255
+[Cycle:83] Master: no active tx nodes
+[Cycle:83] Master Tx Empty packet
+[Cycle:83] Master - schedule 5,254,1,0,0,0
+[Cycle:83] Master, Tx packet:3, size:0, txSeqNum:0, dstNode:255, nextTxNode:5,254,1,0, nextTxNodeAckSeqNum:255,255,255,255,
+[Cycle:83] Node:1 Tx Empty packet
+[Cycle:83] Node:1 - schedule: 255,255,255,255
+[Cycle:83] Node:4 Tx Empty packet
+[Cycle:83] Node:4 - schedule: 255,255,255,255
+[Cycle:83] Node:254 - schedule: 255,255,255,255
+[Cycle:83] Node:254 - schedule: 255,255,255,255
+[Cycle:83] Node:2 Tx Empty packet
+[Cycle:83] Node:2 - schedule: 255,255,255,255
+[Cycle:83] Node:254 - schedule: 255,255,255,255
+[Cycle:83] Node:254 - schedule: 255,255,255,255
+[Cycle:83] Node:3 Tx Empty packet
+[Cycle:83] Node:3 - schedule: 255,255,255,255
+[Cycle:83] Node:254 - schedule: 255,255,255,255
+[Cycle:83] Node:5 - schedule: 255,255,255,255
+[Cycle:84] Master, Rx packet:5, size:9, txSeqNum:0, srcNode:254, ackSeqNum:255, bufferLevel:0, data:c8da061c82b731440000
+[Cycle:84] Master - Node:6 partial join - uniqueId:0x4431b7821c06dac8
+[Cycle:84] Master scheduling buffer level:0
+[Cycle:84] Master scheduling SERVICE_NODE, node:2
+[Cycle:84] Master - schedule 254,1,0,2,0,0
+[Cycle:84] Node:1 Tx Empty packet
+[Cycle:84] Node:1 - schedule: 254,1,0,255
+[Cycle:84] Node:4 Tx Empty packet
+[Cycle:84] Node:4 - schedule: 254,1,0,255
+[Cycle:84] Node:254 - schedule: 254,1,0,255
+[Cycle:84] Node:254 - schedule: 254,1,0,255
+[Cycle:84] Node:2 Tx Empty packet
+[Cycle:84] Node:2 - schedule: 254,1,0,255
+[Cycle:84] Node:254 - schedule: 254,1,0,255
+[Cycle:84] Node:254 - schedule: 254,1,0,255
+[Cycle:84] Node:3 Tx Empty packet
+[Cycle:84] Node:3 - schedule: 254,1,0,255
+[Cycle:84] Node:254 - schedule: 254,1,0,255
+[Cycle:84] Node:5 - schedule: 254,1,0,255
+[Cycle:84] Node:5,            Tx packet:5, size:9, txSeqNum:0, ackSeqNum:255, bufferLevel:0, data:54498e0898c313310000
+[Cycle:85] Master scheduling buffer level:0
+[Cycle:85] Master scheduling SERVICE_NODE, node:3
+[Cycle:85] Master - schedule 1,0,2,3,0,0
+[Cycle:85] Node:1 Tx Empty packet
+[Cycle:85] Node:1 - schedule: 1,0,255,255
+[Cycle:85] Node:4 Tx Empty packet
+[Cycle:85] Node:4 - schedule: 1,0,255,255
+[Cycle:85] Node:254 - schedule: 1,0,255,255
+[Cycle:85] Node:254 - schedule: 1,0,255,255
+[Cycle:85] Node:2 Tx Empty packet
+[Cycle:85] Node:2 - schedule: 1,0,255,255
+[Cycle:85] Node:254 - schedule: 1,0,255,255
+[Cycle:85] Node:254 - schedule: 1,0,255,255
+[Cycle:85] Node:3 Tx Empty packet
+[Cycle:85] Node:3 - schedule: 1,0,255,255
+[Cycle:85] Node, Tx new node request: 0x55e8391700fc4111
+[Cycle:85] Node:254 - schedule: 1,0,255,255
+[Cycle:85] Node:254,            Tx packet:5, size:9, txSeqNum:0, ackSeqNum:255, bufferLevel:0, data:1141fc001739e8550000
+[Cycle:85] Node:5 Tx Empty packet
+[Cycle:85] Node:5 - schedule: 1,0,255,255
+[Cycle:86] Master, Rx packet:5, size:9, txSeqNum:0, srcNode:254, ackSeqNum:255, bufferLevel:0, data:54498e0898c313310000
+[Cycle:86] Master scheduling buffer level:0
+[Cycle:86] Master scheduling SERVICE_NODE, node:4
+[Cycle:86] Master - schedule 0,2,3,4,0,0
+[Cycle:86] Node:1 Tx Empty packet
+[Cycle:86] Node:1 - schedule: 0,255,255,255
+[Cycle:86] Node:1,            Tx packet:4, size:0, txSeqNum:255, ackSeqNum:255, bufferLevel:0
+[Cycle:86] Node:4 Tx Empty packet
+[Cycle:86] Node:4 - schedule: 0,255,255,255
+[Cycle:86] Node:254 - schedule: 0,255,255,255
+[Cycle:86] Node:254 - schedule: 0,255,255,255
+[Cycle:86] Node:2 Tx Empty packet
+[Cycle:86] Node:2 - schedule: 0,255,255,255
+[Cycle:86] Node:254 - schedule: 0,255,255,255
+[Cycle:86] Node:254 - schedule: 0,255,255,255
+[Cycle:86] Node:3 Tx Empty packet
+[Cycle:86] Node:3 - schedule: 0,255,255,255
+[Cycle:86] Node:254 - schedule: 0,255,255,255
+[Cycle:86] Node:5 Tx Empty packet
+[Cycle:86] Node:5 - schedule: 0,255,255,255
+[Cycle:87] Master, Rx packet:5, size:9, txSeqNum:0, srcNode:254, ackSeqNum:255, bufferLevel:0, data:1141fc001739e8550000
+[Cycle:87] Master - Node:7 partial join - uniqueId:0x55e8391700fc4111
+[Cycle:87] Master: no active tx nodes
+[Cycle:87] Master Tx Empty packet
+[Cycle:87] Master - schedule 2,3,4,0,0,0
+[Cycle:87] Master, Tx packet:3, size:0, txSeqNum:0, dstNode:255, nextTxNode:2,3,4,0, nextTxNodeAckSeqNum:255,255,255,255,
+[Cycle:87] Node:1 Tx Empty packet
+[Cycle:87] Node:1 - schedule: 255,255,255,255
+[Cycle:87] Node:4 Tx Empty packet
+[Cycle:87] Node:4 - schedule: 255,255,255,255
+[Cycle:87] Node:254 - schedule: 255,255,255,255
+[Cycle:87] Node:254 - schedule: 255,255,255,255
+[Cycle:87] Node:2 Tx Empty packet
+[Cycle:87] Node:2 - schedule: 255,255,255,255
+[Cycle:87] Node:254 - schedule: 255,255,255,255
+[Cycle:87] Node:254 - schedule: 255,255,255,255
+[Cycle:87] Node:3 Tx Empty packet
+[Cycle:87] Node:3 - schedule: 255,255,255,255
+[Cycle:87] Node:254 - schedule: 255,255,255,255
+[Cycle:87] Node:5 Tx Empty packet
+[Cycle:87] Node:5 - schedule: 255,255,255,255
+[Cycle:88] Master, Rx packet:4, size:0, txSeqNum:255, srcNode:  1, ackSeqNum:255, bufferLevel:0
+[Cycle:88] Master scheduling buffer level:0
+[Cycle:88] Master scheduling SERVICE_NODE, node:5
+[Cycle:88] Master - schedule 3,4,0,5,0,0
+[Cycle:88] Node:1 Tx Empty packet
+[Cycle:88] Node:1 - schedule: 3,4,0,255
+[Cycle:88] Node:4 Tx Empty packet
+[Cycle:88] Node:4 - schedule: 3,4,0,255
+[Cycle:88] Node:254 - schedule: 3,4,0,255
+[Cycle:88] Node, Tx new node request: 0x6058ed856e509fe
+[Cycle:88] Node:254 - schedule: 3,4,0,255
+[Cycle:88] Node:2 Tx Empty packet
+[Cycle:88] Node:2 - schedule: 3,4,0,255
+[Cycle:88] Node:2,            Tx packet:4, size:0, txSeqNum:255, ackSeqNum:255, bufferLevel:0
+[Cycle:88] Node:254 - schedule: 3,4,0,255
+[Cycle:88] Node:254 - schedule: 3,4,0,255
+[Cycle:88] Node:3 Tx Empty packet
+[Cycle:88] Node:3 - schedule: 3,4,0,255
+[Cycle:88] Node:254 - schedule: 3,4,0,255
+[Cycle:88] Node:5 Tx Empty packet
+[Cycle:88] Node:5 - schedule: 3,4,0,255
+[Cycle:89] Master scheduling buffer level:0
+[Cycle:89] Master scheduling SERVICE_NODE, node:6
+[Cycle:89] Master - schedule 4,0,5,6,0,0
+[Cycle:89] Node:1 Tx Empty packet
+[Cycle:89] Node:1 - schedule: 4,0,255,255
+[Cycle:89] Node:4 Tx Empty packet
+[Cycle:89] Node:4 - schedule: 4,0,255,255
+[Cycle:89] Node:254 - schedule: 4,0,255,255
+[Cycle:89] Node:254 - schedule: 4,0,255,255
+[Cycle:89] Node:2 Tx Empty packet
+[Cycle:89] Node:2 - schedule: 4,0,255,255
+[Cycle:89] Node, Tx new node request: 0x31169898427c3c55
+[Cycle:89] Node:254 - schedule: 4,0,255,255
+[Cycle:89] Node:254 - schedule: 4,0,255,255
+[Cycle:89] Node:3 Tx Empty packet
+[Cycle:89] Node:3 - schedule: 4,0,255,255
+[Cycle:89] Node:3,            Tx packet:4, size:0, txSeqNum:255, ackSeqNum:255, bufferLevel:0
+[Cycle:89] Node:254 - schedule: 4,0,255,255
+[Cycle:89] Node:5 Tx Empty packet
+[Cycle:89] Node:5 - schedule: 4,0,255,255
+[Cycle:90] Master, Rx packet:4, size:0, txSeqNum:255, srcNode:  2, ackSeqNum:255, bufferLevel:0
+[Cycle:90] Master scheduling ALLOCATION
+[Cycle:90] Master - schedule 0,5,6,254,0,0
+[Cycle:90] Node:1 Tx Empty packet
+[Cycle:90] Node:1 - schedule: 0,255,255,255
+[Cycle:90] Node:4 Tx Empty packet
+[Cycle:90] Node:4 - schedule: 0,255,255,255
+[Cycle:90] Node:4,            Tx packet:4, size:0, txSeqNum:255, ackSeqNum:255, bufferLevel:0
+[Cycle:90] Node:254 - schedule: 0,255,255,255
+[Cycle:90] Node:254 - schedule: 0,255,255,255
+[Cycle:90] Node:2 Tx Empty packet
+[Cycle:90] Node:2 - schedule: 0,255,255,255
+[Cycle:90] Node:254 - schedule: 0,255,255,255
+[Cycle:90] Node:254 - schedule: 0,255,255,255
+[Cycle:90] Node:3 Tx Empty packet
+[Cycle:90] Node:3 - schedule: 0,255,255,255
+[Cycle:90] Node:254 - schedule: 0,255,255,255
+[Cycle:90] Node:5 Tx Empty packet
+[Cycle:90] Node:5 - schedule: 0,255,255,255
+[Cycle:91] Master, Rx packet:4, size:0, txSeqNum:255, srcNode:  3, ackSeqNum:255, bufferLevel:0
+[Cycle:91] Master: no active tx nodes
+[Cycle:91] Master Tx Empty packet
+[Cycle:91] Master - schedule 5,6,254,0,0,0
+[Cycle:91] Master Node:4 - fully joined
+[Cycle:91] Master, Tx packet:3, size:0, txSeqNum:0, dstNode:255, nextTxNode:5,6,254,0, nextTxNodeAckSeqNum:255,255,255,255,
+[Cycle:91] Node:1 Tx Empty packet
+[Cycle:91] Node:1 - schedule: 255,255,255,255
+[Cycle:91] Node:4 Tx Empty packet
+[Cycle:91] Node:4 - schedule: 255,255,255,255
+[Cycle:91] Node:254 - schedule: 255,255,255,255
+[Cycle:91] Node:254 - schedule: 255,255,255,255
+[Cycle:91] Node:2 Tx Empty packet
+[Cycle:91] Node:2 - schedule: 255,255,255,255
+[Cycle:91] Node:254 - schedule: 255,255,255,255
+[Cycle:91] Node:254 - schedule: 255,255,255,255
+[Cycle:91] Node:3 Tx Empty packet
+[Cycle:91] Node:3 - schedule: 255,255,255,255
+[Cycle:91] Node:254 - schedule: 255,255,255,255
+[Cycle:91] Node:5 Tx Empty packet
+[Cycle:91] Node:5 - schedule: 255,255,255,255
+[Cycle:92] Master, Rx packet:4, size:0, txSeqNum:255, srcNode:  4, ackSeqNum:255, bufferLevel:0
+[Cycle:92] Master scheduling buffer level:0
+[Cycle:92] Master scheduling SERVICE_NODE, node:7
+[Cycle:92] Master - schedule 6,254,0,7,0,0
+[Cycle:92] Node:1 Tx Empty packet
+[Cycle:92] Node:1 - schedule: 6,254,0,255
+[Cycle:92] Node:4 Tx Empty packet
+[Cycle:92] Node:4 - schedule: 6,254,0,255
+[Cycle:92] Node:254 - schedule: 6,254,0,255
+[Cycle:92] Node:254 - schedule: 6,254,0,255
+[Cycle:92] Node:2 Tx Empty packet
+[Cycle:92] Node:2 - schedule: 6,254,0,255
+[Cycle:92] Node:254 - schedule: 6,254,0,255
+[Cycle:92] Node, Tx new node request: 0x6a5d128c046cdbe2
+[Cycle:92] Node:254 - schedule: 6,254,0,255
+[Cycle:92] Node:3 Tx Empty packet
+[Cycle:92] Node:3 - schedule: 6,254,0,255
+[Cycle:92] Node:254 - schedule: 6,254,0,255
+[Cycle:92] Node:5 Tx Empty packet
+[Cycle:92] Node:5 - schedule: 6,254,0,255
+[Cycle:92] Node:5,            Tx packet:4, size:0, txSeqNum:255, ackSeqNum:255, bufferLevel:0
+[Cycle:93] Master scheduling ALLOCATION
+[Cycle:93] Master - schedule 254,0,7,254,0,0
+[Cycle:93] Master Node:5 - fully joined
+[Cycle:93] Node:1 Tx Empty packet
+[Cycle:93] Node:1 - schedule: 254,0,255,255
+[Cycle:93] Node:4 Tx Empty packet
+[Cycle:93] Node:4 - schedule: 254,0,255,255
+[Cycle:93] Node:254 - schedule: 254,0,255,255
+[Cycle:93] Node:254 - schedule: 254,0,255,255
+[Cycle:93] Node:2 Tx Empty packet
+[Cycle:93] Node:2 - schedule: 254,0,255,255
+[Cycle:93] Node:254 - schedule: 254,0,255,255
+[Cycle:93] Node:254 - schedule: 254,0,255,255
+[Cycle:93] Node:3 Tx Empty packet
+[Cycle:93] Node:3 - schedule: 254,0,255,255
+[Cycle:93] Node:254 - schedule: 254,0,255,255
+[Cycle:93] Node:5 Tx Empty packet
+[Cycle:93] Node:5 - schedule: 254,0,255,255
+[Cycle:94] Master, Rx packet:4, size:0, txSeqNum:255, srcNode:  5, ackSeqNum:255, bufferLevel:0
+[Cycle:94] Master scheduling buffer level:0
+[Cycle:94] Master scheduling SERVICE_NODE, node:1
+[Cycle:94] Master - schedule 0,7,254,1,0,0
+[Cycle:94] Node:1 Tx Empty packet
+[Cycle:94] Node:1 - schedule: 0,255,255,255
+[Cycle:94] Node:4 Tx Empty packet
+[Cycle:94] Node:4 - schedule: 0,255,255,255
+[Cycle:94] Node:254 - schedule: 0,255,255,255
+[Cycle:94] Node:254 - schedule: 0,255,255,255
+[Cycle:94] Node:254,            Tx packet:5, size:9, txSeqNum:0, ackSeqNum:255, bufferLevel:0, data:fe09e556d88e05060000
+[Cycle:94] Node:2 Tx Empty packet
+[Cycle:94] Node:2 - schedule: 0,255,255,255
+[Cycle:94] Node:254 - schedule: 0,255,255,255
+[Cycle:94] Node:254,            Tx packet:5, size:9, txSeqNum:0, ackSeqNum:255, bufferLevel:0, data:553c7c42989816310000
+[Cycle:94] Overlap occurred
+[Cycle:94] Node:254 - schedule: 0,255,255,255
+[Cycle:94] Node:254,            Tx packet:5, size:9, txSeqNum:0, ackSeqNum:255, bufferLevel:0, data:e2db6c048c125d6a0000
+[Cycle:94] Overlap occurred
+[Cycle:94] Node:3 Tx Empty packet
+[Cycle:94] Node:3 - schedule: 0,255,255,255
+[Cycle:94] Node:254 - schedule: 0,255,255,255
+[Cycle:94] Node:5 Tx Empty packet
+[Cycle:94] Node:5 - schedule: 0,255,255,255
+[Cycle:95] Master, Tx new node response: 6:0x4431b7821c06dac8,  7:0x55e8391700fc4111, 
+[Cycle:95] Master Tx new node
+[Cycle:95] Master - schedule 7,254,1,0,0,0
+[Cycle:95] Master, Tx packet:6, size:18, txSeqNum:0, dstNode:254, nextTxNode:7,254,1,0, nextTxNodeAckSeqNum:255,255,255,255,, data:c8da061c82b731440611
+[Cycle:95] Node:1 Tx Empty packet
+[Cycle:95] Node:1 - schedule: 255,255,255,255
+[Cycle:95] Node:4 Tx Empty packet
+[Cycle:95] Node:4 - schedule: 255,255,255,255
+[Cycle:95] Node:254 - schedule: 255,255,255,255
+[Cycle:95] Node:254 - schedule: 255,255,255,255
+[Cycle:95] Node:2 Tx Empty packet
+[Cycle:95] Node:2 - schedule: 255,255,255,255
+[Cycle:95] Node:254 - schedule: 255,255,255,255
+[Cycle:95] Node:254 - schedule: 255,255,255,255
+[Cycle:95] Node:3 Tx Empty packet
+[Cycle:95] Node:3 - schedule: 255,255,255,255
+[Cycle:95] Node:254 - schedule: 255,255,255,255
+[Cycle:95] Node:5 Tx Empty packet
+[Cycle:95] Node:5 - schedule: 255,255,255,255
+[Cycle:96] Master scheduling ALLOCATION
+[Cycle:96] Master - schedule 254,1,0,254,0,0
+[Cycle:96] Node:1 Tx Empty packet
+[Cycle:96] Node:1 - schedule: 254,1,0,255
+[Cycle:96] Node:4 Tx Empty packet
+[Cycle:96] Node:4 - schedule: 254,1,0,255
+[Cycle:96] Node:254 - schedule: 254,1,0,255
+[Cycle:96] Node:254 - schedule: 254,1,0,255
+[Cycle:96] Node:2 Tx Empty packet
+[Cycle:96] Node:2 - schedule: 254,1,0,255
+[Cycle:96] Node:254 - schedule: 254,1,0,255
+[Cycle:96] Node:254 - schedule: 254,1,0,255
+[Cycle:96] Node:3 Tx Empty packet
+[Cycle:96] Node:3 - schedule: 254,1,0,255
+[Cycle:96] Node:254 - schedule: 254,1,0,255
+[Cycle:96] Node:5 Tx Empty packet
+[Cycle:96] Node:5 - schedule: 254,1,0,255
+[Cycle:97] Master scheduling buffer level:0
+[Cycle:97] Master scheduling SERVICE_NODE, node:2
+[Cycle:97] Master - schedule 1,0,254,2,0,0
+[Cycle:97] Node:1 Tx Empty packet
+[Cycle:97] Node:1 - schedule: 1,0,255,255
+[Cycle:97] Node:4 Tx Empty packet
+[Cycle:97] Node:4 - schedule: 1,0,255,255
+[Cycle:97] Node:6 - joined - uniqueId:0x4431b7821c06dac8
+[Cycle:97] Node:6 Tx Empty packet
+[Cycle:97] Node:6 - schedule: 1,0,255,255
+[Cycle:97] Node:254 - schedule: 1,0,255,255
+[Cycle:97] Node:2 Tx Empty packet
+[Cycle:97] Node:2 - schedule: 1,0,255,255
+[Cycle:97] Node:254 - schedule: 1,0,255,255
+[Cycle:97] Node:254 - schedule: 1,0,255,255
+[Cycle:97] Node:3 Tx Empty packet
+[Cycle:97] Node:3 - schedule: 1,0,255,255
+[Cycle:97] Node:7 - joined - uniqueId:0x55e8391700fc4111
+[Cycle:97] Node:7 Tx Empty packet
+[Cycle:97] Node:7 - schedule: 1,0,255,255
+[Cycle:97] Node:5 Tx Empty packet
+[Cycle:97] Node:5 - schedule: 1,0,255,255
+[Cycle:98] Master scheduling ALLOCATION
+[Cycle:98] Master - schedule 0,254,2,254,0,0
+[Cycle:98] Node:1 Tx Empty packet
+[Cycle:98] Node:1 - schedule: 0,255,255,255
+[Cycle:98] Node:1,            Tx packet:4, size:0, txSeqNum:255, ackSeqNum:255, bufferLevel:0
+[Cycle:98] Node:4 Tx Empty packet
+[Cycle:98] Node:4 - schedule: 0,255,255,255
+[Cycle:98] Node:6 Tx Empty packet
+[Cycle:98] Node:6 - schedule: 0,255,255,255
+[Cycle:98] Node:254 - schedule: 0,255,255,255
+[Cycle:98] Node:2 Tx Empty packet
+[Cycle:98] Node:2 - schedule: 0,255,255,255
+[Cycle:98] Node:254 - schedule: 0,255,255,255
+[Cycle:98] Node:254 - schedule: 0,255,255,255
+[Cycle:98] Node:3 Tx Empty packet
+[Cycle:98] Node:3 - schedule: 0,255,255,255
+[Cycle:98] Node:7 Tx Empty packet
+[Cycle:98] Node:7 - schedule: 0,255,255,255
+[Cycle:98] Node:5 Tx Empty packet
+[Cycle:98] Node:5 - schedule: 0,255,255,255
+[Cycle:99] Master: no active tx nodes
+[Cycle:99] Master Tx Empty packet
+[Cycle:99] Master - schedule 254,2,254,0,0,0
+[Cycle:99] Master, Tx packet:3, size:0, txSeqNum:0, dstNode:255, nextTxNode:254,2,254,0, nextTxNodeAckSeqNum:255,255,255,255,
+[Cycle:99] Node:1 Tx Empty packet
+[Cycle:99] Node:1 - schedule: 255,255,255,255
+[Cycle:99] Node:4 Tx Empty packet
+[Cycle:99] Node:4 - schedule: 255,255,255,255
+[Cycle:99] Node:6 Tx Empty packet
+[Cycle:99] Node:6 - schedule: 255,255,255,255
+[Cycle:99] Node:254 - schedule: 255,255,255,255
+[Cycle:99] Node:2 Tx Empty packet
+[Cycle:99] Node:2 - schedule: 255,255,255,255
+[Cycle:99] Node:254 - schedule: 255,255,255,255
+[Cycle:99] Node:254 - schedule: 255,255,255,255
+[Cycle:99] Node:3 Tx Empty packet
+[Cycle:99] Node:3 - schedule: 255,255,255,255
+[Cycle:99] Node:7 Tx Empty packet
+[Cycle:99] Node:7 - schedule: 255,255,255,255
+[Cycle:99] Node:5 Tx Empty packet
+[Cycle:99] Node:5 - schedule: 255,255,255,255
+[Cycle:100] Master, Rx packet:4, size:0, txSeqNum:255, srcNode:  1, ackSeqNum:255, bufferLevel:0
+[Cycle:100] Master scheduling buffer level:0
+[Cycle:100] Master scheduling SERVICE_NODE, node:3
+[Cycle:100] Master - schedule 2,254,0,3,0,0
+[Cycle:100] Node:1 Tx Empty packet
+[Cycle:100] Node:1 - schedule: 2,254,0,255
+[Cycle:100] Node:4 Tx Empty packet
+[Cycle:100] Node:4 - schedule: 2,254,0,255
+[Cycle:100] Node:6 Tx Empty packet
+[Cycle:100] Node:6 - schedule: 2,254,0,255
+[Cycle:100] Node:254 - schedule: 2,254,0,255
+[Cycle:100] Node:2 Tx Empty packet
+[Cycle:100] Node:2 - schedule: 2,254,0,255
+[Cycle:100] Node:254 - schedule: 2,254,0,255
+[Cycle:100] Node:254 - schedule: 2,254,0,255
+[Cycle:100] Node:3 Tx Empty packet
+[Cycle:100] Node:3 - schedule: 2,254,0,255
+[Cycle:100] Node:7 Tx Empty packet
+[Cycle:100] Node:7 - schedule: 2,254,0,255
+[Cycle:100] Node:5 Tx Empty packet
+[Cycle:100] Node:5 - schedule: 2,254,0,255
+[Cycle:101] Master scheduling ALLOCATION
+[Cycle:101] Master - schedule 254,0,3,254,0,0
+[Cycle:101] Node:1 Tx Empty packet
+[Cycle:101] Node:1 - schedule: 254,0,255,255
+[Cycle:101] Node:4 Tx Empty packet
+[Cycle:101] Node:4 - schedule: 254,0,255,255
+[Cycle:101] Node:6 Tx Empty packet
+[Cycle:101] Node:6 - schedule: 254,0,255,255
+[Cycle:101] Node:254 - schedule: 254,0,255,255
+[Cycle:101] Node:2 Tx Empty packet
+[Cycle:101] Node:2 - schedule: 254,0,255,255
+[Cycle:101] Node:2,            Tx packet:4, size:0, txSeqNum:255, ackSeqNum:255, bufferLevel:0
+[Cycle:101] Node, Tx new node request: 0x31169898427c3c55
+[Cycle:101] Node:254 - schedule: 254,0,255,255
+[Cycle:101] Node:254 - schedule: 254,0,255,255
+[Cycle:101] Node:3 Tx Empty packet
+[Cycle:101] Node:3 - schedule: 254,0,255,255
+[Cycle:101] Node:7 Tx Empty packet
+[Cycle:101] Node:7 - schedule: 254,0,255,255
+[Cycle:101] Node:5 Tx Empty packet
+[Cycle:101] Node:5 - schedule: 254,0,255,255
+[Cycle:102] Master scheduling buffer level:0
+[Cycle:102] Master scheduling SERVICE_NODE, node:4
+[Cycle:102] Master - schedule 0,3,254,4,0,0
+[Cycle:102] Node:1 Tx Empty packet
+[Cycle:102] Node:1 - schedule: 0,255,255,255
+[Cycle:102] Node:4 Tx Empty packet
+[Cycle:102] Node:4 - schedule: 0,255,255,255
+[Cycle:102] Node:6 Tx Empty packet
+[Cycle:102] Node:6 - schedule: 0,255,255,255
+[Cycle:102] Node:254 - schedule: 0,255,255,255
+[Cycle:102] Node:2 Tx Empty packet
+[Cycle:102] Node:2 - schedule: 0,255,255,255
+[Cycle:102] Node:254 - schedule: 0,255,255,255
+[Cycle:102] Node:254,            Tx packet:5, size:9, txSeqNum:0, ackSeqNum:255, bufferLevel:0, data:553c7c42989816310000
+[Cycle:102] Node:254 - schedule: 0,255,255,255
+[Cycle:102] Node:3 Tx Empty packet
+[Cycle:102] Node:3 - schedule: 0,255,255,255
+[Cycle:102] Node:7 Tx Empty packet
+[Cycle:102] Node:7 - schedule: 0,255,255,255
+[Cycle:102] Node:5 Tx Empty packet
+[Cycle:102] Node:5 - schedule: 0,255,255,255
+[Cycle:103] Master, Rx packet:4, size:0, txSeqNum:255, srcNode:  2, ackSeqNum:255, bufferLevel:0
+[Cycle:103] Master: no active tx nodes
+[Cycle:103] Master Tx Empty packet
+[Cycle:103] Master - schedule 3,254,4,0,0,0
+[Cycle:103] Master, Tx packet:3, size:0, txSeqNum:0, dstNode:255, nextTxNode:3,254,4,0, nextTxNodeAckSeqNum:255,255,255,255,
+[Cycle:103] Node:1 Tx Empty packet
+[Cycle:103] Node:1 - schedule: 255,255,255,255
+[Cycle:103] Node:4 Tx Empty packet
+[Cycle:103] Node:4 - schedule: 255,255,255,255
+[Cycle:103] Node:6 Tx Empty packet
+[Cycle:103] Node:6 - schedule: 255,255,255,255
+[Cycle:103] Node:254 - schedule: 255,255,255,255
+[Cycle:103] Node:2 Tx Empty packet
+[Cycle:103] Node:2 - schedule: 255,255,255,255
+[Cycle:103] Node:254 - schedule: 255,255,255,255
+[Cycle:103] Node:254 - schedule: 255,255,255,255
+[Cycle:103] Node:3 Tx Empty packet
+[Cycle:103] Node:3 - schedule: 255,255,255,255
+[Cycle:103] Node:7 Tx Empty packet
+[Cycle:103] Node:7 - schedule: 255,255,255,255
+[Cycle:103] Node:5 Tx Empty packet
+[Cycle:103] Node:5 - schedule: 255,255,255,255
+[Cycle:104] Master, Rx packet:5, size:9, txSeqNum:0, srcNode:254, ackSeqNum:255, bufferLevel:0, data:553c7c42989816310000
+[Cycle:104] Master - Node:8 partial join - uniqueId:0x31169898427c3c55
+[Cycle:104] Master scheduling buffer level:0
+[Cycle:104] Master scheduling SERVICE_NODE, node:5
+[Cycle:104] Master - schedule 254,4,0,5,0,0
+[Cycle:104] Node:1 Tx Empty packet
+[Cycle:104] Node:1 - schedule: 254,4,0,255
+[Cycle:104] Node:4 Tx Empty packet
+[Cycle:104] Node:4 - schedule: 254,4,0,255
+[Cycle:104] Node:6 Tx Empty packet
+[Cycle:104] Node:6 - schedule: 254,4,0,255
+[Cycle:104] Node:254 - schedule: 254,4,0,255
+[Cycle:104] Node:2 Tx Empty packet
+[Cycle:104] Node:2 - schedule: 254,4,0,255
+[Cycle:104] Node:254 - schedule: 254,4,0,255
+[Cycle:104] Node:254 - schedule: 254,4,0,255
+[Cycle:104] Node:3 Tx Empty packet
+[Cycle:104] Node:3 - schedule: 254,4,0,255
+[Cycle:104] Node:3,            Tx packet:4, size:0, txSeqNum:255, ackSeqNum:255, bufferLevel:0
+[Cycle:104] Node:7 Tx Empty packet
+[Cycle:104] Node:7 - schedule: 254,4,0,255
+[Cycle:104] Node:5 Tx Empty packet
+[Cycle:104] Node:5 - schedule: 254,4,0,255
+[Cycle:105] Master scheduling buffer level:0
+[Cycle:105] Master scheduling SERVICE_NODE, node:6
+[Cycle:105] Master - schedule 4,0,5,6,0,0
+[Cycle:105] Node:1 Tx Empty packet
+[Cycle:105] Node:1 - schedule: 4,0,255,255
+[Cycle:105] Node:4 Tx Empty packet
+[Cycle:105] Node:4 - schedule: 4,0,255,255
+[Cycle:105] Node:6 Tx Empty packet
+[Cycle:105] Node:6 - schedule: 4,0,255,255
+[Cycle:105] Node:254 - schedule: 4,0,255,255
+[Cycle:105] Node:2 Tx Empty packet
+[Cycle:105] Node:2 - schedule: 4,0,255,255
+[Cycle:105] Node:254 - schedule: 4,0,255,255
+[Cycle:105] Node:254 - schedule: 4,0,255,255
+[Cycle:105] Node:3 Tx Empty packet
+[Cycle:105] Node:3 - schedule: 4,0,255,255
+[Cycle:105] Node:7 Tx Empty packet
+[Cycle:105] Node:7 - schedule: 4,0,255,255
+[Cycle:105] Node:5 Tx Empty packet
+[Cycle:105] Node:5 - schedule: 4,0,255,255
+[Cycle:106] Master, Rx packet:4, size:0, txSeqNum:255, srcNode:  3, ackSeqNum:255, bufferLevel:0
+[Cycle:106] Master scheduling ALLOCATION
+[Cycle:106] Master - schedule 0,5,6,254,0,0
+[Cycle:106] Node:1 Tx Empty packet
+[Cycle:106] Node:1 - schedule: 0,255,255,255
+[Cycle:106] Node:4 Tx Empty packet
+[Cycle:106] Node:4 - schedule: 0,255,255,255
+[Cycle:106] Node:4,            Tx packet:4, size:0, txSeqNum:255, ackSeqNum:255, bufferLevel:0
+[Cycle:106] Node:6 Tx Empty packet
+[Cycle:106] Node:6 - schedule: 0,255,255,255
+[Cycle:106] Node:254 - schedule: 0,255,255,255
+[Cycle:106] Node:2 Tx Empty packet
+[Cycle:106] Node:2 - schedule: 0,255,255,255
+[Cycle:106] Node:254 - schedule: 0,255,255,255
+[Cycle:106] Node:254 - schedule: 0,255,255,255
+[Cycle:106] Node:3 Tx Empty packet
+[Cycle:106] Node:3 - schedule: 0,255,255,255
+[Cycle:106] Node:7 Tx Empty packet
+[Cycle:106] Node:7 - schedule: 0,255,255,255
+[Cycle:106] Node:5 Tx Empty packet
+[Cycle:106] Node:5 - schedule: 0,255,255,255
+[Cycle:107] Master: no active tx nodes
+[Cycle:107] Master Tx Empty packet
+[Cycle:107] Master - schedule 5,6,254,0,0,0
+[Cycle:107] Master, Tx packet:3, size:0, txSeqNum:0, dstNode:255, nextTxNode:5,6,254,0, nextTxNodeAckSeqNum:255,255,255,255,
+[Cycle:107] Node:1 Tx Empty packet
+[Cycle:107] Node:1 - schedule: 255,255,255,255
+[Cycle:107] Node:4 Tx Empty packet
+[Cycle:107] Node:4 - schedule: 255,255,255,255
+[Cycle:107] Node:6 Tx Empty packet
+[Cycle:107] Node:6 - schedule: 255,255,255,255
+[Cycle:107] Node:254 - schedule: 255,255,255,255
+[Cycle:107] Node:2 Tx Empty packet
+[Cycle:107] Node:2 - schedule: 255,255,255,255
+[Cycle:107] Node:254 - schedule: 255,255,255,255
+[Cycle:107] Node:254 - schedule: 255,255,255,255
+[Cycle:107] Node:3 Tx Empty packet
+[Cycle:107] Node:3 - schedule: 255,255,255,255
+[Cycle:107] Node:7 Tx Empty packet
+[Cycle:107] Node:7 - schedule: 255,255,255,255
+[Cycle:107] Node:5 Tx Empty packet
+[Cycle:107] Node:5 - schedule: 255,255,255,255
+[Cycle:108] Master, Rx packet:4, size:0, txSeqNum:255, srcNode:  4, ackSeqNum:255, bufferLevel:0
+[Cycle:108] Master scheduling buffer level:0
+[Cycle:108] Master scheduling SERVICE_NODE, node:7
+[Cycle:108] Master - schedule 6,254,0,7,0,0
+[Cycle:108] Node:1 Tx Empty packet
+[Cycle:108] Node:1 - schedule: 6,254,0,255
+[Cycle:108] Node:4 Tx Empty packet
+[Cycle:108] Node:4 - schedule: 6,254,0,255
+[Cycle:108] Node:6 Tx Empty packet
+[Cycle:108] Node:6 - schedule: 6,254,0,255
+[Cycle:108] Node:254 - schedule: 6,254,0,255
+[Cycle:108] Node:2 Tx Empty packet
+[Cycle:108] Node:2 - schedule: 6,254,0,255
+[Cycle:108] Node:254 - schedule: 6,254,0,255
+[Cycle:108] Node:254 - schedule: 6,254,0,255
+[Cycle:108] Node:3 Tx Empty packet
+[Cycle:108] Node:3 - schedule: 6,254,0,255
+[Cycle:108] Node:7 Tx Empty packet
+[Cycle:108] Node:7 - schedule: 6,254,0,255
+[Cycle:108] Node:5 Tx Empty packet
+[Cycle:108] Node:5 - schedule: 6,254,0,255
+[Cycle:108] Node:5,            Tx packet:4, size:0, txSeqNum:255, ackSeqNum:255, bufferLevel:0
+[Cycle:109] Master scheduling ALLOCATION
+[Cycle:109] Master - schedule 254,0,7,254,0,0
+[Cycle:109] Node:1 Tx Empty packet
+[Cycle:109] Node:1 - schedule: 254,0,255,255
+[Cycle:109] Node:4 Tx Empty packet
+[Cycle:109] Node:4 - schedule: 254,0,255,255
+[Cycle:109] Node:6 Tx Empty packet
+[Cycle:109] Node:6 - schedule: 254,0,255,255
+[Cycle:109] Node:6,            Tx packet:4, size:0, txSeqNum:255, ackSeqNum:255, bufferLevel:0
+[Cycle:109] Node, Tx new node request: 0x6058ed856e509fe
+[Cycle:109] Node:254 - schedule: 254,0,255,255
+[Cycle:109] Node:2 Tx Empty packet
+[Cycle:109] Node:2 - schedule: 254,0,255,255
+[Cycle:109] Node:254 - schedule: 254,0,255,255
+[Cycle:109] Node:254 - schedule: 254,0,255,255
+[Cycle:109] Node:3 Tx Empty packet
+[Cycle:109] Node:3 - schedule: 254,0,255,255
+[Cycle:109] Node:7 Tx Empty packet
+[Cycle:109] Node:7 - schedule: 254,0,255,255
+[Cycle:109] Node:5 Tx Empty packet
+[Cycle:109] Node:5 - schedule: 254,0,255,255
+[Cycle:110] Master, Rx packet:4, size:0, txSeqNum:255, srcNode:  5, ackSeqNum:255, bufferLevel:0
+[Cycle:110] Master scheduling buffer level:0
+[Cycle:110] Master scheduling SERVICE_NODE, node:8
+[Cycle:110] Master - schedule 0,7,254,8,0,0
+[Cycle:110] Master Node:6 - fully joined
+[Cycle:110] Node:1 Tx Empty packet
+[Cycle:110] Node:1 - schedule: 0,255,255,255
+[Cycle:110] Node:4 Tx Empty packet
+[Cycle:110] Node:4 - schedule: 0,255,255,255
+[Cycle:110] Node:6 Tx Empty packet
+[Cycle:110] Node:6 - schedule: 0,255,255,255
+[Cycle:110] Node:254 - schedule: 0,255,255,255
+[Cycle:110] Node:254,            Tx packet:5, size:9, txSeqNum:0, ackSeqNum:255, bufferLevel:0, data:fe09e556d88e05060000
+[Cycle:110] Node:2 Tx Empty packet
+[Cycle:110] Node:2 - schedule: 0,255,255,255
+[Cycle:110] Node:254 - schedule: 0,255,255,255
+[Cycle:110] Node:254 - schedule: 0,255,255,255
+[Cycle:110] Node:3 Tx Empty packet
+[Cycle:110] Node:3 - schedule: 0,255,255,255
+[Cycle:110] Node:7 Tx Empty packet
+[Cycle:110] Node:7 - schedule: 0,255,255,255
+[Cycle:110] Node:5 Tx Empty packet
+[Cycle:110] Node:5 - schedule: 0,255,255,255
+[Cycle:111] Master, Rx packet:4, size:0, txSeqNum:255, srcNode:  6, ackSeqNum:255, bufferLevel:0
+[Cycle:111] Master, Tx new node response: 7:0x55e8391700fc4111,  8:0x31169898427c3c55, 
+[Cycle:111] Master Tx new node
+[Cycle:111] Master - schedule 7,254,8,0,0,0
+[Cycle:111] Master, Tx packet:6, size:18, txSeqNum:0, dstNode:254, nextTxNode:7,254,8,0, nextTxNodeAckSeqNum:255,255,255,255,, data:1141fc001739e8550755
+[Cycle:111] Node:1 Tx Empty packet
+[Cycle:111] Node:1 - schedule: 255,255,255,255
+[Cycle:111] Node:4 Tx Empty packet
+[Cycle:111] Node:4 - schedule: 255,255,255,255
+[Cycle:111] Node:6 Tx Empty packet
+[Cycle:111] Node:6 - schedule: 255,255,255,255
+[Cycle:111] Node:254 - schedule: 255,255,255,255
+[Cycle:111] Node:2 Tx Empty packet
+[Cycle:111] Node:2 - schedule: 255,255,255,255
+[Cycle:111] Node:254 - schedule: 255,255,255,255
+[Cycle:111] Node:254 - schedule: 255,255,255,255
+[Cycle:111] Node:3 Tx Empty packet
+[Cycle:111] Node:3 - schedule: 255,255,255,255
+[Cycle:111] Node:7 Tx Empty packet
+[Cycle:111] Node:7 - schedule: 255,255,255,255
+[Cycle:111] Node:5 Tx Empty packet
+[Cycle:111] Node:5 - schedule: 255,255,255,255
+[Cycle:112] Master, Rx packet:5, size:9, txSeqNum:0, srcNode:254, ackSeqNum:255, bufferLevel:0, data:fe09e556d88e05060000
+[Cycle:112] Master - Node:9 partial join - uniqueId:0x6058ed856e509fe
+[Cycle:112] Master scheduling buffer level:0
+[Cycle:112] Master scheduling SERVICE_NODE, node:1
+[Cycle:112] Master - schedule 254,8,0,1,0,0
+[Cycle:112] Node:1 Tx Empty packet
+[Cycle:112] Node:1 - schedule: 254,8,0,255
+[Cycle:112] Node:4 Tx Empty packet
+[Cycle:112] Node:4 - schedule: 254,8,0,255
+[Cycle:112] Node:6 Tx Empty packet
+[Cycle:112] Node:6 - schedule: 254,8,0,255
+[Cycle:112] Node:254 - schedule: 254,8,0,255
+[Cycle:112] Node:2 Tx Empty packet
+[Cycle:112] Node:2 - schedule: 254,8,0,255
+[Cycle:112] Node:254 - schedule: 254,8,0,255
+[Cycle:112] Node:254 - schedule: 254,8,0,255
+[Cycle:112] Node:3 Tx Empty packet
+[Cycle:112] Node:3 - schedule: 254,8,0,255
+[Cycle:112] Node:7 Tx Empty packet
+[Cycle:112] Node:7 - schedule: 254,8,0,255
+[Cycle:112] Node:7,            Tx packet:4, size:0, txSeqNum:255, ackSeqNum:255, bufferLevel:0
+[Cycle:112] Node:5 Tx Empty packet
+[Cycle:112] Node:5 - schedule: 254,8,0,255
+[Cycle:113] Master scheduling buffer level:0
+[Cycle:113] Master scheduling SERVICE_NODE, node:2
+[Cycle:113] Master - schedule 8,0,1,2,0,0
+[Cycle:113] Master Node:7 - fully joined
+[Cycle:113] Node:1 Tx Empty packet
+[Cycle:113] Node:1 - schedule: 8,0,255,255
+[Cycle:113] Node:4 Tx Empty packet
+[Cycle:113] Node:4 - schedule: 8,0,255,255
+[Cycle:113] Node:6 Tx Empty packet
+[Cycle:113] Node:6 - schedule: 8,0,255,255
+[Cycle:113] Node:254 - schedule: 8,0,255,255
+[Cycle:113] Node:2 Tx Empty packet
+[Cycle:113] Node:2 - schedule: 8,0,255,255
+[Cycle:113] Node:8 - joined - uniqueId:0x31169898427c3c55
+[Cycle:113] Node:8 Tx Empty packet
+[Cycle:113] Node:8 - schedule: 8,0,255,255
+[Cycle:113] Node:254 - schedule: 8,0,255,255
+[Cycle:113] Node:3 Tx Empty packet
+[Cycle:113] Node:3 - schedule: 8,0,255,255
+[Cycle:113] Node:7 Tx Empty packet
+[Cycle:113] Node:7 - schedule: 8,0,255,255
+[Cycle:113] Node:5 Tx Empty packet
+[Cycle:113] Node:5 - schedule: 8,0,255,255
+[Cycle:114] Master, Rx packet:4, size:0, txSeqNum:255, srcNode:  7, ackSeqNum:255, bufferLevel:0
+[Cycle:114] Master scheduling ALLOCATION
+[Cycle:114] Master - schedule 0,1,2,254,0,0
+[Cycle:114] Node:1 Tx Empty packet
+[Cycle:114] Node:1 - schedule: 0,255,255,255
+[Cycle:114] Node:4 Tx Empty packet
+[Cycle:114] Node:4 - schedule: 0,255,255,255
+[Cycle:114] Node:6 Tx Empty packet
+[Cycle:114] Node:6 - schedule: 0,255,255,255
+[Cycle:114] Node:254 - schedule: 0,255,255,255
+[Cycle:114] Node:2 Tx Empty packet
+[Cycle:114] Node:2 - schedule: 0,255,255,255
+[Cycle:114] Node:8 Tx Empty packet
+[Cycle:114] Node:8 - schedule: 0,255,255,255
+[Cycle:114] Node:8,            Tx packet:4, size:0, txSeqNum:255, ackSeqNum:255, bufferLevel:0
+[Cycle:114] Node:254 - schedule: 0,255,255,255
+[Cycle:114] Node:3 Tx Empty packet
+[Cycle:114] Node:3 - schedule: 0,255,255,255
+[Cycle:114] Node:7 Tx Empty packet
+[Cycle:114] Node:7 - schedule: 0,255,255,255
+[Cycle:114] Node:5 Tx Empty packet
+[Cycle:114] Node:5 - schedule: 0,255,255,255
+[Cycle:115] Master: no active tx nodes
+[Cycle:115] Master Tx Empty packet
+[Cycle:115] Master - schedule 1,2,254,0,0,0
+[Cycle:115] Master Node:8 - fully joined
+[Cycle:115] Master, Tx packet:3, size:0, txSeqNum:0, dstNode:255, nextTxNode:1,2,254,0, nextTxNodeAckSeqNum:255,255,255,255,
+[Cycle:115] Node:1 Tx Empty packet
+[Cycle:115] Node:1 - schedule: 255,255,255,255
+[Cycle:115] Node:4 Tx Empty packet
+[Cycle:115] Node:4 - schedule: 255,255,255,255
+[Cycle:115] Node:6 Tx Empty packet
+[Cycle:115] Node:6 - schedule: 255,255,255,255
+[Cycle:115] Node:254 - schedule: 255,255,255,255
+[Cycle:115] Node:2 Tx Empty packet
+[Cycle:115] Node:2 - schedule: 255,255,255,255
+[Cycle:115] Node:8 Tx Empty packet
+[Cycle:115] Node:8 - schedule: 255,255,255,255
+[Cycle:115] Node:254 - schedule: 255,255,255,255
+[Cycle:115] Node:3 Tx Empty packet
+[Cycle:115] Node:3 - schedule: 255,255,255,255
+[Cycle:115] Node:7 Tx Empty packet
+[Cycle:115] Node:7 - schedule: 255,255,255,255
+[Cycle:115] Node:5 Tx Empty packet
+[Cycle:115] Node:5 - schedule: 255,255,255,255
+[Cycle:116] Master, Rx packet:4, size:0, txSeqNum:255, srcNode:  8, ackSeqNum:255, bufferLevel:0
+[Cycle:116] Master scheduling buffer level:0
+[Cycle:116] Master scheduling SERVICE_NODE, node:3
+[Cycle:116] Master - schedule 2,254,0,3,0,0
+[Cycle:116] Node:1 Tx Empty packet
+[Cycle:116] Node:1 - schedule: 2,254,0,255
+[Cycle:116] Node:1,            Tx packet:4, size:0, txSeqNum:255, ackSeqNum:255, bufferLevel:0
+[Cycle:116] Node:4 Tx Empty packet
+[Cycle:116] Node:4 - schedule: 2,254,0,255
+[Cycle:116] Node:6 Tx Empty packet
+[Cycle:116] Node:6 - schedule: 2,254,0,255
+[Cycle:116] Node:254 - schedule: 2,254,0,255
+[Cycle:116] Node:2 Tx Empty packet
+[Cycle:116] Node:2 - schedule: 2,254,0,255
+[Cycle:116] Node:8 Tx Empty packet
+[Cycle:116] Node:8 - schedule: 2,254,0,255
+[Cycle:116] Node:254 - schedule: 2,254,0,255
+[Cycle:116] Node:3 Tx Empty packet
+[Cycle:116] Node:3 - schedule: 2,254,0,255
+[Cycle:116] Node:7 Tx Empty packet
+[Cycle:116] Node:7 - schedule: 2,254,0,255
+[Cycle:116] Node:5 Tx Empty packet
+[Cycle:116] Node:5 - schedule: 2,254,0,255
+[Cycle:117] Master scheduling ALLOCATION
+[Cycle:117] Master - schedule 254,0,3,254,0,0
+[Cycle:117] Node:1 Tx Empty packet
+[Cycle:117] Node:1 - schedule: 254,0,255,255
+[Cycle:117] Node:4 Tx Empty packet
+[Cycle:117] Node:4 - schedule: 254,0,255,255
+[Cycle:117] Node:6 Tx Empty packet
+[Cycle:117] Node:6 - schedule: 254,0,255,255
+[Cycle:117] Node:254 - schedule: 254,0,255,255
+[Cycle:117] Node:2 Tx Empty packet
+[Cycle:117] Node:2 - schedule: 254,0,255,255
+[Cycle:117] Node:2,            Tx packet:4, size:0, txSeqNum:255, ackSeqNum:255, bufferLevel:0
+[Cycle:117] Node:8 Tx Empty packet
+[Cycle:117] Node:8 - schedule: 254,0,255,255
+[Cycle:117] Node:254 - schedule: 254,0,255,255
+[Cycle:117] Node:3 Tx Empty packet
+[Cycle:117] Node:3 - schedule: 254,0,255,255
+[Cycle:117] Node:7 Tx Empty packet
+[Cycle:117] Node:7 - schedule: 254,0,255,255
+[Cycle:117] Node:5 Tx Empty packet
+[Cycle:117] Node:5 - schedule: 254,0,255,255
+[Cycle:118] Master, Rx packet:4, size:0, txSeqNum:255, srcNode:  1, ackSeqNum:255, bufferLevel:0
+[Cycle:118] Master scheduling buffer level:0
+[Cycle:118] Master scheduling SERVICE_NODE, node:4
+[Cycle:118] Master - schedule 0,3,254,4,0,0
+[Cycle:118] Node:1 Tx Empty packet
+[Cycle:118] Node:1 - schedule: 0,255,255,255
+[Cycle:118] Node:4 Tx Empty packet
+[Cycle:118] Node:4 - schedule: 0,255,255,255
+[Cycle:118] Node:6 Tx Empty packet
+[Cycle:118] Node:6 - schedule: 0,255,255,255
+[Cycle:118] Node:254 - schedule: 0,255,255,255
+[Cycle:118] Node:2 Tx Empty packet
+[Cycle:118] Node:2 - schedule: 0,255,255,255
+[Cycle:118] Node:8 Tx Empty packet
+[Cycle:118] Node:8 - schedule: 0,255,255,255
+[Cycle:118] Node:254 - schedule: 0,255,255,255
+[Cycle:118] Node:3 Tx Empty packet
+[Cycle:118] Node:3 - schedule: 0,255,255,255
+[Cycle:118] Node:7 Tx Empty packet
+[Cycle:118] Node:7 - schedule: 0,255,255,255
+[Cycle:118] Node:5 Tx Empty packet
+[Cycle:118] Node:5 - schedule: 0,255,255,255
+[Cycle:119] Master, Rx packet:4, size:0, txSeqNum:255, srcNode:  2, ackSeqNum:255, bufferLevel:0
+[Cycle:119] Master: no active tx nodes
+[Cycle:119] Master Tx Empty packet
+[Cycle:119] Master - schedule 3,254,4,0,0,0
+[Cycle:119] Master, Tx packet:3, size:0, txSeqNum:0, dstNode:255, nextTxNode:3,254,4,0, nextTxNodeAckSeqNum:255,255,255,255,
+[Cycle:119] Node:1 Tx Empty packet
+[Cycle:119] Node:1 - schedule: 255,255,255,255
+[Cycle:119] Node:4 Tx Empty packet
+[Cycle:119] Node:4 - schedule: 255,255,255,255
+[Cycle:119] Node:6 Tx Empty packet
+[Cycle:119] Node:6 - schedule: 255,255,255,255
+[Cycle:119] Node:254 - schedule: 255,255,255,255
+[Cycle:119] Node:2 Tx Empty packet
+[Cycle:119] Node:2 - schedule: 255,255,255,255
+[Cycle:119] Node:8 Tx Empty packet
+[Cycle:119] Node:8 - schedule: 255,255,255,255
+[Cycle:119] Node:254 - schedule: 255,255,255,255
+[Cycle:119] Node:3 Tx Empty packet
+[Cycle:119] Node:3 - schedule: 255,255,255,255
+[Cycle:119] Node:7 Tx Empty packet
+[Cycle:119] Node:7 - schedule: 255,255,255,255
+[Cycle:119] Node:5 Tx Empty packet
+[Cycle:119] Node:5 - schedule: 255,255,255,255
+[Cycle:120] Master scheduling ALLOCATION
+[Cycle:120] Master - schedule 254,4,0,254,0,0
+[Cycle:120] Node:1 Tx Empty packet
+[Cycle:120] Node:1 - schedule: 254,4,0,255
+[Cycle:120] Node:4 Tx Empty packet
+[Cycle:120] Node:4 - schedule: 254,4,0,255
+[Cycle:120] Node:6 Tx Empty packet
+[Cycle:120] Node:6 - schedule: 254,4,0,255
+[Cycle:120] Node:254 - schedule: 254,4,0,255
+[Cycle:120] Node:2 Tx Empty packet
+[Cycle:120] Node:2 - schedule: 254,4,0,255
+[Cycle:120] Node:8 Tx Empty packet
+[Cycle:120] Node:8 - schedule: 254,4,0,255
+[Cycle:120] Node, Tx new node request: 0x6a5d128c046cdbe2
+[Cycle:120] Node:254 - schedule: 254,4,0,255
+[Cycle:120] Node:3 Tx Empty packet
+[Cycle:120] Node:3 - schedule: 254,4,0,255
+[Cycle:120] Node:3,            Tx packet:4, size:0, txSeqNum:255, ackSeqNum:255, bufferLevel:0
+[Cycle:120] Node:7 Tx Empty packet
+[Cycle:120] Node:7 - schedule: 254,4,0,255
+[Cycle:120] Node:5 Tx Empty packet
+[Cycle:120] Node:5 - schedule: 254,4,0,255
+[Cycle:121] Master scheduling buffer level:0
+[Cycle:121] Master scheduling SERVICE_NODE, node:5
+[Cycle:121] Master - schedule 4,0,254,5,0,0
+[Cycle:121] Node:1 Tx Empty packet
+[Cycle:121] Node:1 - schedule: 4,0,255,255
+[Cycle:121] Node:4 Tx Empty packet
+[Cycle:121] Node:4 - schedule: 4,0,255,255
+[Cycle:121] Node:6 Tx Empty packet
+[Cycle:121] Node:6 - schedule: 4,0,255,255
+[Cycle:121] Node:254 - schedule: 4,0,255,255
+[Cycle:121] Node:2 Tx Empty packet
+[Cycle:121] Node:2 - schedule: 4,0,255,255
+[Cycle:121] Node:8 Tx Empty packet
+[Cycle:121] Node:8 - schedule: 4,0,255,255
+[Cycle:121] Node:254 - schedule: 4,0,255,255
+[Cycle:121] Node:254,            Tx packet:5, size:9, txSeqNum:0, ackSeqNum:255, bufferLevel:0, data:e2db6c048c125d6a0000
+[Cycle:121] Node:3 Tx Empty packet
+[Cycle:121] Node:3 - schedule: 4,0,255,255
+[Cycle:121] Node:7 Tx Empty packet
+[Cycle:121] Node:7 - schedule: 4,0,255,255
+[Cycle:121] Node:5 Tx Empty packet
+[Cycle:121] Node:5 - schedule: 4,0,255,255
+[Cycle:122] Master, Rx packet:4, size:0, txSeqNum:255, srcNode:  3, ackSeqNum:255, bufferLevel:0
+[Cycle:122] Master scheduling ALLOCATION
+[Cycle:122] Master - schedule 0,254,5,254,0,0
+[Cycle:122] Node:1 Tx Empty packet
+[Cycle:122] Node:1 - schedule: 0,255,255,255
+[Cycle:122] Node:4 Tx Empty packet
+[Cycle:122] Node:4 - schedule: 0,255,255,255
+[Cycle:122] Node:4,            Tx packet:4, size:0, txSeqNum:255, ackSeqNum:255, bufferLevel:0
+[Cycle:122] Node:6 Tx Empty packet
+[Cycle:122] Node:6 - schedule: 0,255,255,255
+[Cycle:122] Node:254 - schedule: 0,255,255,255
+[Cycle:122] Node:2 Tx Empty packet
+[Cycle:122] Node:2 - schedule: 0,255,255,255
+[Cycle:122] Node:8 Tx Empty packet
+[Cycle:122] Node:8 - schedule: 0,255,255,255
+[Cycle:122] Node:254 - schedule: 0,255,255,255
+[Cycle:122] Node:3 Tx Empty packet
+[Cycle:122] Node:3 - schedule: 0,255,255,255
+[Cycle:122] Node:7 Tx Empty packet
+[Cycle:122] Node:7 - schedule: 0,255,255,255
+[Cycle:122] Node:5 Tx Empty packet
+[Cycle:122] Node:5 - schedule: 0,255,255,255
+[Cycle:123] Master, Rx packet:5, size:9, txSeqNum:0, srcNode:254, ackSeqNum:255, bufferLevel:0, data:e2db6c048c125d6a0000
+[Cycle:123] Master - Node:10 partial join - uniqueId:0x6a5d128c046cdbe2
+[Cycle:123] Master: no active tx nodes
+[Cycle:123] Master Tx Empty packet
+[Cycle:123] Master - schedule 254,5,254,0,0,0
+[Cycle:123] Master, Tx packet:3, size:0, txSeqNum:0, dstNode:255, nextTxNode:254,5,254,0, nextTxNodeAckSeqNum:255,255,255,255,
+[Cycle:123] Node:1 Tx Empty packet
+[Cycle:123] Node:1 - schedule: 255,255,255,255
+[Cycle:123] Node:4 Tx Empty packet
+[Cycle:123] Node:4 - schedule: 255,255,255,255
+[Cycle:123] Node:6 Tx Empty packet
+[Cycle:123] Node:6 - schedule: 255,255,255,255
+[Cycle:123] Node:254 - schedule: 255,255,255,255
+[Cycle:123] Node:2 Tx Empty packet
+[Cycle:123] Node:2 - schedule: 255,255,255,255
+[Cycle:123] Node:8 Tx Empty packet
+[Cycle:123] Node:8 - schedule: 255,255,255,255
+[Cycle:123] Node:254 - schedule: 255,255,255,255
+[Cycle:123] Node:3 Tx Empty packet
+[Cycle:123] Node:3 - schedule: 255,255,255,255
+[Cycle:123] Node:7 Tx Empty packet
+[Cycle:123] Node:7 - schedule: 255,255,255,255
+[Cycle:123] Node:5 Tx Empty packet
+[Cycle:123] Node:5 - schedule: 255,255,255,255
+[Cycle:124] Master, Rx packet:4, size:0, txSeqNum:255, srcNode:  4, ackSeqNum:255, bufferLevel:0
+[Cycle:124] Master scheduling buffer level:0
+[Cycle:124] Master scheduling SERVICE_NODE, node:6
+[Cycle:124] Master - schedule 5,254,0,6,0,0
+[Cycle:124] Node:1 Tx Empty packet
+[Cycle:124] Node:1 - schedule: 5,254,0,255
+[Cycle:124] Node:4 Tx Empty packet
+[Cycle:124] Node:4 - schedule: 5,254,0,255
+[Cycle:124] Node:6 Tx Empty packet
+[Cycle:124] Node:6 - schedule: 5,254,0,255
+[Cycle:124] Node:254 - schedule: 5,254,0,255
+[Cycle:124] Node:2 Tx Empty packet
+[Cycle:124] Node:2 - schedule: 5,254,0,255
+[Cycle:124] Node:8 Tx Empty packet
+[Cycle:124] Node:8 - schedule: 5,254,0,255
+[Cycle:124] Node:254 - schedule: 5,254,0,255
+[Cycle:124] Node:3 Tx Empty packet
+[Cycle:124] Node:3 - schedule: 5,254,0,255
+[Cycle:124] Node:7 Tx Empty packet
+[Cycle:124] Node:7 - schedule: 5,254,0,255
+[Cycle:124] Node:5 Tx Empty packet
+[Cycle:124] Node:5 - schedule: 5,254,0,255
+[Cycle:125] Master scheduling buffer level:0
+[Cycle:125] Master scheduling SERVICE_NODE, node:7
+[Cycle:125] Master - schedule 254,0,6,7,0,0
+[Cycle:125] Node:1 Tx Empty packet
+[Cycle:125] Node:1 - schedule: 254,0,255,255
+[Cycle:125] Node:4 Tx Empty packet
+[Cycle:125] Node:4 - schedule: 254,0,255,255
+[Cycle:125] Node:6 Tx Empty packet
+[Cycle:125] Node:6 - schedule: 254,0,255,255
+[Cycle:125] Node:254 - schedule: 254,0,255,255
+[Cycle:125] Node:2 Tx Empty packet
+[Cycle:125] Node:2 - schedule: 254,0,255,255
+[Cycle:125] Node:8 Tx Empty packet
+[Cycle:125] Node:8 - schedule: 254,0,255,255
+[Cycle:125] Node:254 - schedule: 254,0,255,255
+[Cycle:125] Node:3 Tx Empty packet
+[Cycle:125] Node:3 - schedule: 254,0,255,255
+[Cycle:125] Node:7 Tx Empty packet
+[Cycle:125] Node:7 - schedule: 254,0,255,255
+[Cycle:125] Node:5 Tx Empty packet
+[Cycle:125] Node:5 - schedule: 254,0,255,255
+[Cycle:125] Node:5,            Tx packet:4, size:0, txSeqNum:255, ackSeqNum:255, bufferLevel:0
+[Cycle:126] Master scheduling ALLOCATION
+[Cycle:126] Master - schedule 0,6,7,254,0,0
+[Cycle:126] Node:1 Tx Empty packet
+[Cycle:126] Node:1 - schedule: 0,255,255,255
+[Cycle:126] Node:4 Tx Empty packet
+[Cycle:126] Node:4 - schedule: 0,255,255,255
+[Cycle:126] Node:6 Tx Empty packet
+[Cycle:126] Node:6 - schedule: 0,255,255,255
+[Cycle:126] Node:254 - schedule: 0,255,255,255
+[Cycle:126] Node:2 Tx Empty packet
+[Cycle:126] Node:2 - schedule: 0,255,255,255
+[Cycle:126] Node:8 Tx Empty packet
+[Cycle:126] Node:8 - schedule: 0,255,255,255
+[Cycle:126] Node:254 - schedule: 0,255,255,255
+[Cycle:126] Node:3 Tx Empty packet
+[Cycle:126] Node:3 - schedule: 0,255,255,255
+[Cycle:126] Node:7 Tx Empty packet
+[Cycle:126] Node:7 - schedule: 0,255,255,255
+[Cycle:126] Node:5 Tx Empty packet
+[Cycle:126] Node:5 - schedule: 0,255,255,255
+[Cycle:127] Master, Rx packet:4, size:0, txSeqNum:255, srcNode:  5, ackSeqNum:255, bufferLevel:0
+[Cycle:127] Master, Tx new node response: 9:0x6058ed856e509fe,  10:0x6a5d128c046cdbe2, 
+[Cycle:127] Master Tx new node
+[Cycle:127] Master - schedule 6,7,254,0,0,0
+[Cycle:127] Master, Tx packet:6, size:18, txSeqNum:0, dstNode:254, nextTxNode:6,7,254,0, nextTxNodeAckSeqNum:255,255,255,255,, data:fe09e556d88e050609e2
+[Cycle:127] Node:1 Tx Empty packet
+[Cycle:127] Node:1 - schedule: 255,255,255,255
+[Cycle:127] Node:4 Tx Empty packet
+[Cycle:127] Node:4 - schedule: 255,255,255,255
+[Cycle:127] Node:6 Tx Empty packet
+[Cycle:127] Node:6 - schedule: 255,255,255,255
+[Cycle:127] Node:254 - schedule: 255,255,255,255
+[Cycle:127] Node:2 Tx Empty packet
+[Cycle:127] Node:2 - schedule: 255,255,255,255
+[Cycle:127] Node:8 Tx Empty packet
+[Cycle:127] Node:8 - schedule: 255,255,255,255
+[Cycle:127] Node:254 - schedule: 255,255,255,255
+[Cycle:127] Node:3 Tx Empty packet
+[Cycle:127] Node:3 - schedule: 255,255,255,255
+[Cycle:127] Node:7 Tx Empty packet
+[Cycle:127] Node:7 - schedule: 255,255,255,255
+[Cycle:127] Node:5 Tx Empty packet
+[Cycle:127] Node:5 - schedule: 255,255,255,255
+[Cycle:128] Master scheduling buffer level:0
+[Cycle:128] Master scheduling SERVICE_NODE, node:8
+[Cycle:128] Master - schedule 7,254,0,8,0,0
+[Cycle:128] Node:1 Tx Empty packet
+[Cycle:128] Node:1 - schedule: 7,254,0,255
+[Cycle:128] Node:4 Tx Empty packet
+[Cycle:128] Node:4 - schedule: 7,254,0,255
+[Cycle:128] Node:6 Tx Empty packet
+[Cycle:128] Node:6 - schedule: 7,254,0,255
+[Cycle:128] Node:6,            Tx packet:4, size:0, txSeqNum:255, ackSeqNum:255, bufferLevel:0
+[Cycle:128] Node:254 - schedule: 7,254,0,255
+[Cycle:128] Node:2 Tx Empty packet
+[Cycle:128] Node:2 - schedule: 7,254,0,255
+[Cycle:128] Node:8 Tx Empty packet
+[Cycle:128] Node:8 - schedule: 7,254,0,255
+[Cycle:128] Node:254 - schedule: 7,254,0,255
+[Cycle:128] Node:3 Tx Empty packet
+[Cycle:128] Node:3 - schedule: 7,254,0,255
+[Cycle:128] Node:7 Tx Empty packet
+[Cycle:128] Node:7 - schedule: 7,254,0,255
+[Cycle:128] Node:5 Tx Empty packet
+[Cycle:128] Node:5 - schedule: 7,254,0,255
+[Cycle:129] Master scheduling ALLOCATION
+[Cycle:129] Master - schedule 254,0,8,254,0,0
+[Cycle:129] Node:1 Tx Empty packet
+[Cycle:129] Node:1 - schedule: 254,0,255,255
+[Cycle:129] Node:4 Tx Empty packet
+[Cycle:129] Node:4 - schedule: 254,0,255,255
+[Cycle:129] Node:6 Tx Empty packet
+[Cycle:129] Node:6 - schedule: 254,0,255,255
+[Cycle:129] Node:9 - joined - uniqueId:0x6058ed856e509fe
+[Cycle:129] Node:9 Tx Empty packet
+[Cycle:129] Node:9 - schedule: 254,0,255,255
+[Cycle:129] Node:2 Tx Empty packet
+[Cycle:129] Node:2 - schedule: 254,0,255,255
+[Cycle:129] Node:8 Tx Empty packet
+[Cycle:129] Node:8 - schedule: 254,0,255,255
+[Cycle:129] Node:10 - joined - uniqueId:0x6a5d128c046cdbe2
+[Cycle:129] Node:10 Tx Empty packet
+[Cycle:129] Node:10 - schedule: 254,0,255,255
+[Cycle:129] Node:3 Tx Empty packet
+[Cycle:129] Node:3 - schedule: 254,0,255,255
+[Cycle:129] Node:7 Tx Empty packet
+[Cycle:129] Node:7 - schedule: 254,0,255,255
+[Cycle:129] Node:7,            Tx packet:4, size:0, txSeqNum:255, ackSeqNum:255, bufferLevel:0
+[Cycle:129] Node:5 Tx Empty packet
+[Cycle:129] Node:5 - schedule: 254,0,255,255
+[Cycle:16513] Master 0->9 adding to activeTxQueue (num:1), seqNum:0
+[Cycle:16513] Master 0->2 adding to activeTxQueue (num:2), seqNum:0
+[Cycle:16513] Master 0->1 adding to activeTxQueue (num:3), seqNum:0
+[Cycle:16513] Master 0->3 adding to activeTxQueue (num:4), seqNum:0
+[Cycle:16513] Master 0->7 adding to activeTxQueue (num:5), seqNum:0
+[Cycle:16513] Master 0->6 adding to activeTxQueue (num:6), seqNum:0
+[Cycle:16513] Master 0->4 adding to activeTxQueue (num:7), seqNum:0
+[Cycle:16514] Master, Rx packet:4, size:0, txSeqNum:255, srcNode:  5, ackSeqNum:255, bufferLevel:0
+[Cycle:16514] Master scheduling buffer level:9
+[Cycle:16514] Master scheduling MASTER_TX, node:0
+[Cycle:16514] Master - schedule 0,8,254,0,0,0
+[Cycle:16514] Node:1 Tx Empty packet
+[Cycle:16514] Node:1 - schedule: 0,255,255,255
+[Cycle:16514] Node:4 Tx Empty packet
+[Cycle:16514] Node:4 - schedule: 0,255,255,255
+[Cycle:16514] Node:6 Tx Empty packet
+[Cycle:16514] Node:6 - schedule: 0,255,255,255
+[Cycle:16514] Node:9 Tx Empty packet
+[Cycle:16514] Node:9 - schedule: 0,255,255,255
+[Cycle:16514] Node:2 Tx Empty packet
+[Cycle:16514] Node:2 - schedule: 0,255,255,255
+[Cycle:16514] Node:8 Tx Empty packet
+[Cycle:16514] Node:8 - schedule: 0,255,255,255
+[Cycle:16514] Node:10 Tx Empty packet
+[Cycle:16514] Node:10 - schedule: 0,255,255,255
+[Cycle:16514] Node:3 Tx Empty packet
+[Cycle:16514] Node:3 - schedule: 0,255,255,255
+[Cycle:16514] Node:7 Tx Empty packet
+[Cycle:16514] Node:7 - schedule: 0,255,255,255
+[Cycle:16514] Node:7,            Tx packet:4, size:0, txSeqNum:255, ackSeqNum:255, bufferLevel:0
+[Cycle:16514] Node:5 Tx Empty packet
+[Cycle:16514] Node:5 - schedule: 0,255,255,255
+[Cycle:16515] Master, Rx packet:4, size:0, txSeqNum:255, srcNode:  6, ackSeqNum:255, bufferLevel:0
+[Cycle:16515] Master scheduling MASTER_RX_ACK, node:9
+[Cycle:16515] Master - schedule 8,254,0,9,0,0
